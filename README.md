@@ -1,2 +1,5 @@
-# projet-akoumba_crausaz_scharwath
-projet-akoumba_crausaz_scharwath created by GitHub Classroom
+# Projet DIL
+
+> Akoumba Ludivine, Crausaz Nicolas, Scharwath Maxime
+
+# Introduction
