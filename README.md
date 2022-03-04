@@ -16,7 +16,7 @@ _Akoumba Ludivine_: A COMPLETER \
 
 _Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle ... \
 
-_Scharwath Maxime_: A COMPLETER \
+_Scharwath Maxime_: 24 ans, étudiant en Informatique logicielle  \
 
 # Code de conduite
 
