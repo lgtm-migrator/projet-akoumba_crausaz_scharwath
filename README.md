@@ -4,15 +4,20 @@
 
 # Introduction
 
+Nous effectuons ce travail dans le cadre du second laboratoire de DIL. Durant celui-ci, nous serons amené à trvailler en collaboration. Afin que cette collaboration se déroule de façon optimale, nous nous sommes accordés pour établir et respecter le code de conduite ci-après. Ce document sera structuré comme suit: Une présentation du projet, de l'équipe ainsi qu'une liste de règles à respecter au sein du groupe.
+
 _A completer plus tard_
 
 ## Présentation du projet
 
+Le laboratoire No 2 de DIL intitulé `Méthodologie` est un laboratoire ayant pour objectif de nous faire pratiquer un workflow git. Durant celui ci nous serons allons mettre en place un projet: Choix de la méthodologie à suivre, division du problème en différentes tâches(issues) auxquelles les membres du groupe seront assignés, création des branches pour chaque tâche, une fois la tâche éffectuée, verification et validation par le groupe. 
+
 _A completer plus tard_
+
 
 ## Présentation des membres
 
-_Akoumba Ludivine_: A COMPLETER \
+_Akoumba Ludivine_: 26 ans, étudiante en ingenieurie des données \
 
 _Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle ... \
 
@@ -20,7 +25,7 @@ _Scharwath Maxime_: 24 ans, étudiant en Informatique logicielle  \
 
 # Code de conduite
 
-Le code de conduite défini les méthodes utilisées pour la réalisation de notre projet.
+Le code de conduite défini l'ensemble des règles que nous devrons respecter durant la réalisation de notre projet. Il concerne aussi bien la méthodologie de développement que nous allons choisir , que les règles de communication au sein du groupe.
 
 ## Méthodologies
 
