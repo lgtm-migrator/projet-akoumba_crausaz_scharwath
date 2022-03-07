@@ -25,6 +25,12 @@
       <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- Adding picolli dependancy -->
+    <dependency>
+      <groupId>info.picocli</groupId>
+      <artifactId>picocli</artifactId>
+      <version>4.6.3</version>
+    </dependency>
   </dependencies>
 
   <build>
