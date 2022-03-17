@@ -11,7 +11,6 @@ import java.util.concurrent.Callable;
 
 /**
  * Main for picocli
- *
  */
 @Command(
         mixinStandardHelpOptions = true,
@@ -27,12 +26,12 @@ import java.util.concurrent.Callable;
 )
 public class Main implements Callable<Integer> {
 
+    public static void main(String[] args) {
+        System.exit(new CommandLine(new Main()).execute(args));
+    }
+
     @Override
     public Integer call() {
         return 0;
-    }
-
-    public static void main(String[] args) {
-        System.exit(new CommandLine(new Main()).execute(args));
     }
 }
