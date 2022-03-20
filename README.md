@@ -25,8 +25,10 @@ _Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
 # Sprint 1
 
 Début du premier sprint ! Temps de travail : 3 semaines.
-
 ## Étapes du sprint 1
+- Choix des formats
+  - [ ] Choix du format des données structurées du site
+  - [ ] Choix du format de saisie des données
 - Affichage de la version
   - [ ] créer commande `--version` pour afficher la version du générateur de site
 - Initialiser un site statique
@@ -53,3 +55,10 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 | Étape     | Optimiste | Pessimiste | Attendu  | Réel     |
 |-----------|-----------|------------|----------|----------|
 | Nom étape | x heures  | x heures   | x heures | x heures |
+
+
+## Choix des formats
+Nous avons choisi le format `YAML` pour la saisie des données structurées du site. Notre choix a été motivé par la simplicité de la syntaxe de ce formatage.
+
+Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une syntaxe simple, il existe une panoplie de ressources  permettant de compiler du Markdown en HTML
+
