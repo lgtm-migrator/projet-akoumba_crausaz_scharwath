@@ -53,8 +53,8 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 ## Temps estimé des étapes du sprint 1
 | No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
 |----|-----------|-----------|------------|----------|----------|-----------|------------|
-|   1| Diagramme de PERT | x heures  | x heures   | x heures | x heures | - | # |
-|   2| Diagramme UML Use Case | x heures  | x heures   | x heures | x heures | - | # |
+|   1| Diagramme de PERT | 1h  | 2h   | 1h | x heures | - | # |
+|   2| Diagramme UML Use Case | 1h  | 3h  | 2h | x heures | - | #26 |
 |   3| Choix du format des données structurées du site | x heures  | x heures   | x heures | x heures | - | # |
 |   4| Choix du format de saisie des données | x heures  | x heures   | x heures | x heures | - | # |
 |   5| créer commande `--version` pour afficher la version du générateur de site | x heures  | x heures   | x heures | x heures | - | # |
