@@ -26,6 +26,9 @@ _Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
 
 Début du premier sprint ! Temps de travail : 3 semaines.
 ## Étapes du sprint 1
+- Planification
+  - [ ] Diagramme de PERT
+  - [ ] Diagramme UML Use Case
 - Choix des formats
   - [ ] Choix du format des données structurées du site
   - [ ] Choix du format de saisie des données
@@ -34,14 +37,11 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 - Initialiser un site statique
   - [ ] commande `init /mon/site`
   - [ ] créer un fichier de configuration config.yaml
-  - [ ] initialiser l'architecture des dossiers
-  - [ ] créer un index.md à la racine du site
-  - [ ] créer un exemple de dossier avec une image (une sorte de site template)
+  - [ ] initialiser l'architecture des dossiers et fichiers (une sorte de site template)
 - Compiler un site statique
   - [ ] commande ` build /mon/site`
-  - [ ] compiler les fichiers markdown en body html
-  - [ ] compiler les headers yaml en html
-  - [ ] fusionner les body et headers html en une page html
+  - [ ] parser les fichiers markdown et headers yaml
+  - [ ] fusionner le résultat du parser en une page html
   - [ ] creation d'un dossier `build` contenant les fichiers/dossiers générés
 - Nettoyer un site statique :
   - [ ] commande clean `clean /mon/site`
@@ -49,12 +49,25 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 - Intégration continue :
   - [ ] Mettre en place une validation des tests sur push
   - [ ] Ne pas autoriser de merge si les tests ne passent pas
-  - [ ] Ne pas autoriser de merge si le code n'est pas correctement indenté / formatté (https://github.com/diffplug/spotless)
 
 ## Temps estimé des étapes du sprint 1
 | Étape     | Optimiste | Pessimiste | Attendu  | Réel     |
 |-----------|-----------|------------|----------|----------|
-| Nom étape | x heures  | x heures   | x heures | x heures |
+| Diagramme de PERT | x heures  | x heures   | x heures | x heures |
+| Diagramme UML Use Case | x heures  | x heures   | x heures | x heures |
+| Choix du format des données structurées du site | x heures  | x heures   | x heures | x heures |
+| Choix du format de saisie des données | x heures  | x heures   | x heures | x heures |
+| créer commande `--version` pour afficher la version du générateur de site | x heures  | x heures   | x heures | x heures |
+| créer un fichier de configuration config.yaml | x heures  | x heures   | x heures | x heures |
+| initialiser l'architecture des dossiers et fichiers | x heures  | x heures   | x heures | x heures |
+| créer un index.md à la racine du site | x heures  | x heures   | x heures | x heures |
+| Parser les fichiers markdown et headers yaml | x heures  | x heures   | x heures | x heures |
+| fusionner le résultat du parser en une page html | x heures  | x heures   | x heures | x heures |
+| creation d'un dossier `build` contenant les fichiers/dossiers générés | x heures  | x heures   | x heures | x heures |
+| supprimer les fichiers générés (/mon/site/build) | x heures  | x heures   | x heures | x heures |
+| Mettre en place une validation des tests sur push | x heures  | x heures   | x heures | x heures |
+| Ne pas autoriser de merge si les tests ne passent pas | x heures  | x heures   | x heures | x heures |
+
 
 
 ## Choix des formats
