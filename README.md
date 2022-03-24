@@ -51,22 +51,22 @@ Début du premier sprint ! Temps de travail : 3 semaines.
   - [ ] Ne pas autoriser de merge si les tests ne passent pas
 
 ## Temps estimé des étapes du sprint 1
-| Étape     | Optimiste | Pessimiste | Attendu  | Réel     |
-|-----------|-----------|------------|----------|----------|
-| Diagramme de PERT | x heures  | x heures   | x heures | x heures |
-| Diagramme UML Use Case | x heures  | x heures   | x heures | x heures |
-| Choix du format des données structurées du site | x heures  | x heures   | x heures | x heures |
-| Choix du format de saisie des données | x heures  | x heures   | x heures | x heures |
-| créer commande `--version` pour afficher la version du générateur de site | x heures  | x heures   | x heures | x heures |
-| créer un fichier de configuration config.yaml | x heures  | x heures   | x heures | x heures |
-| initialiser l'architecture des dossiers et fichiers | x heures  | x heures   | x heures | x heures |
-| créer un index.md à la racine du site | x heures  | x heures   | x heures | x heures |
-| Parser les fichiers markdown et headers yaml | x heures  | x heures   | x heures | x heures |
-| fusionner le résultat du parser en une page html | x heures  | x heures   | x heures | x heures |
-| creation d'un dossier `build` contenant les fichiers/dossiers générés | x heures  | x heures   | x heures | x heures |
-| supprimer les fichiers générés (/mon/site/build) | x heures  | x heures   | x heures | x heures |
-| Mettre en place une validation des tests sur push | x heures  | x heures   | x heures | x heures |
-| Ne pas autoriser de merge si les tests ne passent pas | x heures  | x heures   | x heures | x heures |
+| No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
+|----|-----------|-----------|------------|----------|----------|-----------|------------|
+|   1| Diagramme de PERT | x heures  | x heures   | x heures | x heures | - | # |
+|   2| Diagramme UML Use Case | x heures  | x heures   | x heures | x heures | - | # |
+|   3| Choix du format des données structurées du site | x heures  | x heures   | x heures | x heures | - | # |
+|   4| Choix du format de saisie des données | x heures  | x heures   | x heures | x heures | - | # |
+|   5| créer commande `--version` pour afficher la version du générateur de site | x heures  | x heures   | x heures | x heures | - | # |
+|   6| créer un fichier de configuration config.yaml | x heures  | x heures   | x heures | x heures | - | # |
+|   7| initialiser l'architecture des dossiers et fichiers | x heures  | x heures   | x heures | x heures | - | # |
+|   8| créer un index.md à la racine du site | x heures  | x heures   | x heures | x heures | - | # |
+|   9| Parser les fichiers markdown et headers yaml | x heures  | x heures   | x heures | x heures | - | # |
+|   10| fusionner le résultat du parser en une page html | x heures  | x heures   | x heures | x heures | - | # |
+|   11| creation d'un dossier `build` contenant les fichiers/dossiers générés | x heures  | x heures   | x heures | x heures | - | # |
+|   12| supprimer les fichiers générés (/mon/site/build) | x heures  | x heures   | x heures | x heures | - | # |
+|   13| Mettre en place une validation des tests sur push | x heures  | x heures   | x heures | x heures | - | # |
+|   14| Ne pas autoriser de merge si les tests ne passent pas | x heures  | x heures   | x heures | x heures | - | # |
 
 
 
