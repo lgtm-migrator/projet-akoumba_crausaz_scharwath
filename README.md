@@ -20,4 +20,4 @@ _Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données
 
 _Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle  
 
-_Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
+_Scharwath Maxime_: 25 ans, étudiant en informatique logicielle
