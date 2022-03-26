@@ -58,12 +58,12 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 |   1| Diagramme de PERT | 1h  | 2h   | 1h | x heures | - | #25 |
 |   2| Diagramme UML Use Case | 1h  | 3h  | 2h | x heures | - | #26 |
 |   3| Choix des différentes formats utilisés | x heures  | x heures   | x heures | x heures | - | - |
-|   4| créer commande `--version` pour afficher la version du générateur de site | 1h  | 2h   | 1h | x heures | - | #22 |
-|   5| commande `init`: créer une structure basique | x heures  | x heures   | x heures | x heures | - | #20 |
-|   6| Parser les fichiers markdown | 2h  | 4h   | 2h | xh | - | #27 |
-|   7| Fusionner le résultat du parser en une page html | 2h  | 5h   | 3h | xh | - | #28 |
-|   8| Supprimer les fichiers générés (/mon/site/build) | 1h | 2h | 1h | x heures | - | #23 |
-|   9| Mettre en place une validation des tests sur push + configration github | 2h | 4h | 3h | x heures | - | #24 |
+|   4| créer commande `--version` pour afficher la version du générateur de site | 1h  | 2h   | 1h | x heures | 1, 2 | #22 |
+|   5| commande `init`: créer une structure basique | x heures  | x heures   | x heures | x heures | 1, 2 | #20 |
+|   6| Parser les fichiers markdown | 2h  | 4h   | 2h | xh | 5 | #27 |
+|   7| Fusionner le résultat du parser en une page html | 2h  | 5h   | 3h | xh | 6 | #28 |
+|   8| Supprimer les fichiers générés (/mon/site/build) | 1h | 2h | 1h | x heures | 7 | #23 |
+|   9| Mettre en place une validation des tests sur push + configration github | 2h | 4h | 3h | x heures | 1, 2 | #24 |
 
 
 ## Choix des formats
