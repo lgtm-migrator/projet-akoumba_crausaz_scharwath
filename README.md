@@ -4,23 +4,25 @@
 
 # Introduction
 
-Nous effectuons ce travail dans le cadre du second laboratoire de DIL. Durant celui-ci, nous serons amené à trvailler en collaboration. Afin que cette collaboration se déroule de façon optimale, nous nous sommes accordés pour établir et respecter le code de conduite ci-après. Ce document sera structuré comme suit: Une présentation du projet, de l'équipe ainsi qu'une liste de règles à respecter au sein du groupe.
+Dans le cadre du cours DIL de la HEIG-VD, nous allons réaliser un projet consistant en la réalisation d'un générateur de site statique [*Jamstack*](https://jamstack.org/) en *Java*.
 
-
-## Présentation du projet
-
-Le laboratoire No 2 de DIL intitulé `Méthodologie` est un laboratoire ayant pour objectif de nous faire pratiquer un workflow git. Durant celui ci nous serons allons mettre en place un projet: Choix de la méthodologie à suivre, division du problème en différentes tâches(issues) auxquelles les membres du groupe seront assignés, création des branches pour chaque tâche, une fois la tâche éffectuée, verification et validation par le groupe. 
-
-_A completer plus tard avec le informations du projet_
+Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois sprints*. En plus de mettre en oeuvre nos compétences techniques, la réalisatio de ce projet nous permettra d'appliquer les différents aspects des méthodologies *Agile*.
 
 
 ## Présentation des membres
 
 _Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données  
 
-_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle  
+_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle.
+
 
 _Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
+
+### Rôle de chaque membre
+
+En début de chaque sprint, une réunion se fera pour délimiter les attentes et les tâches selon le cahier des charges du client.
+Après cela, une estimation de temps sera faite, les issues seront créées sur github puis le travail reparti entre tous les membres du groupes.
+Chaque membre du groupe participera à toutes les étapes de réfléxion, planification et développement.
 
 # Sprint 1
 
