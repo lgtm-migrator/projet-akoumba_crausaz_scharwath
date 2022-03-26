@@ -1,18 +1,18 @@
 # Code de conduite
-*Mis à jour le : 2022-03-10*
+*Mis à jour le : 2022-03-26*
 
 
 Le code de conduite défini l'ensemble des règles que nous devrons respecter durant la réalisation de notre projet. Il concerne aussi bien la méthodologie de développement que nous allons choisir, que les règles de communication au sein du groupe.
 
 ## Méthodologies
 
-Nous nous basons sur une méthodologie agile. En effet, nous souhaitons pouvoir avancer sur le travail de manière incrémentale afin de pouvoir intégrer pas à pas des fonctionnalités.
+Nous nous basons sur une méthodologie agile. En effet, nous souhaitons pouvoir avancer sur le travail de manière incrémentale afin de pouvoir intégrer pas à pas des fonctionnalités. Pour mettre en place cette méthodologie, nous utiliserons *GitHub* comme outil principal. En effet nous avons mis en place un certain nombre de procédure et d'automatisations qui nous permetteront de travailler selon les méthodes Agile (voir _échanges métier_).
 
 ## Communication
 
 ### Réunions de groupes
 
-Les réunions en présentiel se feront lors des séances de laboratoires à l'école.
+Les réunions en présentiel se feront lors des séances de laboratoires à l'école. Durant ces séeances, nous ferons le point sur le travail accompli et le travail restant. Nous répondrons aux éventuelles incertitudes des membres du groupes et travaillerons sur des tâches qui demanderaient de la coopération (planification, ...).
 
 ### Echanges métiers
 
@@ -38,7 +38,10 @@ Les noms de branches, les commits, les commentaires et le code se font en *Angla
 
 Chaque sprint aura sa propre branche. Les fonctionnalités seront mises en place dans des branches spécifiques, puis merge dans la branche du sprint concerné.
 
-À l'issue de chaque sprint, la branche sera merge dans la branche principale (`main`).
+À l'issue de chaque sprint, la branche sera merge dans la branche principale (`main`). La branche `main` ainsi que les branches `sprint` sont protégées. Tout ajout de code à ces branches doivent se faire au travers de Pull Requests, ces dernières doivent respecter certaines contraintes:
+
+- Tous les tests unitaires doivent passer
+- Au moins 1 reviewer doit accepter le code
 
 Le nom des branches doit être explicites et un préfixe indique quel travail est effectué :
 
@@ -50,9 +53,12 @@ Lors du travail sur une issue, créer une pull request en mode *draft* et lier l
 
 Une fois que l'issue est corrigée, repasser la PR est mode review et ajouter des reviewer.
 
+![image](https://user-images.githubusercontent.com/15279957/160237721-2a60c637-f8b8-438b-a173-e8af1f41917e.png)
+
+
 ### Format de message
 
-Les messages de commit doivent être explicites sur les modifications effectuées.
+Les messages de commit doivent expliquer les modifications effectuées.
 
 ## Code style
 
@@ -68,16 +74,8 @@ class Test {
     }
 }
 ```
-### Règles de code
-- La longueur des lignes doit être limitée à 120 caractères
-- Les tabulations doivent être remplacées par 4 espaces.
-- Utiliser la nomination appropriée au langage utilisé.
-- Les noms de variables et commentaires doivent être en anglais.
 
-## Code review
-
-La confirmation d'au moins 1 reviewer est nécessaire pour autoriser un merge sur la branche `main` et les branches `sprint`.
-## Commentaires
+### Commentaires
 
 Les commentaires des classes et des méthodes respectent le format *JavaDoc*.
 
@@ -107,3 +105,10 @@ void test(int test) {
     // ..
 }
 ```
+
+### Règles de code
+- La longueur des lignes doit être limitée à 120 caractères
+- Les tabulations doivent être remplacées par 4 espaces.
+- Utiliser la nomination appropriée au langage utilisé.
+- Les noms de variables et commentaires doivent être en anglais.
+
