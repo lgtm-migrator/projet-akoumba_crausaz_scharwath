@@ -57,7 +57,7 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 |----|-----------|-----------|------------|----------|----------|-----------|------------|
 |   1| Diagramme de PERT | 1h  | 2h   | 1h | x heures | - | #25 |
 |   2| Diagramme UML Use Case | 1h  | 3h  | 2h | x heures | - | #26 |
-|   3| Choix des différentes formats utilisés | x heures  | x heures   | x heures | x heures | - | # |
+|   3| Choix des différentes formats utilisés | x heures  | x heures   | x heures | x heures | - | - |
 |   4| créer commande `--version` pour afficher la version du générateur de site | 1h  | 2h   | 1h | x heures | - | #22 |
 |   5| commande `init`: créer une structure basique | x heures  | x heures   | x heures | x heures | - | #20 |
 |   6| Parser les fichiers markdown | 2h  | 4h   | 2h | xh | - | #27 |
@@ -68,7 +68,8 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 
 ## Choix des formats
 Nous avons choisi le format `YAML` pour la saisie des données structurées du site. Notre choix a été motivé par la simplicité de la syntaxe de ce formatage.
-Nous avons effectuer ce choix parmi les formats JSON, YAML et TOML.
+Nous avons effectuer ce choix parmi les formats JSON, YAML et TOML. Après avoir pesé les pour et contre de ces trois formats, ainsi que l'expérience du groupe avec ces formats, nous avons choisi YAML.
 
-Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une syntaxe simple, il existe une panoplie de ressources  permettant de compiler du Markdown en HTML
+
+Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une syntaxe simple, il existe une panoplie de ressources permettant de compiler du Markdown en HTML
 
