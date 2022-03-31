@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
         mixinStandardHelpOptions = true,
         name = "dil",
         description = "DIL project",
-        version = "0.1",
+        versionProvider = ManifestVersionProvider.class,
         subcommands = {
                 NewCommand.class,
                 CleanCommand.class,
