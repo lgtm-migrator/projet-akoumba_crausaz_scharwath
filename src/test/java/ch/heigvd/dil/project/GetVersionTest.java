@@ -21,7 +21,7 @@ public class GetVersionTest {
     public void shouldGetTheSameVersion() {
         ManifestVersionProvider provider = new ManifestVersionProvider();
         String[] version = provider.getVersion();
-        if(!ManifestVersionProvider.isPackageVersionAvailable()){
+        if (!ManifestVersionProvider.isPackageVersionAvailable()) {
             assertEquals(version[0], ManifestVersionProvider.FALLBACK_VERSION);
         }
     }
