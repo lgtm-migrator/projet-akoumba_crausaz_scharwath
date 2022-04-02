@@ -1,11 +1,13 @@
 package ch.heigvd.dil.project.commands;
 
+import ch.heigvd.dil.project.Main;
 import org.junit.Test;
+import picocli.CommandLine;
 
 /**
  * Test for 'new' command
  */
-public class NewCommandTest {
+public class InitCommandTest {
 
     @Test
     public void shouldRun() {
@@ -15,6 +17,10 @@ public class NewCommandTest {
     @Test
     public void shouldCreateAConfigFile () {
 
+        String[] args = new String[]{"/home/nicolas/Downloads/test"};
+        CommandLine cmd = new CommandLine(new InitCommand());
+
+        cmd.execute(args);
     }
 
 

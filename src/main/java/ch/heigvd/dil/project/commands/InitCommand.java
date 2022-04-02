@@ -1,6 +1,9 @@
 package ch.heigvd.dil.project.commands;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -21,48 +24,47 @@ import java.util.Objects;
 )
 public class InitCommand implements Runnable {
 
-    @CommandLine.Parameters(index = "0")
+    @CommandLine.Parameters(index = "0", description = "Path to new site", defaultValue = "./")
     String creationPath;
 
     String configurationFile = "config.yml";
     String indexFile = "index.md";
 
+    @CommandLine.Parameters(index = "1", description = "Ship user interaction", defaultValue = "")
+    String shouldSkip;
+
     public class Configuration {
-        String url;
-        String author;
-        String language;
+        public String url;
+        public String author;
+        public String language;
     }
 
     @Override
     public void run() {
 
-        // if (Objects.equals(creationPath, "__skip"));
-
         Path pathToNewSite = Paths.get(creationPath);
 
         // Creates directory
+        try {
+            Files.createDirectory(pathToNewSite);
 
-        if (!Files.exists(pathToNewSite)) {
-            try {
-                Files.createDirectory(pathToNewSite);
+            // Creates configuration files
+            Configuration config = new Configuration();
+            config.author = "Nicolas Crausaz";
+            config.url = "localhost";
+            config.language = "fr";
 
-                // Creates configuration files
-                Configuration config = new Configuration();
-                config.author = "Nicolas Crausaz";
-                config.url = "localhost";
-                config.language = "fr";
+            ObjectMapper om = new ObjectMapper(new YAMLFactory());
+            // om.disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
+            om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            om.writeValue(new File(creationPath + "/" + indexFile), config);
 
-                ObjectMapper om = new ObjectMapper(new YAMLFactory());
-                om.writeValue(new File(creationPath + indexFile), configuration);
-
-
-
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        System.out.println(creationPath);
+    private boolean shouldSkipUserInteraction () {
+        return Objects.equals(shouldSkip, "--skip");
     }
 }
