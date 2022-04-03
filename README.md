@@ -65,6 +65,12 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 |   8| Supprimer les fichiers générés (/mon/site/build) | 1h | 2h | 1h | x heures | 7 | #23 |
 |   9| Mettre en place une validation des tests sur push + configration github | 2h | 4h | 3h | x heures | 1, 2 | #24 |
 
+### PERT
+
+Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 1.
+
+<img width="1280" alt="PERT" src="https://user-images.githubusercontent.com/15279957/161431448-d783e4cc-283e-402b-9783-744b18375522.png">
+
 
 ## Choix des formats
 Nous avons choisi le format `YAML` pour la saisie des données structurées du site. Notre choix a été motivé par la simplicité de la syntaxe de ce formatage.
