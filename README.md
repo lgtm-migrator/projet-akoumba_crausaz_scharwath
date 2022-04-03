@@ -29,15 +29,15 @@ Chaque membre du groupe participera à toutes les étapes de réfléxion, planif
 Début du premier sprint ! Temps de travail : 3 semaines.
 ## Étapes du sprint 1
 - Planification
-  - [ ] Diagramme de PERT
+  - [x] Diagramme de PERT
   - [ ] Diagramme UML Use Case
 - Choix des formats
-  - [ ] Choix du format des données structurées du site
-  - [ ] Choix du format de saisie des données
+  - [x] Choix du format des données structurées du site
+  - [x] Choix du format de saisie des données
 - Affichage de la version
-  - [ ] créer commande `--version` pour afficher la version du générateur de site
+  - [x] créer commande `--version` pour afficher la version du générateur de site
 - Initialiser un site statique
-  - [ ] commande `init /mon/site`
+  - [x] commande `init /mon/site`
   - [ ] créer un fichier de configuration config.yaml
   - [ ] initialiser l'architecture des dossiers et fichiers (une sorte de site template)
 - Compiler un site statique
@@ -49,8 +49,8 @@ Début du premier sprint ! Temps de travail : 3 semaines.
   - [ ] commande clean `clean /mon/site`
   - [ ] supprimer les fichiers générés (/mon/site/build)
 - Intégration continue :
-  - [ ] Mettre en place une validation des tests sur push
-  - [ ] Ne pas autoriser de merge si les tests ne passent pas
+  - [x] Mettre en place une validation des tests sur push
+  - [x] Ne pas autoriser de merge si les tests ne passent pas
 
 ## Temps estimé des étapes du sprint 1
 | No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
