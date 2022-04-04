@@ -22,10 +22,12 @@ import picocli.CommandLine.Command;
         })
 public class Main implements Callable<Integer> {
 
-    public static void main(String[] args) {System.exit(new CommandLine(new Main()).execute(args));
+    public static void main(String[] args) {
+        System.exit(new CommandLine(new Main()).execute(args));
     }
 
     @Override
-    public Integer call() {return 0;
+    public Integer call() {
+        return 0;
     }
 }
