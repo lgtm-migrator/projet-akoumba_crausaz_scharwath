@@ -1,8 +1,8 @@
 package ch.heigvd.dil.project;
 
-import org.junit.Test;
-
 import static org.junit.Assert.*;
+
+import org.junit.Test;
 
 public class GetVersionTest {
     @Test
