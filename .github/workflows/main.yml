@@ -25,6 +25,8 @@ jobs:
           git config --local user.name "github_action"
           git add .
           git commit -m "Lint project with Github Action"
+          echo "DEBUG: exit code of 'git commit' operation:"
+          echo $?
       - name: Push change
         uses: ad-m/github-push-action@master
         with:
