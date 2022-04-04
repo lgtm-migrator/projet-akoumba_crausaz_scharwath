@@ -17,6 +17,7 @@ jobs:
         working-directory: ./
         run: mvn test    
   linter:
+    needs: unit-test
     runs-on: ubuntu-latest
     name: Run linter
     steps:
