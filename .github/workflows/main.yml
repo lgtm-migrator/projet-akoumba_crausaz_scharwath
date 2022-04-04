@@ -16,3 +16,19 @@ jobs:
       - name: Run the tests
         working-directory: ./
         run: mvn test    
+      - name: Linter
+        working-directory: ./
+        run: mvn spotless:apply
+      - name: Commit linted files
+        working-directory: ./
+        run: |
+          git config --local user.name "github_action"
+          git add .
+          git commit -m "Lint project with Github Action"
+      - name: Push change
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+        
+        
