@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /** Unit test for simple App. */
 public class FileBuilderTest {
@@ -25,11 +26,17 @@ public class FileBuilderTest {
 
 
     @Test
-    public void shouldBuildFile() throws IOException {
+    public void shouldBuildFile() {
         var srcFile = new File("./data/test.md");
         var destFile = new File("./data/build/test.html");
         var fileBuilder = new FileBuilder(srcFile, destFile);
-        fileBuilder.build();
+        try {
+            fileBuilder.build();
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail("Should not throw IOException");
+        }
+
         assertTrue(destFile.exists());
         assertTrue(destFile.length() > 0);
     }
