@@ -112,3 +112,5 @@ void test(int test) {
 - Utiliser la nomination appropriée au langage utilisé.
 - Les noms de variables et commentaires doivent être en anglais.
 
+Ces règles ont été appliquée grâce à la dépendances spotless, qui lint le code automatiquement lors que nous effectuons un push sur n'importe quelle branche.
+
