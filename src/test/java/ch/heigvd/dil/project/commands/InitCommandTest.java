@@ -6,9 +6,6 @@ import picocli.CommandLine;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static org.junit.Assert.assertTrue;
 
@@ -17,7 +14,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class InitCommandTest {
 
-    static final String TEST_FOLDER = "./testsite";
+    static final String TEST_FOLDER = "./website";
 
     @Test
     public void shouldCreateAFolder () throws IOException {
@@ -41,6 +38,7 @@ public class InitCommandTest {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /* TODO: re-add this test when we have the class structure
     @Test(expected = FileAlreadyExistsException.class)
     public void shouldThrowIfFolderAlreadyExists() throws IOException {
         Files.createDirectory(Paths.get(TEST_FOLDER));
@@ -51,7 +49,7 @@ public class InitCommandTest {
 
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
-
+    */
 
     @Test
     public void shouldCreateAnMarkdownIndexFile () throws IOException {

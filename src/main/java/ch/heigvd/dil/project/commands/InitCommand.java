@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Objects;
 
 /**
  * This class represents the command line interface for the new command.
@@ -26,7 +25,7 @@ import java.util.Objects;
 )
 public class InitCommand implements Runnable {
 
-    @CommandLine.Parameters(index = "0", description = "Path to new site", defaultValue = "./")
+    @CommandLine.Parameters(index = "0", description = "Path to new site", defaultValue = "./newsite")
     String creationPath;
 
     String configurationFile = "config.yml";
@@ -36,15 +35,13 @@ public class InitCommand implements Runnable {
     @CommandLine.Parameters(index = "1", description = "Skip user interaction", defaultValue = "")
     String shouldSkip;
 
-
-
     @Override
     public void run() {
         Path pathToNewSite = Paths.get(creationPath);
 
         try {
-            // Create main directory
-            Files.createDirectory(pathToNewSite);
+            // Create main directories
+            Files.createDirectories(pathToNewSite);
 
             // Create configuration file
             SiteStructureFactory cf = new SiteStructureFactory();
@@ -54,18 +51,18 @@ public class InitCommand implements Runnable {
 
             // Create index page file
             FileWriter fw = new FileWriter(creationPath + "/" + indexFile);
-            fw.write("This is the homepage content");
+            fw.write("# This is the homepage content");
             fw.close();
 
             // Create example
             Files.createDirectory(Paths.get(creationPath + "/" + examplePageFolder));
             FileWriter fw2 = new FileWriter(creationPath + "/" + examplePageFolder + "/page.md");
-            fw2.write("This is the page content");
+            fw2.write("# This is the page content");
             fw2.close();
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+           e.printStackTrace();
         }
     }
 }
