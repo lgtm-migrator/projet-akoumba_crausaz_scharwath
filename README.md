@@ -13,7 +13,8 @@ Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois spri
 
 _Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données  
 
-_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle.
+_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle. 
+A l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquée et des outils d'intégration continue.
 
 
 _Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
@@ -78,4 +79,10 @@ Nous avons effectuer ce choix parmi les formats JSON, YAML et TOML. Après avoir
 
 
 Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une syntaxe simple, il existe une panoplie de ressources permettant de compiler du Markdown en HTML
+
+## Use Case
+
+Voici le UML use case des fonctionnalités attendue à l'issue du sprint 1:
+
+
 
