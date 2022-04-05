@@ -55,6 +55,7 @@ Une fois que l'issue est corrigée, repasser la PR est mode review et ajouter de
 
 ![image](https://user-images.githubusercontent.com/15279957/160237721-2a60c637-f8b8-438b-a173-e8af1f41917e.png)
 
+Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository: si l'on ajouter une nouvelle issue, elle est ajoutée dans "To do". Lors qu'elle est attribué et liée à une PR, l'issue est déplacé dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
 
 ### Format de message
 
