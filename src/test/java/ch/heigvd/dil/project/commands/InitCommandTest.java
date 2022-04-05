@@ -38,19 +38,6 @@ public class InitCommandTest {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
-    /* TODO: re-add this test when we have the class structure
-    @Test(expected = FileAlreadyExistsException.class)
-    public void shouldThrowIfFolderAlreadyExists() throws IOException {
-        Files.createDirectory(Paths.get(TEST_FOLDER));
-
-        String[] args = new String[]{TEST_FOLDER};
-        CommandLine cmd = new CommandLine(new InitCommand());
-        cmd.execute(args);
-
-        FileUtils.deleteDirectory(new File(TEST_FOLDER));
-    }
-    */
-
     @Test
     public void shouldCreateAnMarkdownIndexFile () throws IOException {
         String[] args = new String[]{TEST_FOLDER};
