@@ -1,19 +1,15 @@
 package ch.heigvd.dil.project.FilesManager;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import java.io.*;
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import java.io.*;
-
-/**
- * Class used to build the files
- */
+/** Class used to build the files */
 public class FileBuilder {
     private final File fileSource;
     private final File fileDestination;
@@ -26,7 +22,6 @@ public class FileBuilder {
         this.fileSource = fileSource;
         this.fileDestination = fileDestination;
     }
-
 
     private void parseYaml(String yaml) throws JsonProcessingException {
         var mapper = new ObjectMapper(new YAMLFactory());
@@ -62,19 +57,22 @@ public class FileBuilder {
 
     /**
      * Compile and write html file to fileDestination
+     *
      * @throws IOException
      */
     public void build() throws IOException {
         if (!isCompiled) {
             compile();
         }
-        var build = String.format(
-                "<!DOCTYPE html>\n" +
-                        "<html lang=\"en\">\n" + //TODO Get language from config
-                        "<head>\n%s\n</head>\n" +
-                        "<body>\n%s\n</body>\n" +
-                        "</html>",
-                headerContent, bodyContent);
+        var build =
+                String.format(
+                        "<!DOCTYPE html>\n"
+                                + "<html lang=\"en\">\n"
+                                + // TODO Get language from config
+                                "<head>\n%s\n</head>\n"
+                                + "<body>\n%s\n</body>\n"
+                                + "</html>",
+                        headerContent, bodyContent);
         FileUtils.createParentDirectories(fileDestination);
         var writer = new FileWriter(fileDestination);
         writer.write(build);

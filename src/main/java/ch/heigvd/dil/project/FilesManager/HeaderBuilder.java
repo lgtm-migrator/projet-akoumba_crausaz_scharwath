@@ -31,10 +31,10 @@ public class HeaderBuilder {
 
     public String build() {
         return String.format(
-                "<title>%s</title>\n" +
-                "<meta charset=\"UTF-8\">\n" +
-                "<meta name=\"author\" content=\"%s\">\n" +
-                "<meta name=\"date\" content=\"%s\">"
-                , title, author, date);
+                "<title>%s</title>\n"
+                        + "<meta charset=\"UTF-8\">\n"
+                        + "<meta name=\"author\" content=\"%s\">\n"
+                        + "<meta name=\"date\" content=\"%s\">",
+                title, author, date);
     }
 }
