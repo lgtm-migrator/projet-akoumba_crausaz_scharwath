@@ -4,26 +4,23 @@ import ch.heigvd.dil.project.commands.BuildCommand;
 import ch.heigvd.dil.project.commands.CleanCommand;
 import ch.heigvd.dil.project.commands.NewCommand;
 import ch.heigvd.dil.project.commands.ServeCommand;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-
-
 import java.io.*;
 import java.util.concurrent.Callable;
 
 import static ch.heigvd.dil.project.FilesManager.FileManager.parseFile;
 import static ch.heigvd.dil.project.FilesManager.FileManager.parserMarkdownToHtml;
 
+import java.util.concurrent.Callable;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
-/**
- * Main for picocli
- */
 @Command(
         mixinStandardHelpOptions = true,
         name = "dil",
         description = "DIL project",
-        version = "0.1",
+        versionProvider = ManifestVersionProvider.class,
         subcommands = {
                 NewCommand.class,
                 CleanCommand.class,
@@ -31,7 +28,6 @@ import static ch.heigvd.dil.project.FilesManager.FileManager.parserMarkdownToHtm
                 ServeCommand.class
         }
 )
-
 public class Main implements Callable<Integer> {
 
     public static void main(String[] args) throws IOException {
@@ -57,8 +53,4 @@ public class Main implements Callable<Integer> {
     public Integer call () {
         return 0;
     }
-
-
-
 }
-

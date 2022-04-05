@@ -2,14 +2,8 @@ package ch.heigvd.dil.project.commands;
 
 import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the new command.
- */
-@Command(
-        name = "new",
-        description = "New sub-command",
-        version = "1.0"
-)
+/** This class represents the command line interface for the new command. */
+@Command(name = "new", description = "New sub-command", version = "1.0")
 public class NewCommand implements Runnable {
     @Override
     public void run() {
