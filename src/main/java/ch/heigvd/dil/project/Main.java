@@ -17,12 +17,11 @@ import picocli.CommandLine.Command;
         description = "DIL project",
         versionProvider = ManifestVersionProvider.class,
         subcommands = {
-                InitCommand.class,
-                CleanCommand.class,
-                BuildCommand.class,
-                ServeCommand.class
-        }
-)
+            InitCommand.class,
+            CleanCommand.class,
+            BuildCommand.class,
+            ServeCommand.class
+        })
 public class Main implements Callable<Integer> {
 
     public static void main(String[] args) throws IOException {
