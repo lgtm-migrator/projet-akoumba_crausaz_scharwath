@@ -31,6 +31,7 @@ public class FileBuilder {
     }
 
     private void parseMarkdown(String markdown) {
+        markdown = markdown.replaceAll(".md", ".html");
         Parser parser = Parser.builder().build();
         Node document = parser.parse(markdown);
         HtmlRenderer htmlRenderer = HtmlRenderer.builder().build();
@@ -58,7 +59,7 @@ public class FileBuilder {
     /**
      * Compile and write html file to fileDestination
      *
-     * @throws IOException
+     * @throws IOException if the file cannot be written
      */
     public void build() throws IOException {
         if (!isCompiled) {

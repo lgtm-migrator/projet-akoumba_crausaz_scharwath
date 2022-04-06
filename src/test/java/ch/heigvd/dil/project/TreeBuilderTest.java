@@ -1,16 +1,47 @@
 package ch.heigvd.dil.project;
 
 import ch.heigvd.dil.project.FilesManager.TreeBuilder;
-import java.io.File;
-import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.FileFileFilter;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-/** Unit test for simple App. */
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+
+/**
+ * Unit test for simple App.
+ */
 public class TreeBuilderTest {
-    /** Rigorous Test :-) */
+
+
+    @Before
+    @After
+    public void before() {
+        File buildFolder = new File("./data/build");
+        try {
+            FileUtils.deleteDirectory(buildFolder);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void myTest() throws IOException {
-        var treeBuilder = new TreeBuilder(new File("./data/site/"), new File("./data/build/"));
+        var src = new File("./data/site/");
+        var dest = new File("./data/build/");
+        var treeBuilder = new TreeBuilder(src, dest);
         treeBuilder.build();
+        assertTrue(dest.exists());
+        assertEquals(
+                FileUtils.listFilesAndDirs(dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE).size(),
+                FileUtils.listFilesAndDirs(src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE).size());
+
     }
 }
