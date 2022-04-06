@@ -18,7 +18,7 @@ _Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle.\
 A l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquées et des outils d'intégration continue.
 
 
-_Scharwath Maxime_: 24 ans, étudiant en informatique logicielle.\
+_Scharwath Maxime_: 25 ans, étudiant en informatique logicielle.\
 Passionné par les technologies web et Java, il a joué à MineCraft Java édition une fois. Il n'a pas vraiment utilisé les methodologies agiles dans son travail, car il a surtout fait des projets en solo.
 Il aime bien les outils d'intégration continue pour simplifier son travail.
 
