@@ -5,7 +5,7 @@ import static ch.heigvd.dil.project.FilesManager.FileManager.parserMarkdownToHtm
 
 import ch.heigvd.dil.project.commands.BuildCommand;
 import ch.heigvd.dil.project.commands.CleanCommand;
-import ch.heigvd.dil.project.commands.NewCommand;
+import ch.heigvd.dil.project.commands.InitCommand;
 import ch.heigvd.dil.project.commands.ServeCommand;
 import java.io.*;
 import java.util.concurrent.Callable;
@@ -17,7 +17,7 @@ import picocli.CommandLine.Command;
         description = "DIL project",
         versionProvider = ManifestVersionProvider.class,
         subcommands = {
-            NewCommand.class,
+            InitCommand.class,
             CleanCommand.class,
             BuildCommand.class,
             ServeCommand.class
