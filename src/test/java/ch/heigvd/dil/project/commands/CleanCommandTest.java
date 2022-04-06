@@ -42,20 +42,6 @@ public class CleanCommandTest {
         assertFalse(new File(TEST_FOLDER + "/build").exists());
     }
 
-    @Test
-    public void shouldIgnoreIfNotAStatiqueProject() {
-        // First we build a project
-        String[] args = new String[] {TEST_FOLDER};
-        CommandLine cmd = new CommandLine(new BuildCommand());
-        cmd.execute(args);
-
-        args = new String[] {TEST_FOLDER};
-        cmd = new CommandLine(new CleanCommand());
-        cmd.execute(args);
-
-        assertTrue(new File(TEST_FOLDER + "/build").exists());
-    }
-
     @After
     public void clearProject () throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
