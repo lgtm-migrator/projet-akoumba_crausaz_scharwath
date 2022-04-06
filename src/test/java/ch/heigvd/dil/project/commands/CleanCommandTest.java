@@ -43,9 +43,14 @@ public class CleanCommandTest {
     }
 
     @Test
-    public void shouldIgnoreIfNotAStatiqueProject () {
+    public void shouldIgnoreIfNotAStatiqueProject() {
+        // First we build a project
         String[] args = new String[] {TEST_FOLDER};
-        CommandLine cmd = new CommandLine(new CleanCommand());
+        CommandLine cmd = new CommandLine(new BuildCommand());
+        cmd.execute(args);
+
+        args = new String[] {TEST_FOLDER};
+        cmd = new CommandLine(new CleanCommand());
         cmd.execute(args);
 
         assertTrue(new File(TEST_FOLDER + "/build").exists());
