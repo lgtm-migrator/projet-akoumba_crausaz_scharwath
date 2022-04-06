@@ -1,13 +1,12 @@
 package ch.heigvd.dil.project.FilesManager;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.FileFileFilter;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.FileFileFilter;
 
 public class TreeBuilder {
     private final File root;
@@ -19,14 +18,20 @@ public class TreeBuilder {
     }
 
     public void build() throws IOException {
-        var files = new ArrayList<>(FileUtils.listFilesAndDirs(root, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE));
+        var files =
+                new ArrayList<>(
+                        FileUtils.listFilesAndDirs(
+                                root, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE));
         Collections.reverse(files);
         for (File file : files) {
             if (file == root) continue;
             var relativePath = root.toPath().relativize(file.toPath());
             var destFile = new File(dest, relativePath.toString());
             if (file.getName().endsWith(".md")) {
-                var htmlFile = new File(destFile.getParentFile(), destFile.getName().replace(".md", ".html"));
+                var htmlFile =
+                        new File(
+                                destFile.getParentFile(),
+                                destFile.getName().replace(".md", ".html"));
                 new FileBuilder(file, htmlFile).build();
             } else {
                 if (file.isDirectory()) {
