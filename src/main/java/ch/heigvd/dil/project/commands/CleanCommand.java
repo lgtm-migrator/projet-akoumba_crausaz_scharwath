@@ -7,6 +7,6 @@ import picocli.CommandLine.Command;
 public class CleanCommand implements Runnable {
     @Override
     public void run() {
-        System.out.println("Clean command is not implemented yet.");
+        // TODO
     }
 }
