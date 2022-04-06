@@ -31,7 +31,7 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 ## Étapes du sprint 1
 - Planification
   - [x] Diagramme de PERT
-  - [ ] Diagramme UML Use Case
+  - [x] Diagramme UML Use Case
 - Choix des formats
   - [x] Choix du format des données structurées du site
   - [x] Choix du format de saisie des données
@@ -39,16 +39,16 @@ Début du premier sprint ! Temps de travail : 3 semaines.
   - [x] créer commande `--version` pour afficher la version du générateur de site
 - Initialiser un site statique
   - [x] commande `init /mon/site`
-  - [ ] créer un fichier de configuration config.yaml
-  - [ ] initialiser l'architecture des dossiers et fichiers (une sorte de site template)
+  - [x] créer un fichier de configuration config.yaml
+  - [x] initialiser l'architecture des dossiers et fichiers (une sorte de site template)
 - Compiler un site statique
-  - [ ] commande ` build /mon/site`
-  - [ ] parser les fichiers markdown et headers yaml
-  - [ ] fusionner le résultat du parser en une page html
-  - [ ] creation d'un dossier `build` contenant les fichiers/dossiers générés
+  - [x] commande ` build /mon/site`
+  - [x] parser les fichiers markdown et headers yaml
+  - [x] fusionner le résultat du parser en une page html
+  - [x] creation d'un dossier `build` contenant les fichiers/dossiers générés
 - Nettoyer un site statique :
-  - [ ] commande clean `clean /mon/site`
-  - [ ] supprimer les fichiers générés (/mon/site/build)
+  - [x] commande clean `clean /mon/site`
+  - [x] supprimer les fichiers générés (/mon/site/build)
 - Intégration continue :
   - [x] Mettre en place une validation des tests sur push
   - [x] Ne pas autoriser de merge si les tests ne passent pas
@@ -87,9 +87,7 @@ Voici le UML use case des fonctionnalités attendue à l'issue du sprint 1:
 <img width="729" alt="UML" src="https://user-images.githubusercontent.com/71764114/162074231-7896e53b-8225-4b90-8bc2-e84733e07b9d.png">
 
 
-# Conclusion
+## Ressenti du groupe sur le sprint
 
 Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité. Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second.
 Nous n'avons pas atteint notre productivité habituelle car nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposé. Neanmoins tous les membres se sont impliqués et ont fournis des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfait de notre rendu pour cette première étape.
-.
-
