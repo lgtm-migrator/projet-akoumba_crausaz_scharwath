@@ -71,7 +71,7 @@ Début du premier sprint ! Temps de travail : 3 semaines.
 
 Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 1.
 
-<img width="1280" alt="PERT" src="https://user-images.githubusercontent.com/15279957/161431448-d783e4cc-283e-402b-9783-744b18375522.png">
+<img width="1280" alt="PERT" src="https://user-images.githubusercontent.com/15279957/162083907-da00d909-0a1b-40cf-84bd-06335b9054a9.png">
 
 
 ## Choix des formats
