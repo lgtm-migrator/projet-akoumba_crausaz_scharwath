@@ -84,5 +84,9 @@ Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une
 
 Voici le UML use case des fonctionnalités attendue à l'issue du sprint 1:
 
+# Conclusion
 
+Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité. Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second.
+Nous n'avons pas atteint notre productivité habituelle car nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposé. Neanmoins tous les membres se sont impliqués et ont fournis des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfait de notre rendu pour cette première étape.
+.
 
