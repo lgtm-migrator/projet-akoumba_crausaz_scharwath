@@ -20,6 +20,7 @@ public class CleanCommandTest {
         String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
+        new File(TEST_FOLDER,"build").mkdir();
     }
 
     @Test
@@ -28,7 +29,7 @@ public class CleanCommandTest {
         CommandLine cmd = new CommandLine(new CleanCommand());
         cmd.execute(args);
 
-        assertFalse(new File(TEST_FOLDER + "/build").exists());
+        assertFalse(new File(TEST_FOLDER,"build").exists());
     }
 
     @Test
@@ -37,7 +38,7 @@ public class CleanCommandTest {
         CommandLine cmd = new CommandLine(new CleanCommand());
         cmd.execute(args);
 
-        assertFalse(new File(TEST_FOLDER + "/build").exists());
+        assertFalse(new File(TEST_FOLDER,"build").exists());
     }
 
     @After

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -18,16 +20,16 @@ public class CleanCommand implements Runnable {
     public void run() {
 
         // If no build folder, skip command
-        if (!new File(deletionPath + "/build").exists()) return;
+        if (!new File(deletionPath,"build").exists()) return;
 
         // If we find no configuration file in the folder, we assume that this is not a statique
         // folder
         // so we do not delete it to avoid problems with other programs.
-        if (!new File(deletionPath + "/config.yml").exists()) return;
+        if (!new File(deletionPath,"config.yml").exists()) return;
 
         // Folder deletion
         try {
-            Files.delete(Path.of(deletionPath + "/build"));
+            FileUtils.deleteDirectory(new File(deletionPath,"build"));
         } catch (IOException e) {
             e.printStackTrace();
         }
