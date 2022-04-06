@@ -11,14 +11,16 @@ Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois spri
 
 ## Présentation des membres
 
-_Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données.
+_Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données.\
 Pas de connaissances particulières en technologie web, bonnes connaissances du langage java et de l'outil gitHub. Je suis très enthousiaste à l'idée d'appliquer les pratiques agiles dans le cadre d'un projet réel. 
 
-_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle. 
+_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle.\
 A l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquées et des outils d'intégration continue.
 
 
-_Scharwath Maxime_: 24 ans, étudiant en informatique logicielle
+_Scharwath Maxime_: 24 ans, étudiant en informatique logicielle.\
+Passionné par les technologies web et Java, il a joué à MineCraft Java édition une fois. Il n'a pas vraiment utilisé les methodologies agiles dans son travail, car il a surtout fait des projets en solo.
+Il aime bien les outils d'intégration continue pour simplifier son travail.
 
 ### Rôle de chaque membre
 
