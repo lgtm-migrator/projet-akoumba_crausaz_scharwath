@@ -1,23 +1,21 @@
 package ch.heigvd.dil.project.commands;
 
+import static org.junit.Assert.assertFalse;
+
+import java.io.File;
+import java.io.IOException;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import picocli.CommandLine;
 
-import java.io.File;
-import java.io.IOException;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
 public class CleanCommandTest {
 
-    private final static String TEST_FOLDER = "./website";
+    private static final String TEST_FOLDER = "./website";
 
     @Before
-    public void initMockProject () {
+    public void initMockProject() {
         // Here we use another command (init)
         String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
@@ -43,7 +41,7 @@ public class CleanCommandTest {
     }
 
     @After
-    public void clearProject () throws IOException {
+    public void clearProject() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 }
