@@ -83,7 +83,7 @@ Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une
 
 ## Use Case
 
-Voici le UML use case des fonctionnalités attendue à l'issue du sprint 1:
+Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprint 1:
 
 <img width="729" alt="UML" src="https://user-images.githubusercontent.com/71764114/162074231-7896e53b-8225-4b90-8bc2-e84733e07b9d.png">
 
