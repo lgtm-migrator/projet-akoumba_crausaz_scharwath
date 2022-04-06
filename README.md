@@ -84,6 +84,9 @@ Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une
 
 Voici le UML use case des fonctionnalités attendue à l'issue du sprint 1:
 
+<img width="729" alt="UML" src="https://user-images.githubusercontent.com/71764114/162074231-7896e53b-8225-4b90-8bc2-e84733e07b9d.png">
+
+
 # Conclusion
 
 Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité. Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second.
