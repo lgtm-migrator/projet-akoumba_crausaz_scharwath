@@ -11,7 +11,8 @@ Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois spri
 
 ## Présentation des membres
 
-_Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données  
+_Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données.
+Pas de connaissances particulières en technologie web, bonnes connaissances du langage java et de l'outil gitHub. Je suis très enthousiaste à l'idée d'appliquer les pratiques agiles dans le cadre d'un projet réel. 
 
 _Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle. 
 A l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquée et des outils d'intégration continue.
