@@ -1,15 +1,12 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.FilesManager.TreeBuilder;
+import java.io.File;
+import java.io.IOException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-import java.io.File;
-import java.io.IOException;
-
-/**
- * This class represents the command line interface for the build command.
- */
+/** This class represents the command line interface for the build command. */
 @Command(name = "build", description = "Build sub-command", version = "1.0")
 public class BuildCommand implements Runnable {
 
@@ -20,7 +17,7 @@ public class BuildCommand implements Runnable {
     public void run() {
         // Check if the source projet exists
         var srcDir = new File(creationPath);
-        var destDir = new File(srcDir.getParent(),"build");
+        var destDir = new File(srcDir.getParent(), "build");
         if (!srcDir.exists()) return;
 
         // Build the site into build folder
