@@ -90,7 +90,7 @@ Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprin
 <img width="729" alt="UML" src="https://user-images.githubusercontent.com/71764114/162074231-7896e53b-8225-4b90-8bc2-e84733e07b9d.png">
 
 
-## Ressenti du groupe sur le sprint
+## Ressenti du groupe sur le sprint 1
 
 Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité. 
 
@@ -124,3 +124,18 @@ Début du second sprint ! Temps de travail : 3 semaines.
 - Tests :
   - [ ] Tests d'intégration
   - [ ] Tests système
+
+
+### PERT
+
+Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 2
+
+## Diagramme de cas d'utilisation
+
+Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprint 
+
+## diagramme de classe
+
+## Diagramme de sequence
+
+## Ressenti du groupe sur le sprint 2
