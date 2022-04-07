@@ -132,15 +132,15 @@ Début du second sprint ! Temps de travail : 3 semaines.
 |   1| Refactor du sprint | 2h  | 5h   | 3h | xh | - | #45 |
 |   2| Diagramme UML | 1h  | 3h  | 2h | xh | 1 | #46 |
 |   3| Diagramme de séquence | 1h  | 3h   | 2h | xh | - | #47 |
-|   4| Tests d'intégration | 3h  | 6h  | 4h | xh | todo | #49 |
-|   5| Tests système | 3h  | 6h   | 4h | xh | todo | #50 |
-|   6| Intégration moteur template  | 2h  | 3h | 2h | xh | todo | #52 |
-|   7| Use case UML  | 1h | 2h | 1h | xh | todo | #53 |
-|   8| Création layouts | 1h | 2h | 1h | xh | todo | #54 |
-|   9| Injection build | 3h | 6h | 4h | xh | todo | #55 |
-|   10| Serveur HTTP  | 2h | 4h | 2h | xh | todo | #56 |
-|   11| Release automatique  | 1h | 3h | 1h | xh | todo | #57 |
-|   12| Logging | 1h | 3h | 2h | xh | todo | #58 |
+|   4| Tests d'intégration | 3h  | 6h  | 4h | xh | 1,2 | #49 |
+|   5| Tests système | 3h  | 6h   | 4h | xh | 1,2 | #50 |
+|   6| Intégration moteur template  | 2h  | 3h | 2h | xh | 1,2 | #52 |
+|   7| Use case UML  | 1h | 2h | 1h | xh | - | #53 |
+|   8| Création layouts | 1h | 2h | 1h | xh | 1 | #54 |
+|   9| Injection build | 3h | 6h | 4h | xh | 8 | #55 |
+|   10| Serveur HTTP  | 2h | 4h | 2h | xh | 9 | #56 |
+|   11| Release automatique  | 1h | 3h | 1h | xh | - | #57 |
+|   12| Logging | 1h | 3h | 2h | xh | 1 | #58 |
 
 
 ### PERT
