@@ -126,6 +126,25 @@ Début du second sprint ! Temps de travail : 3 semaines.
   - [ ] Tests système
 
 
+## Temps estimé des étapes du sprint 2
+| No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
+|----|-----------|-----------|------------|----------|----------|-----------|------------|
+|   1|   | 1h  | 2h   | 1h | 1h | - | #45 |
+|   2|   | 1h  | 3h  | 2h | 2h | - | #46 |
+|   3|   | 1h  | 2h   | 1h | 1h | - | #47 |
+|   4|   | 1h  | 2h  | 1h | 1h | 1, 2 | #48 |
+|   5|   | 3h  | 5h  | 4h | 4h | 1, 2 | #49 |
+|   6|   | 2h  | 4h   | 2h | 2h | 5 | #50 |
+|   7|   | 2h  | 5h   | 3h | 2h | 6 | #51 |
+|   8|   | 1h | 2h | 1h | 1h | 7 | #52 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #53 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #54 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #55 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #56 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #57 |
+|   9|   | 2h | 4h | 3h | 2h | 1, 2 | #58 |
+
+
 ### PERT
 
 Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 2
