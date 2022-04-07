@@ -1,15 +1,11 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
+import java.io.File;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-import java.io.File;
-import java.io.IOException;
-
-/**
- * This class represents the command line interface for the build command.
- */
+/** This class represents the command line interface for the build command. */
 @Command(name = "build", description = "Build sub-command", version = "1.0")
 public class BuildCommand implements Runnable {
 

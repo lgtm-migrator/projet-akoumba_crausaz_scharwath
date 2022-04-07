@@ -5,19 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the new command.
- */
+/** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
 public class InitCommand implements Runnable {
 
@@ -43,14 +40,14 @@ public class InitCommand implements Runnable {
             Files.createDirectories(pathToNewSite);
 
             // Create configuration file
-            ObjectMapper om = new ObjectMapper(
-                    new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
-            );
+            ObjectMapper om =
+                    new ObjectMapper(
+                            new YAMLFactory()
+                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
             om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             om.writeValue(
                     new File(creationPath, configurationFile),
-                    Configuration.defaultConfiguration()
-            );
+                    Configuration.defaultConfiguration());
 
             // Create index page file
             FileWriter fw = new FileWriter(new File(creationPath, indexFile));

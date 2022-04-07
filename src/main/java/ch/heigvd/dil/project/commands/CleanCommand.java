@@ -1,15 +1,12 @@
 package ch.heigvd.dil.project.commands;
 
+import java.io.File;
+import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-import java.io.File;
-import java.io.IOException;
-
-/**
- * This class represents the command line interface for the clean command.
- */
+/** This class represents the command line interface for the clean command. */
 @Command(name = "clean", description = "Clean sub-command", version = "1.0")
 public class CleanCommand implements Runnable {
 
@@ -21,7 +18,7 @@ public class CleanCommand implements Runnable {
 
         // If no build folder, skip command
         if (!new File(deletionPath, "build").exists()) {
-            //TODO: Use logger
+            // TODO: Use logger
             System.out.println("No build folder found, skipping clean command");
             return;
         }
@@ -30,7 +27,7 @@ public class CleanCommand implements Runnable {
         // folder
         // so we do not delete it to avoid problems with other programs.
         if (!new File(deletionPath, "config.yml").exists()) {
-            //TODO: Use logger
+            // TODO: Use logger
             System.out.println("This is not a static project, skipping clean command");
             return;
         }
@@ -39,7 +36,7 @@ public class CleanCommand implements Runnable {
         try {
             FileUtils.deleteDirectory(new File(deletionPath, "build"));
         } catch (IOException e) {
-            //TODO: Use logger
+            // TODO: Use logger
             System.out.println("Error while deleting build folder");
             e.printStackTrace();
         }

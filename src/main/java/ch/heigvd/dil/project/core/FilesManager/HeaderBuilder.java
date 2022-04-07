@@ -1,9 +1,6 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
-/**
- * This class is used to build the header of the files.
- * And used with yaml header.
- */
+/** This class is used to build the header of the files. And used with yaml header. */
 class HeaderBuilder {
     private String title;
     private String author;

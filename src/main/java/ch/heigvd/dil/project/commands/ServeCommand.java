@@ -2,9 +2,7 @@ package ch.heigvd.dil.project.commands;
 
 import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the serve command.
- */
+/** This class represents the command line interface for the serve command. */
 @Command(name = "serve", description = "Serve sub-command", version = "1.0")
 public class ServeCommand implements Runnable {
     @Override
