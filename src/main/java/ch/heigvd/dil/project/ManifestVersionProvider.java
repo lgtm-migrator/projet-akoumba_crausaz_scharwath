@@ -15,6 +15,6 @@ public class ManifestVersionProvider implements CommandLine.IVersionProvider {
         if (version == null) {
             version = FALLBACK_VERSION;
         }
-        return new String[] {version};
+        return new String[]{version};
     }
 }

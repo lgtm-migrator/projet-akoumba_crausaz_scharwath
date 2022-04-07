@@ -1,16 +1,19 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import ch.heigvd.dil.project.FilesManager.FileBuilder;
-import java.io.File;
-import java.io.IOException;
+import ch.heigvd.dil.project.core.FilesManager.FileBuilder;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-/** Unit test for simple App. */
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+/**
+ * Unit test for simple App.
+ */
 public class FileBuilderTest {
 
     @Before

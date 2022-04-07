@@ -1,11 +1,6 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import ch.heigvd.dil.project.FilesManager.TreeBuilder;
-import java.io.File;
-import java.io.IOException;
+import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
@@ -13,7 +8,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/** Unit test for simple App. */
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+/**
+ * Unit test for simple App.
+ */
 public class TreeBuilderTest {
 
     @Before

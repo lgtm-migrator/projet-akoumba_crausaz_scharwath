@@ -1,12 +1,15 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.FilesManager.TreeBuilder;
-import java.io.File;
-import java.io.IOException;
+import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/** This class represents the command line interface for the build command. */
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * This class represents the command line interface for the build command.
+ */
 @Command(name = "build", description = "Build sub-command", version = "1.0")
 public class BuildCommand implements Runnable {
 
@@ -22,10 +25,6 @@ public class BuildCommand implements Runnable {
 
         // Build the site into build folder
         var treeBuilder = new TreeBuilder(srcDir, destDir);
-        try {
-            treeBuilder.build();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        treeBuilder.build();
     }
 }
