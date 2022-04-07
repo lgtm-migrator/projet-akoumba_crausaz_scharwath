@@ -95,3 +95,32 @@ Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprin
 Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité. 
 
 Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second. Nous n'avons pas atteint notre productivité habituelle car pour le moment nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposées. Néanmoins tous les membres se sont impliqués et ont fourni des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfaits de notre rendu pour cette première étape.
+
+# Sprint 2
+
+Début du second sprint ! Temps de travail : 3 semaines.
+
+## Étapes du sprint 2
+
+- Refactoring du sprint 1
+- Planification
+  - [ ] Diagramme de PERT
+  - [ ] Enrichir le use case diagram
+- Modélisation UML
+  - [ ] Diagramme de classe
+  - [ ] Diagramme de sequence 
+- Handlebar
+  - [ ] Intégration de Handlebar
+- Création de layouts
+  - [ ] headerer
+  - [ ] footer
+  - [ ] navbar/menu
+ 
+- Build du site 
+  - [ ] Injecter les variables
+  - [ ] Serveur HTTP: servir les fichiers build
+- Delivration continue
+  - [ ] automatiser la création de release
+- Tests :
+  - [ ] Tests d'intégration
+  - [ ] Tests système
