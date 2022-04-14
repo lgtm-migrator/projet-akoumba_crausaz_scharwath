@@ -16,7 +16,7 @@ public class InitCommandTest {
     static final String TEST_FOLDER = "./website";
 
     @Before
-    public void initProject () {
+    public void initProject() {
         String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
@@ -43,7 +43,7 @@ public class InitCommandTest {
     }
 
     @After
-    public void deleteProject () throws IOException {
+    public void deleteProject() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 }
