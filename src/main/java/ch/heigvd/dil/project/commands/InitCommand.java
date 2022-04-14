@@ -5,20 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the new command.
- */
+/** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
 public class InitCommand implements Runnable {
 
@@ -69,27 +65,28 @@ public class InitCommand implements Runnable {
             Files.createDirectory(Paths.get(creationPath + "/layouts"));
             // Navbar
             FileWriter fw3 = new FileWriter(creationPath + "/layouts/navbar.html");
-            fw3.write("<nav>" +
-                    "    <ol>\n" +
-                    "        <li><a href=\"/index.html\">Home</a></li>\n" +
-                    "        <li><a href=\"/page/page.html\">Page</a></li>\n" +
-                    "    </ol>\n" +
-                    "</nav>\n");
+            fw3.write(
+                    "<nav>"
+                            + "    <ol>\n"
+                            + "        <li><a href=\"/index.html\">Home</a></li>\n"
+                            + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
+                            + "    </ol>\n"
+                            + "</nav>\n");
             fw3.close();
 
             // Layout
             FileWriter fw4 = new FileWriter(creationPath + "/layouts/layout.html");
-            fw4.write("<html lang=\"{{ site.language }}\">\n" +
-                            "<head>\n" +
-                            "<meta charset=\"utf-8\">\n" +
-                            "<title>{{ site.titre }} | {{ page.titre }}</title>\n" +
-                            "</head>\n" +
-                            "<body>\n" +
-                            "{% include menu.html }\n" +
-                            "{{ content }}\n" +
-                            "</body>\n" +
-                            "</html>\n"
-            );
+            fw4.write(
+                    "<html lang=\"{{ site.language }}\">\n"
+                            + "<head>\n"
+                            + "<meta charset=\"utf-8\">\n"
+                            + "<title>{{ site.titre }} | {{ page.titre }}</title>\n"
+                            + "</head>\n"
+                            + "<body>\n"
+                            + "{% include menu.html }\n"
+                            + "{{ content }}\n"
+                            + "</body>\n"
+                            + "</html>\n");
             fw4.close();
 
             // Footer
