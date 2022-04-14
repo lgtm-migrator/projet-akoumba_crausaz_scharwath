@@ -3,7 +3,7 @@ package ch.heigvd.dil.project;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import ch.heigvd.dil.project.FilesManager.TreeBuilder;
+import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;

@@ -1,6 +1,7 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
-public class HeaderBuilder {
+/** This class is used to build the header of the files. And used with yaml header. */
+class HeaderBuilder {
     private String title;
     private String author;
     private String date;
@@ -29,6 +30,11 @@ public class HeaderBuilder {
         this.date = date;
     }
 
+    /**
+     * This method is used to build the header of the files.
+     *
+     * @return the header of the files without <head></head>
+     */
     public String build() {
         return String.format(
                 "<title>%s</title>\n"

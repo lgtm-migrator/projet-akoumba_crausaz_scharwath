@@ -1,4 +1,7 @@
-package ch.heigvd.dil.project.factories;
+package ch.heigvd.dil.project.core;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 
 public class Configuration {
     private String url;
@@ -9,6 +12,19 @@ public class Configuration {
         this.url = url;
         this.author = author;
         this.language = language;
+    }
+
+    public static Configuration defaultConfiguration() {
+        return new Configuration("localhost:8080", "John Doe", "en");
+    }
+
+    public static Configuration getFromFile(File file) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.readValue(file, Configuration.class);
+        } catch (Exception ex) {
+            return defaultConfiguration();
+        }
     }
 
     public String getUrl() {

@@ -1,6 +1,6 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.factories.SiteStructureFactory;
+import ch.heigvd.dil.project.core.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -26,7 +26,7 @@ public class InitCommand implements Runnable {
 
     String configurationFile = "config.yml";
     String indexFile = "index.md";
-    String examplePageFolder = "/page";
+    String examplePageFolder = "page";
 
     @CommandLine.Parameters(index = "1", description = "Skip user interaction", defaultValue = "")
     String shouldSkip;
@@ -40,26 +40,27 @@ public class InitCommand implements Runnable {
             Files.createDirectories(pathToNewSite);
 
             // Create configuration file
-            SiteStructureFactory cf = new SiteStructureFactory();
             ObjectMapper om =
                     new ObjectMapper(
                             new YAMLFactory()
                                     .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
             om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             om.writeValue(
-                    new File(creationPath + "/" + configurationFile),
-                    cf.generateBaseConfiguration());
+                    new File(creationPath, configurationFile),
+                    Configuration.defaultConfiguration());
 
             // Create index page file
-            FileWriter fw = new FileWriter(creationPath + "/" + indexFile);
+            FileWriter fw = new FileWriter(new File(creationPath, indexFile));
             fw.write("# This is the homepage content");
             fw.close();
 
             // Create example
-            Files.createDirectory(Paths.get(creationPath + "/" + examplePageFolder));
-            FileWriter fw2 = new FileWriter(creationPath + "/" + examplePageFolder + "/page.md");
-            fw2.write("# This is the page content");
-            fw2.close();
+            File examplePageFolderFile = new File(creationPath, examplePageFolder);
+            if (examplePageFolderFile.mkdir()) {
+                FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
+                fw2.write("# This is the page content");
+                fw2.close();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
