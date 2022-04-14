@@ -36,7 +36,8 @@ public class InitCommand implements Runnable {
 
             // Create example page (subdirectory)
             FileManager.createDirectoryStructure(creationPath + examplePageFolder);
-            FileManager.writeToFile(creationPath + examplePageFolder, "page.md", "# This is the page content");
+            FileManager.writeToFile(
+                    creationPath + examplePageFolder, "page.md", "# This is the page content");
 
         } catch (IOException e) {
             e.printStackTrace();
