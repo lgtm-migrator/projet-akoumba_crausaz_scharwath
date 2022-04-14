@@ -1,16 +1,7 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.core.Configuration;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-import java.io.File;
-import java.io.FileWriter;
+import ch.heigvd.dil.project.core.FilesManager.FileManager;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -26,41 +17,26 @@ public class InitCommand implements Runnable {
 
     String configurationFile = "config.yml";
     String indexFile = "index.md";
-    String examplePageFolder = "page";
+    String examplePageFolder = "/page";
 
     @CommandLine.Parameters(index = "1", description = "Skip user interaction", defaultValue = "")
     String shouldSkip;
 
     @Override
     public void run() {
-        Path pathToNewSite = Paths.get(creationPath);
-
         try {
             // Create main directories
-            Files.createDirectories(pathToNewSite);
+            FileManager.createDirectoryStructure(creationPath);
 
             // Create configuration file
-            ObjectMapper om =
-                    new ObjectMapper(
-                            new YAMLFactory()
-                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
-            om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-            om.writeValue(
-                    new File(creationPath, configurationFile),
-                    Configuration.defaultConfiguration());
+            FileManager.generateConfigurationFile(creationPath, configurationFile, null);
 
             // Create index page file
-            FileWriter fw = new FileWriter(new File(creationPath, indexFile));
-            fw.write("# This is the homepage content");
-            fw.close();
+            FileManager.writeToFile(creationPath, indexFile, "# This is the homepage content");
 
-            // Create example
-            File examplePageFolderFile = new File(creationPath, examplePageFolder);
-            if (examplePageFolderFile.mkdir()) {
-                FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
-                fw2.write("# This is the page content");
-                fw2.close();
-            }
+            // Create example page (subdirectory)
+            FileManager.createDirectoryStructure(creationPath + examplePageFolder);
+            FileManager.writeToFile(creationPath + examplePageFolder, "page.md", "# This is the page content");
 
         } catch (IOException e) {
             e.printStackTrace();
