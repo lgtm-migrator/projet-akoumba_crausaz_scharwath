@@ -4,7 +4,9 @@ import ch.heigvd.dil.project.commands.BuildCommand;
 import ch.heigvd.dil.project.commands.CleanCommand;
 import ch.heigvd.dil.project.commands.InitCommand;
 import ch.heigvd.dil.project.commands.ServeCommand;
+
 import java.util.concurrent.Callable;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -14,19 +16,13 @@ import picocli.CommandLine.Command;
         description = "DIL project",
         versionProvider = ManifestVersionProvider.class,
         subcommands = {
-            InitCommand.class,
-            CleanCommand.class,
-            BuildCommand.class,
-            ServeCommand.class
+                InitCommand.class,
+                CleanCommand.class,
+                BuildCommand.class,
+                ServeCommand.class
         })
-public class Main implements Callable<Integer> {
-
+public class Main{
     public static void main(String[] args) {
-        System.exit(new CommandLine(new Main()).execute(args));
-    }
-
-    @Override
-    public Integer call() {
-        return 0;
+        new CommandLine(new Main()).execute(args);
     }
 }

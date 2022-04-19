@@ -17,7 +17,7 @@ public class BuildCommand implements Runnable {
     public void run() {
         // Check if the source projet exists
         var srcDir = new File(creationPath);
-        var destDir = new File(srcDir.getParent(), "build");
+        var destDir = new File(srcDir, "build");
         if (!srcDir.exists()) return;
 
         // Build the site into build folder
