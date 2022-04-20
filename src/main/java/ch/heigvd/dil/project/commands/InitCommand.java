@@ -5,17 +5,13 @@ import ch.heigvd.dil.project.core.PageParams;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import java.io.File;
 import java.io.IOException;
-
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the new command.
- */
+/** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
 public class InitCommand implements Runnable {
 
@@ -44,7 +40,10 @@ public class InitCommand implements Runnable {
             // Create index page file
             PageParams params = PageParams.defaultPageParams();
 
-            ObjectMapper om = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
+            ObjectMapper om =
+                    new ObjectMapper(
+                            new YAMLFactory()
+                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
             om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             om.writeValue(new File(creationPath, indexFile), params);
 
