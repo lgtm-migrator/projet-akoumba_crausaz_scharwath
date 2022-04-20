@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -38,10 +39,10 @@ public class FileManager {
         om.writeValue(new File(path, filename), config);
     }
 
-    public static File writeToFile(String path, String filename, String content)
+    public static File writeToFile(String path, String filename, String content, boolean append)
             throws IOException {
         File file = new File(path, filename);
-        FileWriter fw = new FileWriter(file);
+        FileWriter fw = new FileWriter(file, append);
         fw.write(content);
         fw.close();
         return file;
