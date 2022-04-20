@@ -8,7 +8,6 @@ public class PageParams {
 
     private String date;
 
-
     public PageParams(String title, String author, String date) {
         this.title = title;
         this.author = author;

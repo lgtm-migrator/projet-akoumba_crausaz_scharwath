@@ -1,7 +1,6 @@
 package ch.heigvd.dil.project.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 
 public class Configuration {
