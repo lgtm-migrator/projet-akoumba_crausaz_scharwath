@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,6 +23,12 @@ public class FileBuilder {
         this.fileDestination = fileDestination;
     }
 
+    /**
+     * Parse yaml file and set headerContent
+     *
+     * @param yaml
+     * @throws JsonProcessingException
+     */
     private void parseYaml(String yaml) throws JsonProcessingException {
         var mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
@@ -30,6 +36,11 @@ public class FileBuilder {
         headerContent = headerBuilder.build();
     }
 
+    /**
+     * Parse markdown file and set bodyContent
+     *
+     * @param markdown
+     */
     private void parseMarkdown(String markdown) {
         markdown = markdown.replaceAll(".md", ".html");
         Parser parser = Parser.builder().build();

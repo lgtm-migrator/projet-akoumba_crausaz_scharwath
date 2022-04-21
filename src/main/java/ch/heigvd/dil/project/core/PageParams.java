@@ -1,9 +1,22 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core;
 
-public class HeaderBuilder {
+public class PageParams {
+
     private String title;
+
     private String author;
+
     private String date;
+
+    public PageParams(String title, String author, String date) {
+        this.title = title;
+        this.author = author;
+        this.date = date;
+    }
+
+    public static PageParams defaultPageParams() {
+        return new PageParams("", "", "");
+    }
 
     public String getTitle() {
         return title;
@@ -27,14 +40,5 @@ public class HeaderBuilder {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public String build() {
-        return String.format(
-                "<title>%s</title>\n"
-                        + "<meta charset=\"UTF-8\">\n"
-                        + "<meta name=\"author\" content=\"%s\">\n"
-                        + "<meta name=\"date\" content=\"%s\">",
-                title, author, date);
     }
 }
