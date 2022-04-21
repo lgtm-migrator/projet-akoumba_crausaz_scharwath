@@ -3,7 +3,6 @@ package ch.heigvd.dil.project;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,7 +27,8 @@ public class StaticFileHandler implements HttpHandler {
             path = "/index.html";
         }
         File file = new File(baseDir, path.substring(1));
-        BasicFileAttributes basicFileAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+        BasicFileAttributes basicFileAttributes =
+                Files.readAttributes(file.toPath(), BasicFileAttributes.class);
         if (basicFileAttributes.isRegularFile()) {
             Headers h = ex.getResponseHeaders();
             h.set("Content-Type", Files.probeContentType(file.toPath()));
@@ -40,5 +40,4 @@ public class StaticFileHandler implements HttpHandler {
             ex.sendResponseHeaders(404, -1);
         }
     }
-
 }

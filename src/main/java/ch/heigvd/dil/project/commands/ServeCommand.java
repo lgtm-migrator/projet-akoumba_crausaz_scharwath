@@ -2,26 +2,26 @@ package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.StaticFileHandler;
 import com.sun.net.httpserver.HttpServer;
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-
-/**
- * This class represents the command line interface for the serve command.
- */
-@Command(name = "serve", description = "Serve sub-command", version = "1.0", mixinStandardHelpOptions = true)
+/** This class represents the command line interface for the serve command. */
+@Command(
+        name = "serve",
+        description = "Serve sub-command",
+        version = "1.0",
+        mixinStandardHelpOptions = true)
 public class ServeCommand implements Runnable {
 
-    @CommandLine.Parameters(
-            index = "0",
-            description = "Path to site",
-            defaultValue = "./newsite")
+    @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
 
-    @CommandLine.Option(names = {"-p", "--port"}, description = "Port to listen on", defaultValue = "8080")
+    @CommandLine.Option(
+            names = {"-p", "--port"},
+            description = "Port to listen on",
+            defaultValue = "8080")
     int port;
 
     @Override
