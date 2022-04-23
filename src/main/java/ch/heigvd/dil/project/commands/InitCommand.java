@@ -61,6 +61,39 @@ public class InitCommand implements Runnable {
             fw2.write("# This is the page content");
             fw2.close();
 
+            // Create layouts
+            Files.createDirectory(Paths.get(creationPath + "/layouts"));
+            // Navbar
+            FileWriter fw3 = new FileWriter(creationPath + "/layouts/navbar.html");
+            fw3.write(
+                    "<nav>"
+                            + "    <ol>\n"
+                            + "        <li><a href=\"/index.html\">Home</a></li>\n"
+                            + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
+                            + "    </ol>\n"
+                            + "</nav>\n");
+            fw3.close();
+
+            // Layout
+            FileWriter fw4 = new FileWriter(creationPath + "/layouts/layout.html");
+            fw4.write(
+                    "<html lang=\"{{ site.language }}\">\n"
+                            + "<head>\n"
+                            + "<meta charset=\"utf-8\">\n"
+                            + "<title>{{ site.title }} | {{ page.title }}</title>\n"
+                            + "</head>\n"
+                            + "<body>\n"
+                            + "{% include menu.html }\n"
+                            + "{{ content }}\n"
+                            + "</body>\n"
+                            + "</html>\n");
+            fw4.close();
+
+            // Footer
+            FileWriter fw5 = new FileWriter(creationPath + "/layouts/footer.html");
+            fw5.write("<footer><p>This is the footer | Copyright 2022</p></footer>");
+            fw5.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
