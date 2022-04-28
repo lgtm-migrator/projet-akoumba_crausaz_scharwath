@@ -87,8 +87,7 @@ Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une
 
 Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprint 1:
 
-
-
+ ![usecasediagram_v2](https://user-images.githubusercontent.com/71764114/165730750-529c92c5-c7c8-4167-a76a-ac30d3cf8472.png)
 
 ## Ressenti du groupe sur le sprint 1
 
