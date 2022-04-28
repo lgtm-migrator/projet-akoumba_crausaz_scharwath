@@ -9,10 +9,11 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.logging.Logger;
 
 @SuppressWarnings("restriction")
 public class StaticFileHandler implements HttpHandler {
-
+    private static Logger LOG = Logger.getLogger(StaticFileHandler.class.getName());
     private final String baseDir;
 
     public StaticFileHandler(String baseDir) {
@@ -26,6 +27,7 @@ public class StaticFileHandler implements HttpHandler {
         if (path.equals("/")) {
             path = "/index.html";
         }
+        LOG.info(String.format("%s requested %s", ex.getRemoteAddress().getAddress(), path));
         File file = new File(baseDir, path.substring(1));
         BasicFileAttributes basicFileAttributes =
                 Files.readAttributes(file.toPath(), BasicFileAttributes.class);

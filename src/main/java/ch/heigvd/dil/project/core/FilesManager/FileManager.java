@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
