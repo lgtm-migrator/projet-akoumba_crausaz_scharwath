@@ -1,5 +1,7 @@
 package ch.heigvd.dil.project.factories;
 
+import com.github.jknack.handlebars.TypeSafeTemplate;
+
 public class Configuration {
     private String url;
     private String author;

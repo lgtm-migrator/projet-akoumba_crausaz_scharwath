@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class InjectorTest {
     @Test
-    public void test () throws IOException {
+    public void shouldInjectConfiguration () throws IOException {
         Injector inj = new Injector();
 
         System.out.println(inj.compile("Hello {{ url }}, {{ author }}, {{ language }}",
