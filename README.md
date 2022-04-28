@@ -87,7 +87,7 @@ Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une
 
 Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprint 1:
 
- ![usecasediagram_v2](https://user-images.githubusercontent.com/71764114/165730750-529c92c5-c7c8-4167-a76a-ac30d3cf8472.png)
+![usecasediagram_v1](https://user-images.githubusercontent.com/71764114/165733043-4d227858-a32c-4a2b-87e0-479c73d60e0a.png)
 
 ## Ressenti du groupe sur le sprint 1
 
@@ -149,11 +149,16 @@ Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 2
 
 ## Diagramme de cas d'utilisation
 
-Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprint 
+Ci dessous le diagramme des cas d'utilisation des fonctionnalités attendues à l'issue du sprint 2
 
  ![usecasediagram_v2](https://user-images.githubusercontent.com/71764114/165730750-529c92c5-c7c8-4167-a76a-ac30d3cf8472.png)
 
 ## diagramme de classe
+
+Ci dessous le diagramme de classes du sprint 
+
+![diagrammeDeClasse](https://user-images.githubusercontent.com/71764114/165732377-1ed00884-ca77-4608-829d-96514a3bc4a7.png)
+
 
 ## Diagramme de sequence
 
