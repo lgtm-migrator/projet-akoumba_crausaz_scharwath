@@ -1,15 +1,19 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.StaticFileHandler;
+import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/** This class represents the command line interface for the serve command. */
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.file.Path;
+import java.util.logging.Logger;
+
+/**
+ * This class represents the command line interface for the serve command.
+ */
 @Command(
         name = "serve",
         description = "Serve sub-command",
@@ -23,14 +27,21 @@ public class ServeCommand implements Runnable {
     @CommandLine.Option(
             names = {"-p", "--port"},
             description = "Port to listen on",
-            defaultValue = "8080")
+            defaultValue = "-1"
+    )
     int port;
 
     @Override
     public void run() {
         try {
+            int configPort = App.getInstance().getRootConfig().getURI().getPort();
+            LOG.info(App.getInstance().getRootPath());
+            LOG.info(App.getInstance().getRootConfig().getURI().toString());
+            if (port == -1) {
+                port = configPort == -1 ? 8080 : configPort;
+            }
             var server = HttpServer.create(new InetSocketAddress(port), 0);
-            server.createContext("/", new StaticFileHandler(websitePath));
+            server.createContext("/", new StaticFileHandler(Path.of(websitePath,"build")));
             server.setExecutor(null); // creates a default executor
             server.start();
             LOG.info(String.format("Server started on port %d", port));

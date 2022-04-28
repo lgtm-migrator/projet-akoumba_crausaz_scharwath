@@ -3,6 +3,8 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.util.logging.Logger;
 
 public class Configuration {
@@ -21,14 +23,9 @@ public class Configuration {
         return new Configuration("localhost:8080", "John Doe", "en");
     }
 
-    public static Configuration getFromFile(File file) {
+    public static Configuration getFromFile(File file) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.readValue(file, Configuration.class);
-        } catch (Exception ex) {
-            LOG.warning(String.format("Could not read configuration file %s, default config returned", file.getAbsolutePath()));
-            return defaultConfiguration();
-        }
+        return mapper.readValue(file, Configuration.class);
     }
 
     public String getUrl() {
@@ -37,6 +34,15 @@ public class Configuration {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public URI getURI() {
+        try {
+            return new URI(url);
+        } catch (Exception e) {
+            LOG.warning("Invalid URI: " + url);
+            return null;
+        }
     }
 
     public String getAuthor() {

@@ -1,5 +1,6 @@
 package ch.heigvd.dil.project.commands;
 
+import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import java.io.File;
 import java.io.IOException;

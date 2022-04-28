@@ -40,6 +40,6 @@ public class TreeBuilderTest {
                         .size(),
                 FileUtils.listFilesAndDirs(
                                 src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                        .size());
+                        .size()-1);
     }
 }

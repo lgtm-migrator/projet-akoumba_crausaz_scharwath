@@ -8,15 +8,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.logging.Logger;
 
 @SuppressWarnings("restriction")
 public class StaticFileHandler implements HttpHandler {
     private static Logger LOG = Logger.getLogger(StaticFileHandler.class.getName());
-    private final String baseDir;
+    private final Path baseDir;
 
-    public StaticFileHandler(String baseDir) {
+    public StaticFileHandler(Path baseDir) {
         this.baseDir = baseDir;
     }
 
@@ -24,22 +25,29 @@ public class StaticFileHandler implements HttpHandler {
     public void handle(HttpExchange ex) throws IOException {
         URI uri = ex.getRequestURI();
         String path = uri.getPath();
-        if (path.equals("/")) {
-            path = "/index.html";
+        Path file = Path.of(baseDir.toString(), path);
+        if (Files.isDirectory(file)) {
+            file = file.resolve("index.html");
         }
-        LOG.info(String.format("%s requested %s", ex.getRemoteAddress().getAddress(), path));
-        File file = new File(baseDir, path.substring(1));
-        BasicFileAttributes basicFileAttributes =
-                Files.readAttributes(file.toPath(), BasicFileAttributes.class);
-        if (basicFileAttributes.isRegularFile()) {
-            Headers h = ex.getResponseHeaders();
-            h.set("Content-Type", Files.probeContentType(file.toPath()));
-            ex.sendResponseHeaders(200, basicFileAttributes.size());
-            OutputStream os = ex.getResponseBody();
-            Files.copy(file.toPath(), os);
-            os.close();
-        } else {
+        if (!Files.exists(file)) {
+            LOG.warning("File " + file.toAbsolutePath() + " does not exist");
             ex.sendResponseHeaders(404, -1);
+            return;
+        }
+        BasicFileAttributes attrs = Files.readAttributes(file, BasicFileAttributes.class);
+        if (attrs.isDirectory()) {
+            ex.sendResponseHeaders(403, -1);
+            return;
+        }
+        Headers headers = ex.getResponseHeaders();
+        headers.add("Content-Type", Files.probeContentType(file));
+        headers.add("Content-Length", Long.toString(attrs.size()));
+        ex.sendResponseHeaders(200, 0);
+        try (OutputStream os = ex.getResponseBody()) {
+            Files.copy(file, os);
+        }catch (IOException e) {
+            LOG.warning("Error while serving file " + file);
+            ex.sendResponseHeaders(500, -1);
         }
     }
 }

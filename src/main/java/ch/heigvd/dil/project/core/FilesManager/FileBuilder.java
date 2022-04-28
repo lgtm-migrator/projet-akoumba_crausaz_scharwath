@@ -1,5 +1,6 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
+import ch.heigvd.dil.project.core.App;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -65,15 +66,15 @@ public class FileBuilder {
         if (!isCompiled) {
             compile();
         }
+        var lang = App.getInstance().getRootConfig().getLanguage();
         var build =
                 String.format(
                         "<!DOCTYPE html>\n"
-                                + "<html lang=\"en\">\n"
-                                + // TODO Get language from config
-                                "<head>\n%s\n</head>\n"
+                                + "<html lang=\"%s\">\n"
+                                + "<head>\n%s\n</head>\n"
                                 + "<body>\n%s\n</body>\n"
                                 + "</html>",
-                        headerContent, bodyContent);
+                        lang, headerContent, bodyContent);
         FileUtils.createParentDirectories(fileDestination);
         var writer = new FileWriter(fileDestination);
         writer.write(build);
