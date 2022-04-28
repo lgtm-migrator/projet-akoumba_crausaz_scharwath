@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

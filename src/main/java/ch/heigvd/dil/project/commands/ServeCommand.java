@@ -4,6 +4,8 @@ import ch.heigvd.dil.project.StaticFileHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.logging.Logger;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -14,7 +16,7 @@ import picocli.CommandLine.Command;
         version = "1.0",
         mixinStandardHelpOptions = true)
 public class ServeCommand implements Runnable {
-
+    private static final Logger LOG = Logger.getLogger(ServeCommand.class.getName());
     @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
 
@@ -31,8 +33,9 @@ public class ServeCommand implements Runnable {
             server.createContext("/", new StaticFileHandler(websitePath));
             server.setExecutor(null); // creates a default executor
             server.start();
-            System.out.println("Server started on port " + port);
+            LOG.info(String.format("Server started on port %d", port));
         } catch (IOException e) {
+            LOG.severe(String.format("Could not start server on port %d", port));
             throw new RuntimeException(e);
         }
     }

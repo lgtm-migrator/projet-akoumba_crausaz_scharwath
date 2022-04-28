@@ -1,6 +1,6 @@
 package ch.heigvd.dil.project;
 
-import static ch.heigvd.dil.project.FilesManager.FileManager.parserMarkdownToHtml;
+import static ch.heigvd.dil.project.core.FilesManager.FileManager.parserMarkdownToHtml;
 
 import org.junit.Assert;
 import org.junit.Test;
