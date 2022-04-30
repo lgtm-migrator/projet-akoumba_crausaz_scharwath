@@ -19,7 +19,7 @@ import java.util.logging.Logger;
         description = "Serve sub-command",
         version = "1.0",
         mixinStandardHelpOptions = true)
-public class ServeCommand implements Runnable {
+public class ServeCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(ServeCommand.class.getName());
     @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
@@ -31,17 +31,16 @@ public class ServeCommand implements Runnable {
     )
     int port;
 
-    @Override
     public void run() {
+        super.run(websitePath);
         try {
             int configPort = App.getInstance().getRootConfig().getURI().getPort();
-            LOG.info(App.getInstance().getRootPath());
-            LOG.info(App.getInstance().getRootConfig().getURI().toString());
+            LOG.info("Configured port: " + App.getInstance().getRootConfig().getURI().toString());
             if (port == -1) {
                 port = configPort == -1 ? 8080 : configPort;
             }
             var server = HttpServer.create(new InetSocketAddress(port), 0);
-            server.createContext("/", new StaticFileHandler(Path.of(websitePath,"build")));
+            server.createContext("/", new StaticFileHandler(Path.of(websitePath, "build")));
             server.setExecutor(null); // creates a default executor
             server.start();
             LOG.info(String.format("Server started on port %d", port));

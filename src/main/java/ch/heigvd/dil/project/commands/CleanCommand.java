@@ -12,15 +12,14 @@ import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the clean command. */
 @Command(name = "clean", description = "Clean sub-command", version = "1.0")
-public class CleanCommand implements Runnable {
+public class CleanCommand extends BaseCommand  {
     static private final Logger LOG = Logger.getLogger(CleanCommand.class.getName());
 
     @CommandLine.Parameters(index = "0", description = "Path to project to clean")
     String deletionPath;
 
-    @Override
     public void run() {
-
+        super.run(deletionPath);
         // If no build folder, skip command
         if (!new File(deletionPath,"build").exists()){
             LOG.severe("No build folder found, skipping clean command");

@@ -18,7 +18,7 @@ import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
-public class InitCommand implements Runnable {
+public class InitCommand extends BaseCommand  {
     private static final Logger LOG = Logger.getLogger(InitCommand.class.getName());
     @CommandLine.Parameters(
             index = "0",
@@ -30,8 +30,8 @@ public class InitCommand implements Runnable {
     String indexFile = "index.md";
     String examplePageFolder = "page";
 
-    @Override
     public void run() {
+        super.run(creationPath);
         Path pathToNewSite = Paths.get(creationPath);
 
         try {
