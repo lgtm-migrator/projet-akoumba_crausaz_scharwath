@@ -1,14 +1,17 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.logging.Logger;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
 
 public class TreeBuilder {
+    private static final Logger LOG = Logger.getLogger(TreeBuilder.class.getName());
     private final File root;
     private final File dest;
 
@@ -40,7 +43,7 @@ public class TreeBuilder {
                     FileUtils.copyFile(file, destFile);
                 }
             }
-            System.out.println(destFile);
+            LOG.info("Copied " + file.getAbsolutePath() + " to " + destFile.getAbsolutePath());
         }
     }
 }
