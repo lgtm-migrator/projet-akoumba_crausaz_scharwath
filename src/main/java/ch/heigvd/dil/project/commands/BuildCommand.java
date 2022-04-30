@@ -6,7 +6,6 @@ import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -16,6 +15,7 @@ import picocli.CommandLine.Command;
 @Command(name = "build", description = "Build sub-command", version = "1.0")
 public class BuildCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(BuildCommand.class.getName());
+
     @CommandLine.Parameters(index = "0", description = "Path to the site to build")
     String creationPath;
 

@@ -2,10 +2,7 @@ package ch.heigvd.dil.project.commands;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.logging.Logger;
-
 import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -21,7 +18,7 @@ public class CleanCommand extends BaseCommand  {
     public void run() {
         super.run(deletionPath);
         // If no build folder, skip command
-        if (!new File(deletionPath,"build").exists()){
+        if (!new File(deletionPath, "build").exists()) {
             LOG.severe("No build folder found, skipping clean command");
             return;
         }
@@ -29,8 +26,10 @@ public class CleanCommand extends BaseCommand  {
         // If we find no configuration file in the folder, we assume that this is not a statique
         // folder
         // so we do not delete it to avoid problems with other programs.
-        if (!new File(deletionPath,"config.yml").exists()){
-            LOG.severe("No configuration file found or it is not a valid project, skipping clean command");
+        if (!new File(deletionPath, "config.yml").exists()) {
+            LOG.severe(
+                    "No configuration file found or it is not a valid project, skipping clean"
+                            + " command");
             return;
         }
 

@@ -72,5 +72,4 @@ public class Configuration {
     public String getLanguage() {
         return language;
     }
-
 }

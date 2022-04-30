@@ -11,9 +11,7 @@ import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-/**
- * This class represents the command line interface for the serve command.
- */
+/** This class represents the command line interface for the serve command. */
 @Command(
         name = "serve",
         description = "Serve sub-command",
@@ -21,6 +19,7 @@ import java.util.logging.Logger;
         mixinStandardHelpOptions = true)
 public class ServeCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(ServeCommand.class.getName());
+
     @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
 
