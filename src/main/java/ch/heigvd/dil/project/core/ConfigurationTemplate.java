@@ -2,9 +2,7 @@ package ch.heigvd.dil.project.core;
 
 import com.github.jknack.handlebars.TypeSafeTemplate;
 
-/**
- * Defines a template definition for injection Configuration
- */
+/** Defines a template definition for injection Configuration */
 public interface ConfigurationTemplate extends TypeSafeTemplate<Configuration> {
 
     ConfigurationTemplate setUrl(String url);

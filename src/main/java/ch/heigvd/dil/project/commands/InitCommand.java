@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -20,6 +19,7 @@ import picocli.CommandLine.Command;
 @Command(name = "init", description = "Init ", version = "1.0")
 public class InitCommand implements Runnable {
     private static final Logger LOG = Logger.getLogger(InitCommand.class.getName());
+
     @CommandLine.Parameters(
             index = "0",
             description = "Path to new site",
@@ -39,14 +39,14 @@ public class InitCommand implements Runnable {
             Files.createDirectories(pathToNewSite);
 
             // Create configuration file
-            ObjectMapper om = new ObjectMapper(
-                    new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
-            );
+            ObjectMapper om =
+                    new ObjectMapper(
+                            new YAMLFactory()
+                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
             om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
             om.writeValue(
                     new File(creationPath, configurationFile),
-                    Configuration.defaultConfiguration()
-            );
+                    Configuration.defaultConfiguration());
 
             // Create index page file
             FileWriter fw = new FileWriter(new File(creationPath, indexFile));
@@ -59,7 +59,7 @@ public class InitCommand implements Runnable {
                 FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
                 fw2.write("# This is the page content");
                 fw2.close();
-            }else{
+            } else {
                 LOG.warning("Could not create example page");
             }
 
@@ -96,8 +96,7 @@ public class InitCommand implements Runnable {
                 FileWriter fw5 = new FileWriter(new File(layoutsFolder, "footer.html"));
                 fw5.write("<footer><p>This is the footer | Copyright 2022</p></footer>");
                 fw5.close();
-            }
-            else{
+            } else {
                 LOG.warning("Could not create layouts");
             }
 
