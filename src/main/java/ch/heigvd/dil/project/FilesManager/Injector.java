@@ -1,7 +1,7 @@
 package ch.heigvd.dil.project.FilesManager;
 
-import ch.heigvd.dil.project.factories.Configuration;
-import ch.heigvd.dil.project.factories.ConfigurationTemplate;
+import ch.heigvd.dil.project.core.Configuration;
+import ch.heigvd.dil.project.core.ConfigurationTemplate;
 import com.github.jknack.handlebars.Handlebars;
 
 import java.io.IOException;

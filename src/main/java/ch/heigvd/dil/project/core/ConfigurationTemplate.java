@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.factories;
+package ch.heigvd.dil.project.core;
 
 import com.github.jknack.handlebars.TypeSafeTemplate;
 

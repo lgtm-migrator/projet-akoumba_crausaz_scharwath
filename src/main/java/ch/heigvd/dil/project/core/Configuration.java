@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.factories;
+package ch.heigvd.dil.project.core;
 
 public class Configuration {
     private String url;
