@@ -6,7 +6,14 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+/**
+ * Tests the template injection system
+ */
 public class InjectorTest {
+    /**
+     * Test the injection of a configuration in a template
+     * @throws IOException
+     */
     @Test
     public void shouldInjectConfiguration () throws IOException {
         Injector inj = new Injector();
