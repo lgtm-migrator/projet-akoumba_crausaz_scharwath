@@ -9,14 +9,14 @@ import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the build command. */
 @Command(name = "build", description = "Build sub-command", version = "1.0")
-public class BuildCommand implements Runnable {
+public class BuildCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(BuildCommand.class.getName());
 
     @CommandLine.Parameters(index = "0", description = "Path to the site to build")
     String creationPath;
 
-    @Override
     public void run() {
+        super.run(this.creationPath);
         // Check if the source projet exists
         var srcDir = new File(creationPath);
         var destDir = new File(srcDir, "build");

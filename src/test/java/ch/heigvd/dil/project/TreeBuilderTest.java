@@ -39,7 +39,8 @@ public class TreeBuilderTest {
                                 dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
                         .size(),
                 FileUtils.listFilesAndDirs(
-                                src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                        .size());
+                                        src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
+                                .size()
+                        - 1);
     }
 }
