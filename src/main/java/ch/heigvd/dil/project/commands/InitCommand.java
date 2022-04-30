@@ -17,7 +17,7 @@ import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
-public class InitCommand extends BaseCommand  {
+public class InitCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(InitCommand.class.getName());
 
     @CommandLine.Parameters(

@@ -4,12 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.FileFileFilter;
-import org.apache.commons.io.filefilter.IOFileFilter;
 
 public class TreeBuilder {
     private static final Logger LOG = Logger.getLogger(TreeBuilder.class.getName());
@@ -30,7 +26,7 @@ public class TreeBuilder {
         ignoreFiles.add(root.toPath().resolve(path).toFile());
     }
 
-    private ArrayList<File> getFiles(File file){
+    private ArrayList<File> getFiles(File file) {
         ArrayList<File> files = new ArrayList<>();
         var childrenFiles = file.listFiles();
         if (childrenFiles == null) return files;

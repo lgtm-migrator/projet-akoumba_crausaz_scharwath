@@ -1,7 +1,6 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.App;
-
 import java.util.logging.Logger;
 
 public abstract class BaseCommand implements Runnable {

@@ -3,26 +3,27 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import okhttp3.HttpUrl;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import okhttp3.HttpUrl;
 
 public class Configuration {
     private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
+
     @JsonProperty("url")
     private String url;
+
     @JsonProperty("author")
     private String author;
+
     @JsonProperty("language")
     private String language;
 
-    public Configuration() {
-    }
+    public Configuration() {}
 
     public Configuration(String url, String author, String language) {
         this.url = url;
@@ -52,7 +53,7 @@ public class Configuration {
             if (!matcher.matches()) {
                 throw new IllegalArgumentException("Invalid URL");
             }
-            //build URI
+            // build URI
             return new HttpUrl.Builder()
                     .scheme(matcher.group(1) != null ? matcher.group(1) : "http")
                     .host(matcher.group(2) != null ? matcher.group(2) : "localhost")

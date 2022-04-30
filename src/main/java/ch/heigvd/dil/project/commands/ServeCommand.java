@@ -3,13 +3,12 @@ package ch.heigvd.dil.project.commands;
 import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import java.util.logging.Logger;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the serve command. */
 @Command(
@@ -26,8 +25,7 @@ public class ServeCommand extends BaseCommand {
     @CommandLine.Option(
             names = {"-p", "--port"},
             description = "Port to listen on",
-            defaultValue = "-1"
-    )
+            defaultValue = "-1")
     int port;
 
     public void run() {

@@ -1,18 +1,16 @@
 package ch.heigvd.dil.project.core;
 
-
 import java.io.File;
 import java.io.IOException;
 
-//TODO add the argument to relative path to cmd path
+// TODO add the argument to relative path to cmd path
 public class App {
-    //singleton
+    // singleton
     private static App instance = null;
 
     private File rootDir = new File("");
 
-    private App() {
-    }
+    private App() {}
 
     public static App getInstance() {
         if (instance == null) {

@@ -3,7 +3,6 @@ package ch.heigvd.dil.project;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
@@ -45,7 +44,7 @@ public class StaticFileHandler implements HttpHandler {
         ex.sendResponseHeaders(200, 0);
         try (OutputStream os = ex.getResponseBody()) {
             Files.copy(file, os);
-        }catch (IOException e) {
+        } catch (IOException e) {
             LOG.warning("Error while serving file " + file);
             ex.sendResponseHeaders(500, -1);
         }

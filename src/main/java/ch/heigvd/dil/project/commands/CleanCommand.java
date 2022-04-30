@@ -9,8 +9,8 @@ import picocli.CommandLine.Command;
 
 /** This class represents the command line interface for the clean command. */
 @Command(name = "clean", description = "Clean sub-command", version = "1.0")
-public class CleanCommand extends BaseCommand  {
-    static private final Logger LOG = Logger.getLogger(CleanCommand.class.getName());
+public class CleanCommand extends BaseCommand {
+    private static final Logger LOG = Logger.getLogger(CleanCommand.class.getName());
 
     @CommandLine.Parameters(index = "0", description = "Path to project to clean")
     String deletionPath;
