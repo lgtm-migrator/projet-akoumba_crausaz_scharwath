@@ -7,9 +7,9 @@ import com.github.jknack.handlebars.TypeSafeTemplate;
  */
 public interface ConfigurationTemplate extends TypeSafeTemplate<Configuration> {
 
-    public ConfigurationTemplate setUrl(String url);
+    ConfigurationTemplate setUrl(String url);
 
-    public ConfigurationTemplate setAuthor(String url);
+    ConfigurationTemplate setAuthor(String url);
 
-    public ConfigurationTemplate setLanguage(String language);
+    ConfigurationTemplate setLanguage(String language);
 }
