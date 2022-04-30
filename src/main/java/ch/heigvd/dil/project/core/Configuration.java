@@ -1,12 +1,9 @@
 package ch.heigvd.dil.project.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
-import java.util.logging.Logger;
 
 public class Configuration {
-    private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
     private String url;
     private String author;
     private String language;
@@ -26,7 +23,6 @@ public class Configuration {
         try {
             return mapper.readValue(file, Configuration.class);
         } catch (Exception ex) {
-            LOG.warning(String.format("Could not read configuration file %s, default config returned", file.getAbsolutePath()));
             return defaultConfiguration();
         }
     }

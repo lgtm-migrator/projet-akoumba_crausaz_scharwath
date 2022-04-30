@@ -5,7 +5,6 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -17,6 +16,7 @@ import picocli.CommandLine.Command;
         mixinStandardHelpOptions = true)
 public class ServeCommand implements Runnable {
     private static final Logger LOG = Logger.getLogger(ServeCommand.class.getName());
+
     @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
 

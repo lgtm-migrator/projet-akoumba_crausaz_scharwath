@@ -4,7 +4,6 @@ import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -12,6 +11,7 @@ import picocli.CommandLine.Command;
 @Command(name = "build", description = "Build sub-command", version = "1.0")
 public class BuildCommand implements Runnable {
     private static final Logger LOG = Logger.getLogger(BuildCommand.class.getName());
+
     @CommandLine.Parameters(index = "0", description = "Path to the site to build")
     String creationPath;
 
@@ -20,7 +20,7 @@ public class BuildCommand implements Runnable {
         // Check if the source projet exists
         var srcDir = new File(creationPath);
         var destDir = new File(srcDir, "build");
-        if (!srcDir.exists()){
+        if (!srcDir.exists()) {
             LOG.severe("The source directory does not exist");
             return;
         }
