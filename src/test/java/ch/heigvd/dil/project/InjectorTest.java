@@ -1,18 +1,14 @@
 package ch.heigvd.dil.project;
 
 import ch.heigvd.dil.project.commands.InitCommand;
-import ch.heigvd.dil.project.core.FilesManager.Injector;
 import ch.heigvd.dil.project.core.Configuration;
-
+import ch.heigvd.dil.project.core.FilesManager.Injector;
 import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Test;
 import picocli.CommandLine;
 
-/**
- * Tests the template injection system
- */
+/** Tests the template injection system */
 public class InjectorTest {
 
     private static final String TEST_FOLDER = "./website";
@@ -20,11 +16,10 @@ public class InjectorTest {
     @Before
     public void initMockProject() {
         // Here we use another command (init)
-        String[] args = new String[]{TEST_FOLDER};
+        String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
     }
-
 
     /**
      * Test the injection of a configuration in a template
@@ -41,35 +36,19 @@ public class InjectorTest {
                         new Configuration("localhost", "Nicolas Crausaz", "fr")));
     }
 
-    /**
-     * Test the injection of site variables
-     */
+    /** Test the injection of site variables */
     @Test
-    public void shouldInjectVariablesWithSiteScope() {
+    public void shouldInjectVariablesWithSiteScope() {}
 
-    }
-
-    /**
-     * Test the injection of page variables
-     */
+    /** Test the injection of page variables */
     @Test
-    public void shouldInjectVariablesWithPageScope() {
+    public void shouldInjectVariablesWithPageScope() {}
 
-    }
-
-    /**
-     * Test the injection of variables
-     */
+    /** Test the injection of variables */
     @Test
-    public void shouldInjectVariables() {
+    public void shouldInjectVariables() {}
 
-    }
-
-    /**
-     * Test page building with layout
-     */
+    /** Test page building with layout */
     @Test
-    public void shouldBuildPageFromDefaultLayout() {
-
-    }
+    public void shouldBuildPageFromDefaultLayout() {}
 }
