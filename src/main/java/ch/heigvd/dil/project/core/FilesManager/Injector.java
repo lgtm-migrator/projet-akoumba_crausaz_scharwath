@@ -4,6 +4,7 @@ import ch.heigvd.dil.project.core.Configuration;
 import ch.heigvd.dil.project.core.ConfigurationTemplate;
 import com.github.jknack.handlebars.Handlebars;
 import java.io.IOException;
+import java.util.Map;
 
 /** Class for template injection & compilations methods */
 public class Injector {
@@ -21,5 +22,10 @@ public class Injector {
         ConfigurationTemplate template =
                 handlebars.compileInline(pageContent).as(ConfigurationTemplate.class);
         return template.apply(config);
+    }
+
+    public String injectLayout(String layout, Map<String, Configuration> scopes) {
+
+        return layout;
     }
 }

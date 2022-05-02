@@ -50,14 +50,14 @@ public class InitCommand extends BaseCommand {
 
             // Create index page file
             FileWriter fw = new FileWriter(new File(creationPath, indexFile));
-            fw.write("# This is the homepage content");
+            fw.write("---\n# This is the homepage content");
             fw.close();
 
             // Create example
             File examplePageFolderFile = new File(creationPath, examplePageFolder);
             if (examplePageFolderFile.mkdir()) {
                 FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
-                fw2.write("# This is the page content");
+                fw2.write("---\n# This is the page content");
                 fw2.close();
             } else {
                 LOG.warning("Could not create example page");
