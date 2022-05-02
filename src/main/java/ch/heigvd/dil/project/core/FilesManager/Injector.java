@@ -1,4 +1,4 @@
-package ch.heigvd.dil.project.FilesManager;
+package ch.heigvd.dil.project.core.FilesManager;
 
 import ch.heigvd.dil.project.core.Configuration;
 import ch.heigvd.dil.project.core.ConfigurationTemplate;
