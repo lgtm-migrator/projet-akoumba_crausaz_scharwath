@@ -3,16 +3,20 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import okhttp3.HttpUrl;
 
 public class Configuration {
     private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
+
+    private String title;
 
     @JsonProperty("url")
     private String url;
@@ -25,14 +29,15 @@ public class Configuration {
 
     public Configuration() {}
 
-    public Configuration(String url, String author, String language) {
+    public Configuration(String url, String author, String language, String title) {
         this.url = url;
         this.author = author;
         this.language = language;
+        this.title = title;
     }
 
     public static Configuration defaultConfiguration() {
-        return new Configuration("localhost:8080", "John Doe", "en");
+        return new Configuration("localhost:8080", "John Doe", "en", "my nice website");
     }
 
     public static Configuration getFromFile(File file) throws IOException {
@@ -72,5 +77,9 @@ public class Configuration {
 
     public String getLanguage() {
         return language;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
