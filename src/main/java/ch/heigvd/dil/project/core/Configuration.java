@@ -21,23 +21,19 @@ public class Configuration {
     @JsonProperty("url")
     private String url;
 
-    @JsonProperty("author")
-    private String author;
-
     @JsonProperty("language")
     private String language;
 
     public Configuration() {}
 
-    public Configuration(String url, String author, String language, String title) {
+    public Configuration(String url, String language, String title) {
         this.url = url;
-        this.author = author;
         this.language = language;
         this.title = title;
     }
 
     public static Configuration defaultConfiguration() {
-        return new Configuration("localhost:8080", "John Doe", "en", "my nice website");
+        return new Configuration("localhost:8080", "en", "my nice website");
     }
 
     public static Configuration getFromFile(File file) throws IOException {
@@ -69,10 +65,6 @@ public class Configuration {
             LOG.warning("Invalid URI: " + url);
             return null;
         }
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     public String getLanguage() {

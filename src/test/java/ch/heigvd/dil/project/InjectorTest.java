@@ -23,6 +23,7 @@ import picocli.CommandLine;
 public class InjectorTest {
 
     private static final String TEST_FOLDER = "./website";
+    private static final String LAYOUT_PATH = TEST_FOLDER + "/layouts/layout";
 
     @Before
     public void initMockProject() {
@@ -44,7 +45,7 @@ public class InjectorTest {
 
         String res = inj.compile(
                 "Hello {{ url }}, {{ author }}, {{ language }}",
-                new Configuration("localhost", "Nicolas Crausaz", "fr", "Mon super site"));
+                new Configuration("localhost", "fr", "Mon super site"));
 
         Assert.assertEquals(res, "Hello localhost, Nicolas Crausaz, fr");
     }
@@ -57,9 +58,9 @@ public class InjectorTest {
     public void shouldInjectVariables() throws IOException {
         Injector inj = new Injector();
 
-        Configuration siteConfig = new Configuration("http://localhost:8080", "Nicolas Crausaz", "fr", "super site");
+        Configuration siteConfig = new Configuration("http://localhost:8080", "fr", "super site");
 
-        System.out.println(inj.injectLayout(Path.of(TEST_FOLDER + "\\layouts" + "\\layout"), siteConfig, null));
+        System.out.println(inj.injectLayout(Path.of(LAYOUT_PATH), siteConfig, null));
     }
 
     /**

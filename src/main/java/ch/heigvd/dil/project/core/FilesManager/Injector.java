@@ -1,7 +1,6 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
 import ch.heigvd.dil.project.core.Configuration;
-import ch.heigvd.dil.project.core.ConfigurationTemplate;
 import ch.heigvd.dil.project.core.PageConfiguration;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
@@ -26,8 +25,8 @@ public class Injector {
     public String compile(String pageContent, Configuration config) throws IOException {
         Handlebars handlebars = new Handlebars();
 
-        ConfigurationTemplate template =
-                handlebars.compileInline(pageContent).as(ConfigurationTemplate.class);
+        Template template =
+                handlebars.compileInline(pageContent);
         return template.apply(config);
     }
 
