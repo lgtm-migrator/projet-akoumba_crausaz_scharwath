@@ -1,26 +1,19 @@
 package ch.heigvd.dil.project;
 
 import ch.heigvd.dil.project.commands.InitCommand;
-import ch.heigvd.dil.project.core.FilesManager.FileManager;
 import ch.heigvd.dil.project.core.FilesManager.Injector;
 import ch.heigvd.dil.project.core.Configuration;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
-import com.github.jknack.handlebars.io.TemplateLoader;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import picocli.CommandLine;
 
-/**
- * Tests the template injection system
- */
+/** Tests the template injection system */
 public class InjectorTest {
 
     private static final String TEST_FOLDER = "./website";
@@ -28,11 +21,10 @@ public class InjectorTest {
     @Before
     public void initMockProject() {
         // Here we use another command (init)
-        String[] args = new String[]{TEST_FOLDER};
+        String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
     }
-
 
     /**
      * Test the injection of a configuration in a template
@@ -74,7 +66,5 @@ public class InjectorTest {
      * Integration test
      */
     @Test
-    public void shouldBuildPageFromDefaultLayout() {
-
-    }
+    public void shouldBuildPageFromDefaultLayout() {}
 }
