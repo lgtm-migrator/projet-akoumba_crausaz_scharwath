@@ -2,7 +2,6 @@ package ch.heigvd.dil.project.core.FilesManager;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -24,8 +23,8 @@ public class FileManager {
     public static String readFile(File file) {
         StringBuilder body = new StringBuilder();
         try (BufferedReader bufferedReader =
-                     new BufferedReader(
-                             new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
+                new BufferedReader(
+                        new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 body.append(line);
