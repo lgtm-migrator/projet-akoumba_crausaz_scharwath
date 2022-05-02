@@ -38,6 +38,7 @@ public class Injector {
 
         Map scopes = new HashMap();
         scopes.put("site", globalConfig);
+        scopes.put("page", pageConfig);
 
         return temp.apply(scopes);
     }

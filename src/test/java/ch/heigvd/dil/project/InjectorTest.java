@@ -7,9 +7,8 @@ import ch.heigvd.dil.project.core.Configuration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
 
+import ch.heigvd.dil.project.core.PageConfiguration;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
@@ -44,10 +43,10 @@ public class InjectorTest {
         Injector inj = new Injector();
 
         String res = inj.compile(
-                "Hello {{ url }}, {{ author }}, {{ language }}",
+                "Hello {{ url }}, {{ title }}, {{ language }}",
                 new Configuration("localhost", "fr", "Mon super site"));
 
-        Assert.assertEquals(res, "Hello localhost, Nicolas Crausaz, fr");
+        Assert.assertEquals(res, "Hello localhost, Mon super site, fr");
     }
 
     /**
@@ -59,8 +58,9 @@ public class InjectorTest {
         Injector inj = new Injector();
 
         Configuration siteConfig = new Configuration("http://localhost:8080", "fr", "super site");
+        PageConfiguration pageConfig = new PageConfiguration("mon titre de page", "Nicolas Crausaz", "2022-05-02");
 
-        System.out.println(inj.injectLayout(Path.of(LAYOUT_PATH), siteConfig, null));
+        System.out.println(inj.injectLayout(Path.of(LAYOUT_PATH), siteConfig, pageConfig));
     }
 
     /**
