@@ -162,6 +162,11 @@ Ci dessous le diagramme de classes du sprint
 
 ## Diagramme de sequence
 
+
+## Problème rencontré
+
+Nous avons rencontré plusieurs fois des merges vers la branche du sprint compliqués, avec beaucoup de conflits. Parfois nous avons perdu du code important lors de merge automatiques, nous n'avons pas vraiment su pourquoi.
+
 ## Ressenti du groupe sur le sprint 2
 
 Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé lors du sprint 1 et ceux du sprint2 commencent à cohabiter. L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle. Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important. Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
