@@ -1,6 +1,7 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.Configuration;
+import ch.heigvd.dil.project.core.FilesManager.ResourcesUtils;
 import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -13,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
+
+import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -51,62 +54,33 @@ public class InitCommand extends BaseCommand {
 
             // Create index page file
             FileWriter fw = new FileWriter(new File(creationPath, indexFile));
-            fw.write(
-                    om.writeValueAsString(PageConfiguration.defaultConfiguration())
-                            + "---\n# This is the homepage content");
+            fw.write(om.writeValueAsString(PageConfiguration.defaultConfiguration()));
+            fw.write("\n---\n");
+            fw.write(ResourcesUtils.getFileFromJarAsString("data/index.md"));
             fw.close();
 
             // Create example
             File examplePageFolderFile = new File(creationPath, examplePageFolder);
             if (examplePageFolderFile.mkdir()) {
                 FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
-                fw2.write(
-                        om.writeValueAsString(PageConfiguration.defaultConfiguration())
-                                + "---\n# This is the page content");
+                fw2.write(om.writeValueAsString(PageConfiguration.defaultConfiguration()));
+                fw2.write("\n---\n");
+                fw2.write(ResourcesUtils.getFileFromJarAsString("data/page.md"));
                 fw2.close();
             } else {
                 LOG.warning("Could not create example page");
             }
 
+            //copy photo.jpg
+            ResourcesUtils.copyFromJar("data/photo.jpg", new File(creationPath, "photo.jpg").toPath());
+
             // Create layouts
-            File layoutsFolder = new File(creationPath, "layouts");
-            if (layoutsFolder.mkdir()) {
-                // Navbar
-                FileWriter fw3 = new FileWriter(new File(layoutsFolder, "navbar.html"));
-                fw3.write(
-                        "<nav>\n"
-                            + "<ol>\n"
-                            + "        <li><a href=\"/index.html\">Home {{site.title}}</a></li>\n"
-                            + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
-                            + "    </ol>\n"
-                            + "</nav>\n");
-                fw3.close();
-
-                // Layout
-                FileWriter fw4 = new FileWriter(new File(layoutsFolder, "layout.html"));
-                fw4.write(
-                        "<html lang=\"{{ site.language }}\">\n"
-                                + "<head>\n"
-                                + "<meta charset=\"utf-8\">\n"
-                                + "<title>{{ site.title }} | {{ page.title }}</title>\n"
-                                + "</head>\n"
-                                + "<body>\n"
-                                + "{{> navbar }}\n"
-                                + "{{{ content }}}\n"
-                                + "{{> footer }}\n"
-                                + "</body>\n"
-                                + "</html>\n");
-                fw4.close();
-
-                // Footer
-                FileWriter fw5 = new FileWriter(new File(layoutsFolder, "footer.html"));
-                fw5.write("<footer><p>This is the footer | Copyright 2022</p></footer>");
-                fw5.close();
-            } else {
-                LOG.warning("Could not create layouts");
+            var layoutsDist = new File(creationPath, "layouts");
+            if (layoutsDist.mkdir()) {
+                ResourcesUtils.copyFromJar("layouts", layoutsDist.toPath());
             }
-
-        } catch (IOException e) {
+        } catch (Exception e) {
+            LOG.warning("Could not create site");
             e.printStackTrace();
         }
     }

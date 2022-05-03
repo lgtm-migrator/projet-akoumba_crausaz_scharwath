@@ -2,7 +2,8 @@ package ch.heigvd.dil.project.core.FilesManager;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
@@ -12,7 +13,7 @@ public class TreeBuilder {
     private final File root;
     private final File dest;
 
-    private final ArrayList<File> ignoreFiles;
+    private final ArrayList<Path> ignoreFiles;
 
     public TreeBuilder(File root, File dest) {
         this.root = root;
@@ -23,40 +24,53 @@ public class TreeBuilder {
     }
 
     private void addIgnoreFile(Path path) {
-        ignoreFiles.add(root.toPath().resolve(path).toFile());
-    }
-
-    private ArrayList<File> getFiles(File file) {
-        ArrayList<File> files = new ArrayList<>();
-        var childrenFiles = file.listFiles();
-        if (childrenFiles == null) return files;
-        for (File childFile : childrenFiles) {
-            if (ignoreFiles.contains(childFile)) continue;
-            files.add(childFile);
-            files.addAll(getFiles(childFile));
-        }
-        return files;
+        ignoreFiles.add(root.toPath().resolve(path));
     }
 
     public void build() throws IOException {
-        var files = getFiles(root);
-        for (File file : files) {
-            var relativePath = root.toPath().relativize(file.toPath());
-            var destFile = new File(dest, relativePath.toString());
-            if (file.getName().endsWith(".md")) {
-                var htmlFile =
-                        new File(
-                                destFile.getParentFile(),
-                                destFile.getName().replace(".md", ".html"));
-                new FileBuilder(file, htmlFile).build();
-            } else {
-                if (file.isDirectory()) {
-                    destFile.mkdirs();
+        Files.walkFileTree(root.toPath(), new SimpleFileVisitor<>() {
+            private void buildFile(Path path) throws IOException {
+                var relativePath = root.toPath().relativize(path);
+                var destFile = new File(dest, relativePath.toString());
+                var file = path.toFile();
+                if (file.getName().endsWith(".md")) {
+                    var htmlFile =
+                            new File(
+                                    destFile.getParentFile(),
+                                    destFile.getName().replace(".md", ".html"));
+                    new FileBuilder(file, htmlFile).build();
                 } else {
-                    FileUtils.copyFile(file, destFile);
+                    if (file.isDirectory()) {
+                        destFile.mkdirs();
+                    } else {
+                        FileUtils.copyFile(file, destFile);
+                    }
                 }
+                LOG.info("Copied " + file.getAbsolutePath() + " to " + destFile.getAbsolutePath());
             }
-            LOG.info("Copied " + file.getAbsolutePath() + " to " + destFile.getAbsolutePath());
-        }
+
+            private boolean visit(Path path, BasicFileAttributes attrs) {
+                if (ignoreFiles.contains(path)) return false;
+                try {
+                    buildFile(path);
+                } catch (IOException e) {
+                    LOG.severe(e.getMessage());
+                    e.printStackTrace();
+                    return false;
+                }
+                return true;
+            }
+
+            @Override
+            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                return !visit(dir, attrs) ? FileVisitResult.SKIP_SUBTREE : super.preVisitDirectory(dir, attrs);
+            }
+
+            @Override
+            public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) throws IOException {
+                visit(path, attrs);
+                return FileVisitResult.CONTINUE;
+            }
+        });
     }
 }
