@@ -27,4 +27,8 @@ public class PageConfiguration {
     public String getDate() {
         return date;
     }
+
+    public static PageConfiguration defaultConfiguration() {
+        return new PageConfiguration("Title page", "My author", "2022-02-02");
+    }
 }

@@ -45,17 +45,13 @@ public class InjectorTest {
 
     /** Test the injection of variables Unit test */
     @Test
-    public void shouldInjectVariables() throws IOException {
+    public void shouldInjectVariablesAndPartialsInLayout() throws IOException {
         Configuration siteConfig = new Configuration("localhost:8080", "fr", "super site");
         PageConfiguration pageConfig =
                 new PageConfiguration("mon titre de page", "Nicolas Crausaz", "2022-05-02");
 
         Injector.injectLayout(Path.of(LAYOUT_PATH), siteConfig, pageConfig, "le contenu");
     }
-
-    /** Test page building with layout Integration test */
-    @Test
-    public void shouldBuildPageFromDefaultLayout() {}
 
     @After
     public void clearProject() throws IOException {
