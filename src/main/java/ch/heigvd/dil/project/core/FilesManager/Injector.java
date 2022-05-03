@@ -29,7 +29,7 @@ public class Injector {
     }
 
     public String injectLayout(
-            Path pathToLayout, Configuration globalConfig, PageConfiguration pageConfig)
+            Path pathToLayout, Configuration globalConfig, PageConfiguration pageConfig, String fileContent)
             throws IOException {
         FileTemplateLoader loader =
                 new FileTemplateLoader(new File(String.valueOf(pathToLayout.getParent())));
@@ -40,6 +40,7 @@ public class Injector {
         Map scopes = new HashMap();
         scopes.put("site", globalConfig);
         scopes.put("page", pageConfig);
+        scopes.put("content", fileContent);
 
         return temp.apply(scopes);
     }

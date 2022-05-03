@@ -91,7 +91,8 @@ public class InitCommand extends BaseCommand {
                                 + "</head>\n"
                                 + "<body>\n"
                                 + "{{> navbar }}\n"
-                                + "{{ content }}\n"
+                                + "{{{ content }}}\n"
+                                + "{{> footer }}\n"
                                 + "</body>\n"
                                 + "</html>\n");
                 fw4.close();

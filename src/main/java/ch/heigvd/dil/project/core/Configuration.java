@@ -1,6 +1,6 @@
 package ch.heigvd.dil.project.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.File;
@@ -16,10 +16,8 @@ public class Configuration {
 
     private String title;
 
-    @JsonProperty("url")
     private String url;
 
-    @JsonProperty("language")
     private String language;
 
     public Configuration() {}
@@ -44,6 +42,7 @@ public class Configuration {
         return url;
     }
 
+    @JsonIgnore
     public URI getURI() {
         try {
             // regex optional scheme + host + optional port
