@@ -1,22 +1,29 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
 import ch.heigvd.dil.project.core.App;
+import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import java.io.*;
+import java.nio.file.Path;
+
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-/** Class used to build the files */
+/**
+ * Class used to build the files
+ */
 public class FileBuilder {
     private final File fileSource;
     private final File fileDestination;
 
+    private PageConfiguration pageConfig;
     private String bodyContent = "";
-    private String headerContent = "";
+    // rivate String headerContent = "";
     private boolean isCompiled = false;
 
     public FileBuilder(File fileSource, File fileDestination) {
@@ -25,10 +32,11 @@ public class FileBuilder {
     }
 
     private void parseYaml(String yaml) throws JsonProcessingException {
-        var mapper = new ObjectMapper(new YAMLFactory());
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
-        var headerBuilder = mapper.readValue(yaml, HeaderBuilder.class);
-        headerContent = headerBuilder.build();
+        pageConfig = mapper.readValue(yaml, PageConfiguration.class);
+        // HeaderBuilder headerBuilder = mapper.readValue(yaml, HeaderBuilder.class);
+        // headerContent = headerBuilder.build();
     }
 
     private void parseMarkdown(String markdown) {
@@ -52,6 +60,7 @@ public class FileBuilder {
         if (parts.length != 2) {
             throw new IOException("File is not well formatted");
         }
+
         parseYaml(parts[0]);
         parseMarkdown(parts[1]);
         isCompiled = true;
@@ -66,15 +75,14 @@ public class FileBuilder {
         if (!isCompiled) {
             compile();
         }
-        var lang = App.getInstance().getRootConfig().getLanguage();
-        var build =
-                String.format(
-                        "<!DOCTYPE html>\n"
-                                + "<html lang=\"%s\">\n"
-                                + "<head>\n%s\n</head>\n"
-                                + "<body>\n%s\n</body>\n"
-                                + "</html>",
-                        lang, headerContent, bodyContent);
+
+        var build = Injector.injectLayout(
+                Path.of(App.getInstance().getRootPath() + "/layouts/layout"),
+                App.getInstance().getRootConfig(),
+                pageConfig,
+                bodyContent
+        );
+
         FileUtils.createParentDirectories(fileDestination);
         var writer = new FileWriter(fileDestination);
         writer.write(build);

@@ -1,11 +1,14 @@
 package ch.heigvd.dil.project.core;
 
 public class PageConfiguration {
-    private final String title;
+    private String title;
 
-    private final String author;
+    private String author;
 
-    private final String date;
+    private String date;
+
+    public PageConfiguration() {
+    }
 
     public PageConfiguration(String title, String author, String date) {
         this.title = title;

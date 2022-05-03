@@ -35,10 +35,8 @@ public class InjectorTest {
      */
     @Test
     public void shouldInjectConfiguration() throws IOException {
-        Injector inj = new Injector();
-
         String res =
-                inj.compile(
+                Injector.compile(
                         "Hello {{ url }}, {{ title }}, {{ language }}",
                         new Configuration("localhost", "fr", "Mon super site"));
 
@@ -48,11 +46,11 @@ public class InjectorTest {
     /** Test the injection of variables Unit test */
     @Test
     public void shouldInjectVariables() throws IOException {
-        Injector inj = new Injector();
-
         Configuration siteConfig = new Configuration("localhost:8080", "fr", "super site");
         PageConfiguration pageConfig =
                 new PageConfiguration("mon titre de page", "Nicolas Crausaz", "2022-05-02");
+
+        Injector.injectLayout(Path.of(LAYOUT_PATH), siteConfig, pageConfig, "le contenu");
     }
 
     /** Test page building with layout Integration test */

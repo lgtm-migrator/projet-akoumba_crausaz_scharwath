@@ -21,14 +21,14 @@ public class Injector {
      * @return Injected string
      * @throws IOException on compilation error
      */
-    public String compile(String pageContent, Configuration config) throws IOException {
+    public static String compile(String pageContent, Configuration config) throws IOException {
         Handlebars handlebars = new Handlebars();
 
         Template template = handlebars.compileInline(pageContent);
         return template.apply(config);
     }
 
-    public String injectLayout(
+    public static String injectLayout(
             Path pathToLayout, Configuration globalConfig, PageConfiguration pageConfig, String fileContent)
             throws IOException {
         FileTemplateLoader loader =
@@ -37,7 +37,7 @@ public class Injector {
         Handlebars handlebars = new Handlebars(loader);
         Template temp = handlebars.compile("layout");
 
-        Map scopes = new HashMap();
+        Map<String, Object> scopes = new HashMap<>();
         scopes.put("site", globalConfig);
         scopes.put("page", pageConfig);
         scopes.put("content", fileContent);
