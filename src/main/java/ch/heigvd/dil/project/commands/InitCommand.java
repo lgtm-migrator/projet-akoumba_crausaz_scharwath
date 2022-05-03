@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,13 +12,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/**
- * This class represents the command line interface for the new command.
- */
+/** This class represents the command line interface for the new command. */
 @Command(name = "init", description = "Init ", version = "1.0")
 public class InitCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(InitCommand.class.getName());
@@ -73,12 +69,11 @@ public class InitCommand extends BaseCommand {
                 // Navbar
                 FileWriter fw3 = new FileWriter(new File(layoutsFolder, "navbar.html"));
                 fw3.write(
-                        "<nav>"
-                                + "    <ol>\n"
-                                + "        <li><a href=\"/index.html\">Home {{site.title}}</a></li>\n"
-                                + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
-                                + "    </ol>\n"
-                                + "</nav>\n");
+                        "<nav>    <ol>\n"
+                            + "        <li><a href=\"/index.html\">Home {{site.title}}</a></li>\n"
+                            + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
+                            + "    </ol>\n"
+                            + "</nav>\n");
                 fw3.close();
 
                 // Layout
