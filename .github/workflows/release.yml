@@ -16,12 +16,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-            - run: mvn -B package --file pom.xml -DskipTests
-            - run: mkdir release && cp target/build.zip release
-            - uses: actions/upload-artifact@v1
-              with:
-                name: Package
-                path: release
+      - run: mvn -B package --file pom.xml -DskipTests
+      - run: mkdir release && cp target/build.zip release
+      - uses: actions/upload-artifact@v1
+        with:
+            name: Package
+            path: release
 
       - name: Create Release
         id: create_release
