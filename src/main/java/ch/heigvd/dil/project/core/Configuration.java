@@ -1,6 +1,6 @@
 package ch.heigvd.dil.project.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.File;
@@ -14,25 +14,22 @@ import okhttp3.HttpUrl;
 public class Configuration {
     private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
 
-    @JsonProperty("url")
+    private String title;
+
     private String url;
 
-    @JsonProperty("author")
-    private String author;
-
-    @JsonProperty("language")
     private String language;
 
     public Configuration() {}
 
-    public Configuration(String url, String author, String language) {
+    public Configuration(String url, String language, String title) {
         this.url = url;
-        this.author = author;
         this.language = language;
+        this.title = title;
     }
 
     public static Configuration defaultConfiguration() {
-        return new Configuration("localhost:8080", "John Doe", "en");
+        return new Configuration("localhost:8080", "en", "my nice website");
     }
 
     public static Configuration getFromFile(File file) throws IOException {
@@ -45,6 +42,7 @@ public class Configuration {
         return url;
     }
 
+    @JsonIgnore
     public URI getURI() {
         try {
             // regex optional scheme + host + optional port
@@ -66,11 +64,11 @@ public class Configuration {
         }
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
     public String getLanguage() {
         return language;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

@@ -12,7 +12,7 @@ public class TreeBuilder {
     private final File root;
     private final File dest;
 
-    private ArrayList<File> ignoreFiles;
+    private final ArrayList<File> ignoreFiles;
 
     public TreeBuilder(File root, File dest) {
         this.root = root;

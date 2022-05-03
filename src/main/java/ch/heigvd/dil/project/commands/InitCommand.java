@@ -1,6 +1,7 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.Configuration;
+import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -50,14 +51,18 @@ public class InitCommand extends BaseCommand {
 
             // Create index page file
             FileWriter fw = new FileWriter(new File(creationPath, indexFile));
-            fw.write("# This is the homepage content");
+            fw.write(
+                    om.writeValueAsString(PageConfiguration.defaultConfiguration())
+                            + "---\n# This is the homepage content");
             fw.close();
 
             // Create example
             File examplePageFolderFile = new File(creationPath, examplePageFolder);
             if (examplePageFolderFile.mkdir()) {
                 FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
-                fw2.write("# This is the page content");
+                fw2.write(
+                        om.writeValueAsString(PageConfiguration.defaultConfiguration())
+                                + "---\n# This is the page content");
                 fw2.close();
             } else {
                 LOG.warning("Could not create example page");
@@ -69,12 +74,12 @@ public class InitCommand extends BaseCommand {
                 // Navbar
                 FileWriter fw3 = new FileWriter(new File(layoutsFolder, "navbar.html"));
                 fw3.write(
-                        "<nav>"
-                                + "    <ol>\n"
-                                + "        <li><a href=\"/index.html\">Home</a></li>\n"
-                                + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
-                                + "    </ol>\n"
-                                + "</nav>\n");
+                        "<nav>\n"
+                            + "<ol>\n"
+                            + "        <li><a href=\"/index.html\">Home {{site.title}}</a></li>\n"
+                            + "        <li><a href=\"/page/page.html\">Page</a></li>\n"
+                            + "    </ol>\n"
+                            + "</nav>\n");
                 fw3.close();
 
                 // Layout
@@ -86,8 +91,9 @@ public class InitCommand extends BaseCommand {
                                 + "<title>{{ site.title }} | {{ page.title }}</title>\n"
                                 + "</head>\n"
                                 + "<body>\n"
-                                + "{% include menu.html }\n"
-                                + "{{ content }}\n"
+                                + "{{> navbar }}\n"
+                                + "{{{ content }}}\n"
+                                + "{{> footer }}\n"
                                 + "</body>\n"
                                 + "</html>\n");
                 fw4.close();

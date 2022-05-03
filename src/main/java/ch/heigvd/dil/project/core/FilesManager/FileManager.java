@@ -16,6 +16,11 @@ public class FileManager {
     }
 
     public static String[] parseFile(File file) {
+        String text = readFile(file);
+        return text.split("---", 2);
+    }
+
+    public static String readFile(File file) {
         StringBuilder body = new StringBuilder();
         try (BufferedReader bufferedReader =
                 new BufferedReader(
@@ -28,7 +33,6 @@ public class FileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String text = body.toString();
-        return text.split("---", 2);
+        return body.toString();
     }
 }
