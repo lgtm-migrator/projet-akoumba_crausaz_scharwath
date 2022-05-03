@@ -7,8 +7,7 @@ public class PageConfiguration {
 
     private String date;
 
-    public PageConfiguration() {
-    }
+    public PageConfiguration() {}
 
     public PageConfiguration(String title, String author, String date) {
         this.title = title;

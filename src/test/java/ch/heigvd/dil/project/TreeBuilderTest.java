@@ -5,10 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
-
 import java.io.File;
 import java.io.IOException;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
@@ -16,9 +14,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+/** Unit test for simple App. */
 public class TreeBuilderTest {
     @Before
     @After
@@ -39,17 +35,21 @@ public class TreeBuilderTest {
         App.getInstance().setRootPath("data/site");
         treeBuilder.build();
         assertTrue(dest.exists());
-        int numOfBuildFiles = FileUtils.listFilesAndDirs(
-                        new File(src + "/build"), FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                .size() + 1;
+        int numOfBuildFiles =
+                FileUtils.listFilesAndDirs(
+                                        new File(src + "/build"),
+                                        FileFileFilter.INSTANCE,
+                                        DirectoryFileFilter.INSTANCE)
+                                .size()
+                        + 1;
 
         assertEquals(
                 FileUtils.listFilesAndDirs(
                                 dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
                         .size(),
                 FileUtils.listFilesAndDirs(
-                                src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                        .size()
+                                        src, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
+                                .size()
                         - numOfBuildFiles);
     }
 }

@@ -5,17 +5,13 @@ import static org.junit.Assert.fail;
 
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.FileBuilder;
-
 import java.io.File;
 import java.io.IOException;
-
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+/** Unit test for simple App. */
 public class FileBuilderTest {
 
     @Before
@@ -33,7 +29,6 @@ public class FileBuilderTest {
         var srcFile = new File("./data/site/index.md");
         var destFile = new File("./data/site/build/index.html");
         var fileBuilder = new FileBuilder(srcFile, destFile);
-
 
         App.getInstance().setRootPath("data/site");
 

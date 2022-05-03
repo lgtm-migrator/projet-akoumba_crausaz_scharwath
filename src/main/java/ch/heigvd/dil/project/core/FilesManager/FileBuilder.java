@@ -5,18 +5,14 @@ import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-
 import java.io.*;
 import java.nio.file.Path;
-
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-/**
- * Class used to build the files
- */
+/** Class used to build the files */
 public class FileBuilder {
     private final File fileSource;
     private final File fileDestination;
@@ -76,12 +72,12 @@ public class FileBuilder {
             compile();
         }
 
-        var build = Injector.injectLayout(
-                Path.of(App.getInstance().getRootPath() + "/layouts/layout"),
-                App.getInstance().getRootConfig(),
-                pageConfig,
-                bodyContent
-        );
+        var build =
+                Injector.injectLayout(
+                        Path.of(App.getInstance().getRootPath() + "/layouts/layout"),
+                        App.getInstance().getRootConfig(),
+                        pageConfig,
+                        bodyContent);
 
         FileUtils.createParentDirectories(fileDestination);
         var writer = new FileWriter(fileDestination);

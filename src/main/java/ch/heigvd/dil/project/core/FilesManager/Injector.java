@@ -29,7 +29,10 @@ public class Injector {
     }
 
     public static String injectLayout(
-            Path pathToLayout, Configuration globalConfig, PageConfiguration pageConfig, String fileContent)
+            Path pathToLayout,
+            Configuration globalConfig,
+            PageConfiguration pageConfig,
+            String fileContent)
             throws IOException {
         FileTemplateLoader loader =
                 new FileTemplateLoader(new File(String.valueOf(pathToLayout.getParent())));
