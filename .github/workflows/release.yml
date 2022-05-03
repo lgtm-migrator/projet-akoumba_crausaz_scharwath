@@ -25,6 +25,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./target/statique.zip
+          asset_path: ./target/build.zip
           asset_name: statique.zip
           asset_content_type: application/zip
