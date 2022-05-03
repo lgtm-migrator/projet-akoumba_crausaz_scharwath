@@ -104,21 +104,21 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 - Refactoring du sprint 1
 - Planification
-  - [ ] Diagramme de PERT
-  - [ ] Enrichir le use case diagram
+  - [x] Diagramme de PERT
+  - [x] Enrichir le use case diagram
 - Modélisation UML
-  - [ ] Diagramme de classe
+  - [x] Diagramme de classe
   - [ ] Diagramme de sequence 
 - Handlebar
-  - [ ] Intégration de Handlebar
+  - [x] Intégration de Handlebar
 - Création de layouts
-  - [ ] headerer
-  - [ ] footer
-  - [ ] navbar/menu
+  - [x] headerer
+  - [x] footer
+  - [x] navbar/menu
  
 - Build du site 
   - [ ] Injecter les variables
-  - [ ] Serveur HTTP: servir les fichiers build
+  - [x] Serveur HTTP: servir les fichiers build
 - Delivration continue
   - [ ] automatiser la création de release
 - Tests :
@@ -129,18 +129,18 @@ Début du second sprint ! Temps de travail : 3 semaines.
 ## Temps estimé des étapes du sprint 2
 | No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
 |----|-----------|-----------|------------|----------|----------|-----------|------------|
-|   1| Refactor du sprint | 2h  | 5h   | 3h | xh | - | #45 |
+|   1| Refactor du sprint | 2h  | 5h   | 3h | 3h | - | #45 |
 |   2| Diagramme UML | 1h  | 3h  | 2h | xh | 1 | #46 |
 |   3| Diagramme de séquence | 1h  | 3h   | 2h | xh | - | #47 |
 |   4| Tests d'intégration | 3h  | 6h  | 4h | xh | 1,2 | #49 |
 |   5| Tests système | 3h  | 6h   | 4h | xh | 1,2 | #50 |
-|   6| Intégration moteur template  | 2h  | 3h | 2h | xh | 1,2 | #52 |
-|   7| Use case UML  | 1h | 2h | 1h | xh | - | #53 |
-|   8| Création layouts | 1h | 2h | 1h | xh | 1 | #54 |
+|   6| Intégration moteur template  | 2h  | 3h | 2h | 2h | 1,2 | #52 |
+|   7| Use case UML  | 1h | 2h | 1h | 1h | - | #53 |
+|   8| Création layouts | 1h | 2h | 1h | 1h | 1 | #54 |
 |   9| Injection build | 3h | 6h | 4h | xh | 8 | #55 |
-|   10| Serveur HTTP  | 2h | 4h | 2h | xh | 9 | #56 |
+|   10| Serveur HTTP  | 2h | 4h | 2h | 2h | 9 | #56 |
 |   11| Release automatique  | 1h | 3h | 1h | xh | - | #57 |
-|   12| Logging | 1h | 3h | 2h | xh | 1 | #58 |
+|   12| Logging | 1h | 3h | 2h | 1h | 1 | #58 |
 
 
 ### PERT
@@ -163,3 +163,5 @@ Ci dessous le diagramme de classes du sprint
 ## Diagramme de sequence
 
 ## Ressenti du groupe sur le sprint 2
+
+Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé lors du sprint 1 et ceux du sprint2 commencent à cohabiter. L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle. Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important. Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
