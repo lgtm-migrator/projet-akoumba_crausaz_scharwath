@@ -3,7 +3,8 @@ package ch.heigvd.dil.project.core;
 /**
  * Defines a page configuration
  *
- * A page configuration can be injected in templates and define a header structure for page files.
+ * <p>A page configuration can be injected in templates and define a header structure for page
+ * files.
  */
 public class PageConfiguration {
     private String title;
@@ -14,12 +15,14 @@ public class PageConfiguration {
 
     /**
      * Creates an empty page configuration
-     * Empty constructor is needed for YAML conversion
+     *
+     * <p>Empty constructor is needed for YAML conversion
      */
     public PageConfiguration() {}
 
     /**
      * Creates a page configuration
+     *
      * @param title page title
      * @param author page author
      * @param date page date
@@ -32,6 +35,7 @@ public class PageConfiguration {
 
     /**
      * Get the page title
+     *
      * @return page title
      */
     public String getTitle() {
@@ -40,6 +44,7 @@ public class PageConfiguration {
 
     /**
      * Get the page author
+     *
      * @return page author
      */
     public String getAuthor() {
@@ -48,6 +53,7 @@ public class PageConfiguration {
 
     /**
      * Get the page publication date
+     *
      * @return page publication date
      */
     public String getDate() {
@@ -56,6 +62,7 @@ public class PageConfiguration {
 
     /**
      * Get a sample configuration
+     *
      * @return default sample configuration
      */
     public static PageConfiguration defaultConfiguration() {

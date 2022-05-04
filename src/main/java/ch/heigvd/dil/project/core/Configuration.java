@@ -3,16 +3,24 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import okhttp3.HttpUrl;
 
 /**
+ * Defines a site configuration
  *
+ * <p>A site configuration can be injected in templates and define global configuration
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class Configuration {
     private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
@@ -23,26 +31,48 @@ public class Configuration {
 
     private String language;
 
-    public Configuration() {}
+    /**
+     * Creates an empty site configuration
+     *
+     * <p>Empty constructor is needed for YAML conversion
+     */
+    public Configuration() {
+    }
 
+    /**
+     * Creates a site configuration
+     * @param url site url
+     * @param language site language
+     * @param title site title
+     */
     public Configuration(String url, String language, String title) {
         this.url = url;
         this.language = language;
         this.title = title;
     }
 
-    public static Configuration defaultConfiguration() {
-        return new Configuration("localhost:8080", "en", "my nice website");
-    }
-
-    public static Configuration getFromFile(File file) throws IOException {
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        mapper.findAndRegisterModules();
-        return mapper.readValue(file, Configuration.class);
-    }
-
+    /**
+     * Get site url
+     * @return site url
+     */
     public String getUrl() {
         return url;
+    }
+
+    /**
+     * Get site language
+     * @return site language
+     */
+    public String getLanguage() {
+        return language;
+    }
+
+    /**
+     * Get site title
+     * @return site title
+     */
+    public String getTitle() {
+        return title;
     }
 
     @JsonIgnore
@@ -67,11 +97,13 @@ public class Configuration {
         }
     }
 
-    public String getLanguage() {
-        return language;
+    public static Configuration getFromFile(File file) throws IOException {
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        mapper.findAndRegisterModules();
+        return mapper.readValue(file, Configuration.class);
     }
 
-    public String getTitle() {
-        return title;
+    public static Configuration defaultConfiguration() {
+        return new Configuration("localhost:8080", "en", "my nice website");
     }
 }

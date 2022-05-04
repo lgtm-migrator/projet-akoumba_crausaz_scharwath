@@ -11,7 +11,13 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-/** Class for template injection & compilations methods */
+/**
+ * Class for template injection & compilations methods
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class Injector {
     /**
      * Inject a configuration in a templated string
@@ -28,6 +34,15 @@ public class Injector {
         return template.apply(config);
     }
 
+    /**
+     * Inject template with application scopes and file content
+     * @param pathToLayout path to the main layout file
+     * @param globalConfig global configuration
+     * @param pageConfig   page configuration
+     * @param fileContent  file content to inject
+     * @return Injected content
+     * @throws IOException in case of injection error
+     */
     public static String injectLayout(
             Path pathToLayout,
             Configuration globalConfig,
@@ -38,13 +53,13 @@ public class Injector {
                 new FileTemplateLoader(new File(String.valueOf(pathToLayout.getParent())));
         loader.setSuffix(".html");
         Handlebars handlebars = new Handlebars(loader);
-        Template temp = handlebars.compile("layout");
+        Template template = handlebars.compile("layout");
 
         Map<String, Object> scopes = new HashMap<>();
         scopes.put("site", globalConfig);
         scopes.put("page", pageConfig);
         scopes.put("content", fileContent);
 
-        return temp.apply(scopes);
+        return template.apply(scopes);
     }
 }
