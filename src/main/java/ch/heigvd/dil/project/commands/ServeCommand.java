@@ -3,14 +3,13 @@ package ch.heigvd.dil.project.commands;
 import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.nio.file.Path;
 import java.util.logging.Logger;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the serve command.
@@ -26,9 +25,11 @@ import java.util.logging.Logger;
         mixinStandardHelpOptions = true)
 public class ServeCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(ServeCommand.class.getName());
-    private final static int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_PORT = 8080;
+
     @CommandLine.Parameters(index = "0", description = "Path to site", defaultValue = "./newsite")
     String websitePath;
+
     @CommandLine.Option(
             names = {"-p", "--port"},
             description = "Port to listen on",

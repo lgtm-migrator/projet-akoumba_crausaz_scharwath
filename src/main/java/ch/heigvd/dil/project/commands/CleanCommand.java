@@ -1,12 +1,11 @@
 package ch.heigvd.dil.project.commands;
 
-import org.apache.commons.io.FileUtils;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the clean command.
@@ -18,8 +17,7 @@ import java.util.logging.Logger;
 @Command(
         name = "clean",
         description = "Clean the project, removing all build files.",
-        version = "1.0"
-)
+        version = "1.0")
 public class CleanCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(CleanCommand.class.getName());
 
@@ -42,7 +40,9 @@ public class CleanCommand extends BaseCommand {
         // If we find no configuration file in the folder, we assume that this is not a project,
         // so we do not delete it to avoid problems with other programs.
         if (!new File(deletionPath, "config.yml").exists()) {
-            LOG.severe("No configuration file found or it is not a valid project, skipping clean command");
+            LOG.severe(
+                    "No configuration file found or it is not a valid project, skipping clean"
+                            + " command");
             return;
         }
 

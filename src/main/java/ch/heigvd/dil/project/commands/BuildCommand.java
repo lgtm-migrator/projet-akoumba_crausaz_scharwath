@@ -1,12 +1,11 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the build command.
@@ -18,8 +17,7 @@ import java.util.logging.Logger;
 @Command(
         name = "build",
         description = "Build the project in a build folder destination",
-        version = "1.0"
-)
+        version = "1.0")
 public class BuildCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(BuildCommand.class.getName());
 
