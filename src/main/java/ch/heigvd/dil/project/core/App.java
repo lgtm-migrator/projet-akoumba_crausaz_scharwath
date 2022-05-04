@@ -3,15 +3,26 @@ package ch.heigvd.dil.project.core;
 import java.io.File;
 import java.io.IOException;
 
-// TODO add the argument to relative path to cmd path
+/**
+ * Define an app instance
+ *
+ * <p>Helps to access to the command context
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class App {
-    // singleton
+    // Singleton
     private static App instance = null;
 
     private File rootDir = new File("");
 
+    private Configuration rootConfig = null;
+
     private App() {}
 
+    /** Get the instance of the app */
     public static App getInstance() {
         if (instance == null) {
             instance = new App();
@@ -19,8 +30,7 @@ public class App {
         return instance;
     }
 
-    private Configuration rootConfig = null;
-
+    /** Get the root configuration of the app */
     public Configuration getRootConfig() {
         if (rootConfig == null) {
             try {
@@ -34,15 +44,26 @@ public class App {
         return rootConfig;
     }
 
+    /** Get the root directory of the app */
     public File getRootDir() {
         return rootDir;
     }
 
-    public String getRootPath() {
-        return getRootDir().getAbsolutePath();
-    }
-
+    /**
+     * Set the root directory of the app
+     *
+     * @param rootPath the root directory
+     */
     public void setRootPath(String rootPath) {
         this.rootDir = new File(rootPath);
+    }
+
+    /**
+     * Get the root directory of the app
+     *
+     * @return path of the root directory
+     */
+    public String getRootPath() {
+        return getRootDir().getAbsolutePath();
     }
 }
