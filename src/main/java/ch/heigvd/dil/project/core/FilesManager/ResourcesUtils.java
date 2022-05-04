@@ -17,7 +17,7 @@ public class ResourcesUtils {
 
     /**
      * Copy a resource to a destination
-
+     *
      * @param sourcePath wanted resources path
      * @param target path to the destination
      * @throws URISyntaxException if ressource not found

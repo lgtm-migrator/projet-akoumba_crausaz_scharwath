@@ -5,10 +5,8 @@ import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-
 import java.io.*;
 import java.nio.file.Path;
-
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
@@ -31,7 +29,7 @@ public class FileBuilder {
     /**
      * Create a new file builder
      *
-     * @param fileSource      source file
+     * @param fileSource source file
      * @param fileDestination destination file after build
      */
     public FileBuilder(File fileSource, File fileDestination) {

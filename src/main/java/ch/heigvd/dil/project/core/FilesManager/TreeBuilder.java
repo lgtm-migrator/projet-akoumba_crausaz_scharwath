@@ -6,7 +6,6 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -39,6 +38,7 @@ public class TreeBuilder {
 
     /**
      * Build files of structures and move them to destination
+     *
      * @throws IOException if source / destination not found
      */
     public void build() throws IOException {
@@ -100,6 +100,7 @@ public class TreeBuilder {
 
     /**
      * Ignore path while building
+     *
      * @param path path to ignore
      */
     private void addIgnoreFile(Path path) {
