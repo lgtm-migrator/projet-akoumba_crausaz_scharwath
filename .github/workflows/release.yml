@@ -1,0 +1,45 @@
+name: Release on tags
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - run: mvn -B package --file pom.xml -DskipTests
+      - run: mkdir release && cp target/build.zip release
+      - uses: actions/upload-artifact@v1
+        with:
+            name: Package
+            path: release
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload ZIP
+        id: upload-zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release/build.zip
+          asset_name: statique.zip
+          asset_content_type: application/zip

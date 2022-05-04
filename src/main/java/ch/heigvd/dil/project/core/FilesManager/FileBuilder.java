@@ -1,45 +1,58 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
+import ch.heigvd.dil.project.core.App;
+import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.*;
+import java.nio.file.Path;
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-/** Class used to build the files */
+/**
+ * Class used to parse and build files
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class FileBuilder {
     private final File fileSource;
     private final File fileDestination;
-
+    private PageConfiguration pageConfig;
     private String bodyContent = "";
-    private String headerContent = "";
     private boolean isCompiled = false;
 
+    /**
+     * Create a new file builder
+     *
+     * @param fileSource source file
+     * @param fileDestination destination file after build
+     */
     public FileBuilder(File fileSource, File fileDestination) {
         this.fileSource = fileSource;
         this.fileDestination = fileDestination;
     }
 
     /**
-     * Parse yaml file and set headerContent
+     * Parse yaml to a page configuration
      *
-     * @param yaml
-     * @throws JsonProcessingException
+     * @param yaml yaml to parse
+     * @throws JsonProcessingException if error while parsing
      */
     private void parseYaml(String yaml) throws JsonProcessingException {
-        var mapper = new ObjectMapper(new YAMLFactory());
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
-        var headerBuilder = mapper.readValue(yaml, HeaderBuilder.class);
-        headerContent = headerBuilder.build();
+        pageConfig = mapper.readValue(yaml, PageConfiguration.class);
     }
 
     /**
-     * Parse markdown file and set bodyContent
+     * Parse markdown content as HTML
      *
-     * @param markdown
+     * @param markdown markdown content to parse
      */
     private void parseMarkdown(String markdown) {
         markdown = markdown.replaceAll(".md", ".html");
@@ -49,6 +62,11 @@ public class FileBuilder {
         bodyContent = htmlRenderer.render(document);
     }
 
+    /**
+     * Compile a page file to a buildable state
+     *
+     * @throws IOException if file not found or is not well formatted
+     */
     public void compile() throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new FileReader(fileSource));
@@ -62,6 +80,7 @@ public class FileBuilder {
         if (parts.length != 2) {
             throw new IOException("File is not well formatted");
         }
+
         parseYaml(parts[0]);
         parseMarkdown(parts[1]);
         isCompiled = true;
@@ -76,15 +95,14 @@ public class FileBuilder {
         if (!isCompiled) {
             compile();
         }
+
         var build =
-                String.format(
-                        "<!DOCTYPE html>\n"
-                                + "<html lang=\"en\">\n"
-                                + // TODO Get language from config
-                                "<head>\n%s\n</head>\n"
-                                + "<body>\n%s\n</body>\n"
-                                + "</html>",
-                        headerContent, bodyContent);
+                Injector.injectLayout(
+                        Path.of(App.getInstance().getRootPath() + "/layouts/layout"),
+                        App.getInstance().getRootConfig(),
+                        pageConfig,
+                        bodyContent);
+
         FileUtils.createParentDirectories(fileDestination);
         var writer = new FileWriter(fileDestination);
         writer.write(build);

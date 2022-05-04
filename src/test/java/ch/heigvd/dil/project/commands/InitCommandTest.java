@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import org.codehaus.plexus.util.FileUtils;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import picocli.CommandLine;
 
@@ -15,35 +13,47 @@ public class InitCommandTest {
 
     static final String TEST_FOLDER = "./website";
 
-    @Before
-    public void initProject() {
+    @Test
+    public void shouldCreateAFolder() throws IOException {
         String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
-    }
 
-    @Test
-    public void shouldCreateAFolder() {
         assertTrue(new File(TEST_FOLDER).exists());
+
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     @Test
-    public void shouldCreateAConfigFile() {
+    public void shouldCreateAConfigFile() throws IOException {
+        String[] args = new String[] {TEST_FOLDER};
+        CommandLine cmd = new CommandLine(new InitCommand());
+        cmd.execute(args);
+
         assertTrue(new File(TEST_FOLDER + "/config.yml").exists());
+
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     @Test
-    public void shouldCreateAnMarkdownIndexFile() {
+    public void shouldCreateAnMarkdownIndexFile() throws IOException {
+        String[] args = new String[] {TEST_FOLDER};
+        CommandLine cmd = new CommandLine(new InitCommand());
+        cmd.execute(args);
+
         assertTrue(new File(TEST_FOLDER + "/index.md").exists());
+
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     @Test
-    public void shouldCreateAExamplePageWithMarkdown() {
-        assertTrue(new File(TEST_FOLDER + "/page/page.md").exists());
-    }
+    public void shouldCreateAExamplePageWithMarkdown() throws IOException {
+        String[] args = new String[] {TEST_FOLDER};
+        CommandLine cmd = new CommandLine(new InitCommand());
+        cmd.execute(args);
 
-    @After
-    public void deleteProject() throws IOException {
+        assertTrue(new File(TEST_FOLDER + "/page/page.md").exists());
+
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 }

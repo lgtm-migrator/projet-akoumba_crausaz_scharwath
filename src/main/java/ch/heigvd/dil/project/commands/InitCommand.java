@@ -1,67 +1,117 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.core.FilesManager.FileManager;
-import ch.heigvd.dil.project.core.PageParams;
+import ch.heigvd.dil.project.core.Configuration;
+import ch.heigvd.dil.project.core.FilesManager.ResourcesUtils;
+import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/** This class represents the command line interface for the new command. */
-@Command(name = "init", description = "Init ", version = "1.0")
-public class InitCommand implements Runnable {
+/**
+ * This class represents the command line interface for the new command.
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
+@Command(
+        name = "init",
+        description = "Initialize a new project with a default configuration and structure.",
+        version = "1.0")
+public class InitCommand extends BaseCommand {
+    private static final Logger LOG = Logger.getLogger(InitCommand.class.getName());
+    private static final String CONFIGURATION_FILE = "config.yml";
+    private static final String INDEX_FILE = "index.md";
+    private static final String EXAMPLE_PAGE_FOLDER = "page";
 
     @CommandLine.Parameters(
             index = "0",
             description = "Path to new site",
-            defaultValue = "./newsite")
+            defaultValue = "./my-super-site")
     String creationPath;
 
-    String configurationFile = "config.yml";
-    String indexFile = "index.md";
-    String examplePageFolder = "/page";
-
-    @CommandLine.Parameters(index = "1", description = "Skip user interaction", defaultValue = "")
-    String shouldSkip;
+    @Override
+    protected String getRootPath() {
+        return creationPath;
+    }
 
     @Override
-    public void run() {
+    public void execute() {
+        Path pathToNewSite = Paths.get(creationPath);
+
+        // Create main directories
         try {
-            // Create main directories
-            FileManager.createDirectoryStructure(creationPath);
-
-            // Create configuration file
-            FileManager.generateConfigurationFile(creationPath, configurationFile, null);
-
-            // Create index page file
-            PageParams params = PageParams.defaultPageParams();
-
-            ObjectMapper om =
-                    new ObjectMapper(
-                            new YAMLFactory()
-                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
-            om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-            om.writeValue(new File(creationPath, indexFile), params);
-
-            FileManager.writeToFile(
-                    creationPath, indexFile, "---\n# This is the homepage content", true);
-
-            // Create example page (subdirectory)
-            FileManager.createDirectoryStructure(creationPath + examplePageFolder);
-
-            om.writeValue(new File(creationPath + examplePageFolder, "page.md"), params);
-            FileManager.writeToFile(
-                    creationPath + examplePageFolder,
-                    "page.md",
-                    "---\n# This is the page content",
-                    true);
-
+            Files.createDirectories(pathToNewSite);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.severe("Error while creating directories: " + e.getMessage());
+            return;
+        }
+
+        ObjectMapper om =
+                new ObjectMapper(
+                        new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
+        om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // Create configuration file
+        try {
+            om.writeValue(
+                    new File(creationPath, CONFIGURATION_FILE),
+                    Configuration.defaultConfiguration());
+        } catch (IOException e) {
+            LOG.severe("Error while creating configuration file: " + e.getMessage());
+            return;
+        }
+
+        // Create index page file and copy example page from resources
+        try {
+            FileWriter fw = new FileWriter(new File(creationPath, INDEX_FILE));
+            fw.write(om.writeValueAsString(PageConfiguration.defaultConfiguration()));
+            fw.write("\n---\n");
+            fw.write(ResourcesUtils.getFileFromJarAsString("data/index.md"));
+            fw.close();
+        } catch (Exception e) {
+            LOG.warning("Error while creating index page file: " + e.getMessage());
+        }
+
+        // Create example page from resources
+        try {
+            File examplePageFolderFile = new File(creationPath, EXAMPLE_PAGE_FOLDER);
+            if (!examplePageFolderFile.mkdir())
+                throw new IOException("Error while creating example page folder");
+            FileWriter fw2 = new FileWriter(new File(examplePageFolderFile, "page.md"));
+            fw2.write(om.writeValueAsString(PageConfiguration.defaultConfiguration()));
+            fw2.write("\n---\n");
+            fw2.write(ResourcesUtils.getFileFromJarAsString("data/page.md"));
+            fw2.close();
+        } catch (Exception e) {
+            LOG.warning("Error while creating example page: " + e.getMessage());
+        }
+
+        // copy photo.jpg
+        try {
+            ResourcesUtils.copyFromJar(
+                    "data/photo.jpg", new File(creationPath, "photo.jpg").toPath());
+        } catch (Exception e) {
+            LOG.warning("Error while copying photo.jpg: " + e.getMessage());
+        }
+
+        // Create layouts
+        try {
+            var layoutsDist = new File(creationPath, "layouts");
+            if (!layoutsDist.mkdir()) throw new IOException("Error while creating layouts folder");
+            ResourcesUtils.copyFromJar("layouts", layoutsDist.toPath());
+        } catch (Exception e) {
+            LOG.warning("Error while creating layouts: " + e.getMessage());
         }
     }
 }

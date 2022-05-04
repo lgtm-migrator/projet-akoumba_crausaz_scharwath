@@ -1,67 +1,109 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.FileFileFilter;
 
-/** This class is used to build and compile the tree of files. */
+/**
+ * Class used to make actions on file structures
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class TreeBuilder {
+    private static final Logger LOG = Logger.getLogger(TreeBuilder.class.getName());
     private final File root;
     private final File dest;
 
+    private final ArrayList<Path> ignoreFiles;
+
+    /**
+     * Create a new TreeBuilder
+     *
+     * @param root source structure
+     * @param dest destination folder
+     */
     public TreeBuilder(File root, File dest) {
         this.root = root;
         this.dest = dest;
+        ignoreFiles = new ArrayList<>();
+        addIgnoreFile(Path.of("build"));
+        addIgnoreFile(Path.of("config.yml"));
     }
 
-    /** This method is used to build the tree of files. */
-    public void build() {
-        // TODO: Check if the root is a valid project directory
-        // TODO: use Configuration
-        // TODO: logs errors and info
+    /**
+     * Build files of structures and move them to destination
+     *
+     * @throws IOException if source / destination not found
+     */
+    public void build() throws IOException {
+        Files.walkFileTree(
+                root.toPath(),
+                new SimpleFileVisitor<>() {
+                    private void buildFile(Path path) throws IOException {
+                        var relativePath = root.toPath().relativize(path);
+                        var destFile = new File(dest, relativePath.toString());
+                        var file = path.toFile();
+                        if (file.getName().endsWith(".md")) {
+                            var htmlFile =
+                                    new File(
+                                            destFile.getParentFile(),
+                                            destFile.getName().replace(".md", ".html"));
+                            new FileBuilder(file, htmlFile).build();
+                        } else {
+                            if (file.isDirectory()) {
+                                destFile.mkdirs();
+                            } else {
+                                FileUtils.copyFile(file, destFile);
+                            }
+                        }
+                        LOG.info(
+                                "Copied "
+                                        + file.getAbsolutePath()
+                                        + " to "
+                                        + destFile.getAbsolutePath());
+                    }
 
-        var files =
-                new ArrayList<>(
-                        FileUtils.listFilesAndDirs(
-                                root, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE));
-        Collections.reverse(files); // reverse the list to have the root at first
-        for (File file : files) {
-            if (file == root) continue; // skip the root
-            if (!file.exists()) continue; // skip the non-existing files
+                    private boolean visit(Path path, BasicFileAttributes attrs) {
+                        if (ignoreFiles.contains(path)) return false;
+                        try {
+                            buildFile(path);
+                        } catch (IOException e) {
+                            LOG.severe(e.getMessage());
+                            e.printStackTrace();
+                            return false;
+                        }
+                        return true;
+                    }
 
-            var relativePath = root.toPath().relativize(file.toPath()); // get the relative path
-            var destFile = new File(dest, relativePath.toString()); // get the destination file
+                    @Override
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
+                            throws IOException {
+                        return !visit(dir, attrs)
+                                ? FileVisitResult.SKIP_SUBTREE
+                                : super.preVisitDirectory(dir, attrs);
+                    }
 
-            if (file.isDirectory()) { // if it's a directory create it
-                if (!destFile.mkdirs()) {
-                    // TODO use logger
-                    System.out.println("Error while creating directory " + destFile.getName());
-                }
-            } else if (file.getName().endsWith(".md")) { // if it's a markdown file compile it
-                // rename the file to .html
-                var htmlFile =
-                        new File(
-                                destFile.getParentFile(),
-                                destFile.getName().replace(".md", ".html"));
-                try {
-                    new FileBuilder(file, htmlFile).build();
-                } catch (Exception e) {
-                    // TODO use logger
-                    System.out.println("Error while building file " + file.getName());
-                    e.printStackTrace();
-                }
-            } else { // if it's not a markdown file copy it
-                try {
-                    FileUtils.copyFile(file, destFile);
-                } catch (Exception e) {
-                    // TODO use logger
-                    System.out.println("Error while copying file " + file.getName());
-                    e.printStackTrace();
-                }
-            }
-        }
+                    @Override
+                    public FileVisitResult visitFile(Path path, BasicFileAttributes attrs)
+                            throws IOException {
+                        visit(path, attrs);
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+    }
+
+    /**
+     * Ignore path while building
+     *
+     * @param path path to ignore
+     */
+    private void addIgnoreFile(Path path) {
+        ignoreFiles.add(root.toPath().resolve(path));
     }
 }
