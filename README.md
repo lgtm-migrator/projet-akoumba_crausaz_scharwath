@@ -57,17 +57,17 @@ Début du premier sprint ! Temps de travail : 3 semaines.
   - [x] Ne pas autoriser de merge si les tests ne passent pas
 
 ## Temps estimé des étapes du sprint 1
-| No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
-|----|-----------|-----------|------------|----------|----------|-----------|------------|
-|   1| Diagramme de PERT | 1h  | 2h   | 1h | 1h | - | #25 |
-|   2| Diagramme UML Use Case | 1h  | 3h  | 2h | 2h | - | #26 |
-|   3| Choix des différentes formats utilisés | 1h  | 2h   | 1h | 1h | - | - |
-|   4| créer commande `--version` pour afficher la version du générateur de site | 1h  | 2h  | 1h | 1h | 1, 2 | #22 |
-|   5| commande `init`: créer une structure basique | 3h  | 5h  | 4h | 4h | 1, 2 | #20 |
-|   6| Parser les fichiers markdown | 2h  | 4h   | 2h | 2h | 5 | #27 |
-|   7| Fusionner le résultat du parser en une page html | 2h  | 5h   | 3h | 2h | 6 | #28 |
-|   8| Supprimer les fichiers générés (/mon/site/build) | 1h | 2h | 1h | 1h | 7 | #23 |
-|   9| Mettre en place une validation des tests sur push + configration github | 2h | 4h | 3h | 2h | 1, 2 | #24 |
+| No  | Étape                                                                     | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|-----|---------------------------------------------------------------------------|-----------|------------|---------|------|-----------|------------|
+| 1   | Diagramme de PERT                                                         | 1h        | 2h         | 1h      | 1h   | -         | #25        |
+| 2   | Diagramme UML Use Case                                                    | 1h        | 3h         | 2h      | 2h   | -         | #26        |
+| 3   | Choix des différentes formats utilisés                                    | 1h        | 2h         | 1h      | 1h   | -         | -          |
+| 4   | créer commande `--version` pour afficher la version du générateur de site | 1h        | 2h         | 1h      | 1h   | 1, 2      | #22        |
+| 5   | commande `init`: créer une structure basique                              | 3h        | 5h         | 4h      | 4h   | 1, 2      | #20        |
+| 6   | Parser les fichiers markdown                                              | 2h        | 4h         | 2h      | 2h   | 5         | #27        |
+| 7   | Fusionner le résultat du parser en une page html                          | 2h        | 5h         | 3h      | 2h   | 6         | #28        |
+| 8   | Supprimer les fichiers générés (/mon/site/build)                          | 1h        | 2h         | 1h      | 1h   | 7         | #23        |
+| 9   | Mettre en place une validation des tests sur push + configration github   | 2h        | 4h         | 3h      | 2h   | 1, 2      | #24        |
 
 ### PERT
 
@@ -127,25 +127,23 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 
 ## Temps estimé des étapes du sprint 2
-| No | Étape     | Optimiste | Pessimiste | Attendu  | Réel     | Dépend de | Issue liée |
-|----|-----------|-----------|------------|----------|----------|-----------|------------|
-|   1| Refactor du sprint | 2h  | 5h   | 3h | 3h | - | #45 |
-|   2| Diagramme UML | 1h  | 3h  | 2h | xh | 1 | #46 |
-|   3| Diagramme de séquence | 1h  | 3h   | 2h | xh | - | #47 |
-|   4| Tests d'intégration | 3h  | 6h  | 4h | xh | 1,2 | #49 |
-|   5| Tests système | 3h  | 6h   | 4h | xh | 1,2 | #50 |
-|   6| Intégration moteur template  | 2h  | 3h | 2h | 2h | 1,2 | #52 |
-|   7| Use case UML  | 1h | 2h | 1h | 1h | - | #53 |
-|   8| Création layouts | 1h | 2h | 1h | 1h | 1 | #54 |
-|   9| Injection build | 3h | 6h | 4h | xh | 8 | #55 |
-|   10| Serveur HTTP  | 2h | 4h | 2h | 2h | 9 | #56 |
-|   11| Release automatique  | 1h | 3h | 1h | xh | - | #57 |
-|   12| Logging | 1h | 3h | 2h | 1h | 1 | #58 |
+| No  | Étape                       | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|-----|-----------------------------|-----------|------------|---------|------|-----------|------------|
+| 1   | Refactor du sprint          | 2h        | 5h         | 3h      | 3h   | -         | #45        |
+| 2   | Diagramme UML               | 1h        | 3h         | 2h      | 1h   | 1         | #46        |
+| 3   | Diagramme de séquence       | 1h        | 3h         | 2h      | -    | -         | #47        |
+| 4   | Tests d'intégration         | 2h        | 4h         | 3h      | 3h   | 1,2       | #49        |
+| 5   | Tests système               | 1h        | 3h         | 2h      | 1h   | 1,2       | #50        |
+| 6   | Intégration moteur template | 2h        | 3h         | 2h      | 2h   | 1,2       | #52        |
+| 7   | Use case UML                | 1h        | 2h         | 1h      | 1h   | -         | #53        |
+| 8   | Création layouts            | 1h        | 2h         | 1h      | 1h   | 1         | #54        |
+| 9   | Injection build             | 3h        | 6h         | 4h      | 5h   | 8         | #55        |
+| 10  | Serveur HTTP                | 2h        | 4h         | 2h      | 2h   | 9         | #56        |
+| 11  | Release automatique         | 1h        | 3h         | 1h      | 1h   | -         | #57        |
+| 12  | Logging                     | 1h        | 3h         | 2h      | 1h   | 1         | #58        |
 
+### Comparaison temps estimé / temps réel
 
-### PERT
-
-Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 2
 
 ## Diagramme de cas d'utilisation
 
@@ -153,20 +151,22 @@ Ci dessous le diagramme des cas d'utilisation des fonctionnalités attendues à 
 
  ![usecasediagram_v2](https://user-images.githubusercontent.com/71764114/165730750-529c92c5-c7c8-4167-a76a-ac30d3cf8472.png)
 
-## diagramme de classe
+## Diagramme de classe
 
 Ci dessous le diagramme de classes du sprint 
 
 ![diagrammeDeClasse](https://user-images.githubusercontent.com/71764114/165732377-1ed00884-ca77-4608-829d-96514a3bc4a7.png)
 
 
-## Diagramme de sequence
+## Problèmes rencontrés
 
-
-## Problème rencontré
-
-Nous avons rencontré plusieurs fois des merges vers la branche du sprint compliqués, avec beaucoup de conflits. Parfois nous avons perdu du code important lors de merge automatiques, nous n'avons pas vraiment su pourquoi.
+Nous avons rencontré plusieurs fois des merges compliqués vers la branche du sprint, avec beaucoup de conflits. Parfois nous avons perdu des bouts de code importants lors de merge automatiques, nous n'avons pas vraiment su pourquoi.  
+Nous n'avons pas réalisé le diagramme de séquence, car nous sommes encore en train de réfléchir à la structure de notre projet, de ce fait nous réaliserons cette
+tâche durant le prochain sprint.
 
 ## Ressenti du groupe sur le sprint 2
 
-Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé lors du sprint 1 et ceux du sprint2 commencent à cohabiter. L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle. Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important. Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
+Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé lors du sprint 1 et ceux du sprint2 commencent à cohabiter.  
+L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle.
+Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important.  
+Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
