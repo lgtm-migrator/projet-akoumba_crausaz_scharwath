@@ -9,13 +9,10 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
-
-import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -71,8 +68,9 @@ public class InitCommand extends BaseCommand {
                 LOG.warning("Could not create example page");
             }
 
-            //copy photo.jpg
-            ResourcesUtils.copyFromJar("data/photo.jpg", new File(creationPath, "photo.jpg").toPath());
+            // copy photo.jpg
+            ResourcesUtils.copyFromJar(
+                    "data/photo.jpg", new File(creationPath, "photo.jpg").toPath());
 
             // Create layouts
             var layoutsDist = new File(creationPath, "layouts");

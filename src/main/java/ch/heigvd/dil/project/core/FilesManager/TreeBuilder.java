@@ -28,49 +28,59 @@ public class TreeBuilder {
     }
 
     public void build() throws IOException {
-        Files.walkFileTree(root.toPath(), new SimpleFileVisitor<>() {
-            private void buildFile(Path path) throws IOException {
-                var relativePath = root.toPath().relativize(path);
-                var destFile = new File(dest, relativePath.toString());
-                var file = path.toFile();
-                if (file.getName().endsWith(".md")) {
-                    var htmlFile =
-                            new File(
-                                    destFile.getParentFile(),
-                                    destFile.getName().replace(".md", ".html"));
-                    new FileBuilder(file, htmlFile).build();
-                } else {
-                    if (file.isDirectory()) {
-                        destFile.mkdirs();
-                    } else {
-                        FileUtils.copyFile(file, destFile);
+        Files.walkFileTree(
+                root.toPath(),
+                new SimpleFileVisitor<>() {
+                    private void buildFile(Path path) throws IOException {
+                        var relativePath = root.toPath().relativize(path);
+                        var destFile = new File(dest, relativePath.toString());
+                        var file = path.toFile();
+                        if (file.getName().endsWith(".md")) {
+                            var htmlFile =
+                                    new File(
+                                            destFile.getParentFile(),
+                                            destFile.getName().replace(".md", ".html"));
+                            new FileBuilder(file, htmlFile).build();
+                        } else {
+                            if (file.isDirectory()) {
+                                destFile.mkdirs();
+                            } else {
+                                FileUtils.copyFile(file, destFile);
+                            }
+                        }
+                        LOG.info(
+                                "Copied "
+                                        + file.getAbsolutePath()
+                                        + " to "
+                                        + destFile.getAbsolutePath());
                     }
-                }
-                LOG.info("Copied " + file.getAbsolutePath() + " to " + destFile.getAbsolutePath());
-            }
 
-            private boolean visit(Path path, BasicFileAttributes attrs) {
-                if (ignoreFiles.contains(path)) return false;
-                try {
-                    buildFile(path);
-                } catch (IOException e) {
-                    LOG.severe(e.getMessage());
-                    e.printStackTrace();
-                    return false;
-                }
-                return true;
-            }
+                    private boolean visit(Path path, BasicFileAttributes attrs) {
+                        if (ignoreFiles.contains(path)) return false;
+                        try {
+                            buildFile(path);
+                        } catch (IOException e) {
+                            LOG.severe(e.getMessage());
+                            e.printStackTrace();
+                            return false;
+                        }
+                        return true;
+                    }
 
-            @Override
-            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                return !visit(dir, attrs) ? FileVisitResult.SKIP_SUBTREE : super.preVisitDirectory(dir, attrs);
-            }
+                    @Override
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
+                            throws IOException {
+                        return !visit(dir, attrs)
+                                ? FileVisitResult.SKIP_SUBTREE
+                                : super.preVisitDirectory(dir, attrs);
+                    }
 
-            @Override
-            public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) throws IOException {
-                visit(path, attrs);
-                return FileVisitResult.CONTINUE;
-            }
-        });
+                    @Override
+                    public FileVisitResult visitFile(Path path, BasicFileAttributes attrs)
+                            throws IOException {
+                        visit(path, attrs);
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
     }
 }
