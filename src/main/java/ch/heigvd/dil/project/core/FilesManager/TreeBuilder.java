@@ -6,8 +6,16 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+
 import org.apache.commons.io.FileUtils;
 
+/**
+ * Class used to make actions on file structures
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class TreeBuilder {
     private static final Logger LOG = Logger.getLogger(TreeBuilder.class.getName());
     private final File root;
@@ -15,6 +23,12 @@ public class TreeBuilder {
 
     private final ArrayList<Path> ignoreFiles;
 
+    /**
+     * Create a new TreeBuilder
+     *
+     * @param root source structure
+     * @param dest destination folder
+     */
     public TreeBuilder(File root, File dest) {
         this.root = root;
         this.dest = dest;
@@ -23,10 +37,10 @@ public class TreeBuilder {
         addIgnoreFile(Path.of("config.yml"));
     }
 
-    private void addIgnoreFile(Path path) {
-        ignoreFiles.add(root.toPath().resolve(path));
-    }
-
+    /**
+     * Build files of structures and move them to destination
+     * @throws IOException if source / destination not found
+     */
     public void build() throws IOException {
         Files.walkFileTree(
                 root.toPath(),
@@ -82,5 +96,13 @@ public class TreeBuilder {
                         return FileVisitResult.CONTINUE;
                     }
                 });
+    }
+
+    /**
+     * Ignore path while building
+     * @param path path to ignore
+     */
+    private void addIgnoreFile(Path path) {
+        ignoreFiles.add(root.toPath().resolve(path));
     }
 }

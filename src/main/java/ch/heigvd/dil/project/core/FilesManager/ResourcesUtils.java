@@ -16,8 +16,8 @@ import java.util.Collections;
 public class ResourcesUtils {
 
     /**
-     * Copy a resource to a destination
-     * @param sourcePath wanted ressource
+     * Copy a resource folder to a destination
+     * @param sourcePath wanted resources path
      * @param target path to the destination
      * @throws URISyntaxException if ressource not found
      * @throws IOException if destination path not found

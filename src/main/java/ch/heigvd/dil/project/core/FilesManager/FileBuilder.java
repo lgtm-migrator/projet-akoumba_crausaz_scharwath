@@ -5,36 +5,57 @@ import ch.heigvd.dil.project.core.PageConfiguration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import java.io.*;
 import java.nio.file.Path;
+
 import org.apache.commons.io.FileUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-/** Class used to build the files */
+/**
+ * Class used to parse and build files
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class FileBuilder {
     private final File fileSource;
     private final File fileDestination;
-
     private PageConfiguration pageConfig;
     private String bodyContent = "";
-    // rivate String headerContent = "";
     private boolean isCompiled = false;
 
+    /**
+     * Create a new file builder
+     *
+     * @param fileSource      source file
+     * @param fileDestination destination file after build
+     */
     public FileBuilder(File fileSource, File fileDestination) {
         this.fileSource = fileSource;
         this.fileDestination = fileDestination;
     }
 
+    /**
+     * Parse yaml to a page configuration
+     *
+     * @param yaml yaml to parse
+     * @throws JsonProcessingException if error while parsing
+     */
     private void parseYaml(String yaml) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
         pageConfig = mapper.readValue(yaml, PageConfiguration.class);
-        // HeaderBuilder headerBuilder = mapper.readValue(yaml, HeaderBuilder.class);
-        // headerContent = headerBuilder.build();
     }
 
+    /**
+     * Parse markdown content as HTML
+     *
+     * @param markdown markdown content to parse
+     */
     private void parseMarkdown(String markdown) {
         markdown = markdown.replaceAll(".md", ".html");
         Parser parser = Parser.builder().build();
@@ -43,6 +64,11 @@ public class FileBuilder {
         bodyContent = htmlRenderer.render(document);
     }
 
+    /**
+     * Compile a page file to a buildable state
+     *
+     * @throws IOException if file not found or is not well formatted
+     */
     public void compile() throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new FileReader(fileSource));
