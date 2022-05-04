@@ -9,6 +9,9 @@ Dans le cadre du cours DIL de la HEIG-VD, nous allons concevoir un projet consis
 Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois sprints*. En plus de mettre en oeuvre nos compétences techniques, la réalisation de ce projet nous permettra d'appliquer les différents aspects des méthodologies *Agiles*.
 
 # Comment utiliser le projet ?
+
+Il faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
+
 Le projet s'utilise en 4 étapes :
 ### 1. Initialisation du projet
 Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom de `mon/site`.
@@ -285,7 +288,7 @@ Début du second sprint ! Temps de travail : 3 semaines.
   - [x] automatiser la création de release
 - Tests :
   - [x] Tests d'intégration
-  - [ ] Tests système
+  - [x] Tests système
 
 
 ### Temps estimé des étapes du sprint 2
