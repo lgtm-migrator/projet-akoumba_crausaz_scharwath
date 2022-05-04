@@ -163,16 +163,16 @@ Nous avons effectué ce choix parmi les formats JSON, YAML et TOML. Après avoir
 
 ### Dépendances
 
-| Nom        | Description                                                     | Version | Site officiel                        |
-|------------|-----------------------------------------------------------------|---------|--------------------------------------|
-| Maven      | Gestionnaire de projet / dépendances                            | 3.6     | https://maven.apache.org/            |
-| JUnit      | Librairie de test automatisé                                    | 4.13.2  | https://junit.org/junit5/            |
-| Picocli    | Framework de création de CLI                                    | 4.6.3   | https://picocli.info/                |
-| Spotless   | Linter / formatter                                              | 2.22.0  | https://github.com/diffplug/spotless |
-| Jackson    | Outil de sérialisation, nous utilisons les sous-librairies YAML | 2.13.2  | https://github.com/FasterXML/jackson |
-| OkHttp     | Utilisé pour la construction d'URLs                             | 4.9.3   | https://square.github.io/okhttp/     |
-| Commonmark |                                                                 | 0.18.2  |                                      |
-| Handlebars |                                                                 | 4.3.0   |                                      |
+| Nom               | Description                                                     | Version | Site officiel                             |
+|-------------------|-----------------------------------------------------------------|---------|-------------------------------------------|
+| Maven             | Gestionnaire de projet / dépendances                            | 3.6     | https://maven.apache.org/                 |
+| JUnit             | Librairie de test automatisé                                    | 4.13.2  | https://junit.org/junit5/                 |
+| Picocli           | Framework de création de CLI                                    | 4.6.3   | https://picocli.info/                     |
+| Spotless          | Linter / formatter                                              | 2.22.0  | https://github.com/diffplug/spotless      |
+| Jackson           | Outil de sérialisation, nous utilisons les sous-librairies YAML | 2.13.2  | https://github.com/FasterXML/jackson      |
+| OkHttp            | Utilisé pour la construction d'URLs                             | 4.9.3   | https://square.github.io/okhttp/          |
+| Commonmark        | Outils de parsing et conversion markdown                        | 0.18.2  |                                           |
+| Handlebars (Java) | Moteur de templating                                            | 4.3.0   | https://github.com/jknack/handlebars.java |
 
 ## Sprint 1
 
@@ -286,7 +286,7 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 #### Comparaison temps estimé / temps réel
 
-TODO
+Globalement, nous avons respecté les temps attendu et avons même réussir à atteindre des temps optimistes sur certaines tâches.
 
 ### Diagramme de cas d'utilisation
 
