@@ -117,12 +117,12 @@ Début du second sprint ! Temps de travail : 3 semaines.
   - [x] navbar/menu
  
 - Build du site 
-  - [ ] Injecter les variables
+  - [x] Injecter les variables
   - [x] Serveur HTTP: servir les fichiers build
 - Delivration continue
-  - [ ] automatiser la création de release
+  - [x] automatiser la création de release
 - Tests :
-  - [ ] Tests d'intégration
+  - [x] Tests d'intégration
   - [ ] Tests système
 
 
