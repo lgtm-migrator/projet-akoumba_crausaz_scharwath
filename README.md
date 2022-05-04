@@ -168,7 +168,7 @@ void test(int test) {
 - Utiliser la nomination appropriée au langage utilisé.
 - Les noms de variables et commentaires doivent être en anglais.
 
-Ces règles ont été appliquée grâce à la dépendance spotless, qui lint le code automatiquement lorsque nous effectuons un push sur n'importe quelle branche.
+Ces règles ont été appliquées grâce à la dépendance spotless, qui lint le code automatiquement lorsque nous effectuons un push sur n'importe quelle branche.
 Nous avons appliqué une GitHub Action qui permet d'exécuter ce lint si nécessaire après un push (un nouveau commit est ainsi ajouté avec le code reformaté).
 
 # Projet
@@ -306,7 +306,7 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 #### Comparaison temps estimé / temps réel
 
-Globalement, nous avons respecté les temps attendu et avons même réussir à atteindre des temps optimistes sur certaines tâches.
+Globalement, nous avons pour la plupart des tâches respecté les temps attendus, pour certaines nous avons même réussi à atteindre des temps optimistes.
 
 ### Diagramme de cas d'utilisation
 
@@ -329,7 +329,7 @@ tâche durant le prochain sprint.
 
 ### Ressenti du groupe sur le sprint 2
 
-Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé lors du sprint 1 et ceux du sprint2 commencent à cohabiter.  
+Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créés lors du sprint 1 et celles du sprint2 commencent à cohabiter.  
 L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle.
 Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important.  
 Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
