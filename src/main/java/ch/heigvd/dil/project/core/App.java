@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * Define an app instance
  *
- * Helps to access to the command context
+ * <p>Helps to access to the command context
  *
  * @author Akoumba Ludivine
  * @author Crausaz Nicolas
@@ -20,12 +20,9 @@ public class App {
 
     private Configuration rootConfig = null;
 
-    private App() {
-    }
+    private App() {}
 
-    /**
-     * Get the instance of the app
-     */
+    /** Get the instance of the app */
     public static App getInstance() {
         if (instance == null) {
             instance = new App();
@@ -33,9 +30,7 @@ public class App {
         return instance;
     }
 
-    /**
-     * Get the root configuration of the app
-     */
+    /** Get the root configuration of the app */
     public Configuration getRootConfig() {
         if (rootConfig == null) {
             try {
@@ -49,16 +44,14 @@ public class App {
         return rootConfig;
     }
 
-    /**
-     * Get the root directory of the app
-     */
+    /** Get the root directory of the app */
     public File getRootDir() {
         return rootDir;
     }
 
     /**
      * Set the root directory of the app
-     * 
+     *
      * @param rootPath the root directory
      */
     public void setRootPath(String rootPath) {
@@ -67,6 +60,7 @@ public class App {
 
     /**
      * Get the root directory of the app
+     *
      * @return path of the root directory
      */
     public String getRootPath() {

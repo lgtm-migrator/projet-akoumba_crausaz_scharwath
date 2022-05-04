@@ -36,10 +36,11 @@ public class Injector {
 
     /**
      * Inject template with application scopes and file content
+     *
      * @param pathToLayout path to the main layout file
      * @param globalConfig global configuration
-     * @param pageConfig   page configuration
-     * @param fileContent  file content to inject
+     * @param pageConfig page configuration
+     * @param fileContent file content to inject
      * @return Injected content
      * @throws IOException in case of injection error
      */
