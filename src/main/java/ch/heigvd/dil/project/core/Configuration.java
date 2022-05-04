@@ -11,6 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import okhttp3.HttpUrl;
 
+/**
+ *
+ */
 public class Configuration {
     private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
 
