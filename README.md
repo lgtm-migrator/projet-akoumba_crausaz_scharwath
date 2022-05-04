@@ -8,9 +8,29 @@ Dans le cadre du cours DIL de la HEIG-VD, nous allons concevoir un projet consis
 
 Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois sprints*. En plus de mettre en oeuvre nos compétences techniques, la réalisation de ce projet nous permettra d'appliquer les différents aspects des méthodologies *Agiles*.
 
-# Installation
+# Comment utiliser le projet ?
+Le projet s'utilise en 4 étapes :
+### 1. Initialisation du projet
+Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom de `mon/site`.
+Nous allons utiliser la commande `statique init mon/site` pour cela. 
+Cette commande va créer un dossier `mon/site` dans le dossier courant et va créer un exemple de site.
+### 2. Ajouter du contenu et configurer le site
+Maintenant que le projet est initialisé, nous allons ajouter du contenu et configurer le site.
+A la racine du projet se trouve un fichier `config.yml` qui contient la configuration du site.
+Comme l'URL, le titre et la langue du site. Vous remarquerez que le contenu du site utilise des fichiers Markdown.
+Ces fichiers Markdown ont une entête en `yaml` qui contient les informations sur le contenu de la page.
+Remarque : L'arborescence du site restera identique à celui du projet.
 
-TODO:
+### 3. Construction du projet
+Nous allons maintenant construire le projet.
+Nous allons utiliser la commande `statique build mon/site` pour construire le site.
+Cette commande va créer un dossier `build` dans le dossier courant et va convertir tous les fichiers Markdown en HTML.
+Cela va également copier tous les autres fichiers du projet.
+### 4. Création du serveur
+Nous allons maintenant créer le serveur.
+Nous allons utiliser la commande `statique serve mon/site` pour construire le serveur.
+Nous pouvons specifier le port du serveur en utilisant la commande `statique serve mon/site -p 8080`, sinon
+le port sera define par la configuration du site.
 
 # Travail en équipe
 
@@ -43,7 +63,7 @@ Nous nous basons sur une méthodologie agile. En effet, nous souhaitons pouvoir 
 
 Les réunions en présentiel se feront lors des séances de laboratoires à l'école. Durant ces séances, nous ferons le point sur le travail accompli et le travail restant. Nous répondrons aux éventuelles incertitudes des membres du groupe et travaillerons sur des tâches qui demanderaient de la coopération (planification, ...).
 
-### Echanges métiers
+### Échanges métiers
 
 Les échanges / informations liés aux processus de développement et d'aspect technique se feront au travers des outils *GitHub* mis en place :
 
@@ -261,7 +281,7 @@ Début du second sprint ! Temps de travail : 3 semaines.
 - Build du site 
   - [x] Injecter les variables
   - [x] Serveur HTTP: servir les fichiers build
-- Delivration continue
+- Délivration continue
   - [x] automatiser la création de release
 - Tests :
   - [x] Tests d'intégration
