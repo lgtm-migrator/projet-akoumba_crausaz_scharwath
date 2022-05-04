@@ -1,5 +1,8 @@
 package ch.heigvd.dil.project.commands;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,18 +12,13 @@ import org.junit.Before;
 import org.junit.Test;
 import picocli.CommandLine;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-
 public class ServerCommandTest {
     static final String TEST_FOLDER = "./website";
 
-
-    private static final String[] args = new String[]{TEST_FOLDER};
+    private static final String[] args = new String[] {TEST_FOLDER};
 
     @Before
-    public void initAndBuild () {
+    public void initAndBuild() {
         CommandLine cmd1 = new CommandLine(new InitCommand());
         CommandLine cmd2 = new CommandLine(new BuildCommand());
         cmd1.execute(args);
@@ -33,10 +31,7 @@ public class ServerCommandTest {
         cmd.execute(args);
         OkHttpClient client = new OkHttpClient();
 
-
-        Request request = new Request.Builder()
-                .url("http://localhost:8080")
-                .build();
+        Request request = new Request.Builder().url("http://localhost:8080").build();
 
         try (Response response = client.newCall(request).execute()) {
             assert (response.code() == 200);
@@ -44,11 +39,8 @@ public class ServerCommandTest {
         }
     }
 
-
     @After
-    public void clean () throws IOException {
+    public void clean() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
-
-
 }
