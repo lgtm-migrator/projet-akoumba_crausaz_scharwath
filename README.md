@@ -336,3 +336,46 @@ Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créé
 L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle.
 Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important.  
 Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
+
+## Sprint 3
+
+### Étapes du sprint 3
+
+- Modélisation UML
+  - [ ] Modélisation du FileWatcher
+  - [ ] Diagramme de sequence
+  - [ ] Enrichir le use case diagram
+- Documentation
+  - [x] Build la JavaDoc
+  - [ ] Manuel utilisateur
+- File Watch
+  - [ ] Implémenter une abstraction
+  - [ ] Implémenter la commande `--watch`
+- Outils
+  - [ ] Code coverage
+  - [ ] Mesure de performance
+  - [ ] Qualité de code
+- Publish
+  - [ ] Modifier la configuration
+  - [ ] Implémenter la commande `publish` pour publier le build sur un server distant
+- Délivration continue
+  - [ ] Ajouter la JavaDoc à la release
+- Optionnel
+  - [ ] Template CSS
+### Temps estimé des étapes du sprint 3
+
+| No  | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|-----|---------------------------------------------------|-----------|------------|---------|--|-----------|------------|
+| 1   | Créer diagramme de séquence                       | 1h        | 3h         | 2h      |  | -          | #47        |
+| 2   | Build la JavaDoc avec une commande                | 1h        | 2h         | 1h      |  | -          | #73        |
+| 3   | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      |  | 2          | #74        |
+| 4   | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      |  | 11          | #75        |
+| 5   | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      |  | 4          | #76        |
+| 7   | Manuel utilisateur                                | 1h        | 2h         | 1h      |  | -          | #77        |
+| 6   | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      |  | -          | #78        |
+| 8   | Mesure de performance                             | 2h        | 5h         | 3h      |  | -          | #79        |
+| 9   | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      |  | -          | #80        |
+| 10  | Commande publish                                  | 3h        | 6h         | 5h      |  | -          | #81        |
+| 11  | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      |  | -          | #82        |
+| 12  | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      |  | -          | #84        |
+
