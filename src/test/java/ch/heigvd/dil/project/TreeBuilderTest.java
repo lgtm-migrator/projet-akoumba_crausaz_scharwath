@@ -1,6 +1,5 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import ch.heigvd.dil.project.core.App;
@@ -35,7 +34,10 @@ public class TreeBuilderTest {
         App.getInstance().setRootPath("data/site");
         treeBuilder.build();
         assertTrue(dest.exists());
-        assertTrue(FileUtils.listFilesAndDirs(
-                                dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE).size() > 0);
+        assertTrue(
+                FileUtils.listFilesAndDirs(
+                                        dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
+                                .size()
+                        > 0);
     }
 }
