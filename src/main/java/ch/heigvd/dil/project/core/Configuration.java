@@ -3,12 +3,14 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import okhttp3.HttpUrl;
 
 /**
@@ -29,19 +31,28 @@ public class Configuration {
 
     private String language;
 
+    private String publishProtocol;
+
+    private String publishServer;
+
+    private String publishUsername;
+
+    private String publishPassword;
+
     /**
      * Creates an empty site configuration
      *
      * <p>Empty constructor is needed for YAML conversion
      */
-    public Configuration() {}
+    public Configuration() {
+    }
 
     /**
      * Creates a site configuration
      *
-     * @param url site url
+     * @param url      site url
      * @param language site language
-     * @param title site title
+     * @param title    site title
      */
     public Configuration(String url, String language, String title) {
         this.url = url;
@@ -74,6 +85,33 @@ public class Configuration {
      */
     public String getTitle() {
         return title;
+    }
+
+    /**
+     * Get the wished publish protocol
+     *
+     * @return publish protocol
+     */
+    public String getPublishProtocol() {
+        return publishProtocol;
+    }
+
+    /**
+     * Get the username for publishing
+     *
+     * @return username
+     */
+    public String getPublishUsername() {
+        return publishUsername;
+    }
+
+    /**
+     * Get the password for publishing
+     *
+     * @return password
+     */
+    public String getPublishPassword() {
+        return publishPassword;
     }
 
     @JsonIgnore
