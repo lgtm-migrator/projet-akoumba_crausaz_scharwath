@@ -322,7 +322,11 @@ Ci-dessous le diagramme des cas d'utilisation des fonctionnalités attendues à 
 Ci-dessous le diagramme de classes du sprint 
 
 ![diagrammeDeClasse](https://user-images.githubusercontent.com/71764114/165732377-1ed00884-ca77-4608-829d-96514a3bc4a7.png)
+### Diagramme de sequence
 
+Ci-dessous le diagramme de sequence du sprint
+
+![sequenceDiagram](https://user-images.githubusercontent.com/71764114/169264324-7c6d9ad3-fa74-4c99-94a3-244d43bb4919.png)
 
 ### Problèmes rencontrés
 
