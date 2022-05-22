@@ -1,12 +1,9 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.core.App;
-import ch.heigvd.dil.project.core.Configuration;
 import ch.heigvd.dil.project.core.FilesManager.FTPPublisher;
 import picocli.CommandLine;
 
 import java.io.File;
-import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
@@ -35,12 +32,12 @@ public class PublishCommand extends BaseCommand {
     @Override
     protected void execute() {
         if (!new File(buildPath, "build").exists()) {
-            LOG.severe("No build folder found, skipping clean command");
+            LOG.severe("No build folder found, skipping clean publish");
             return;
         }
 
         try {
-            FTPPublisher.publish(buildPath);
+            FTPPublisher.publish(buildPath + "/build");
         } catch (Exception e) {
             LOG.severe(e.toString());
         }

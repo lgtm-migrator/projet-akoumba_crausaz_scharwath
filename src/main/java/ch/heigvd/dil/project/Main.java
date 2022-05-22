@@ -1,9 +1,6 @@
 package ch.heigvd.dil.project;
 
-import ch.heigvd.dil.project.commands.BuildCommand;
-import ch.heigvd.dil.project.commands.CleanCommand;
-import ch.heigvd.dil.project.commands.InitCommand;
-import ch.heigvd.dil.project.commands.ServeCommand;
+import ch.heigvd.dil.project.commands.*;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -13,10 +10,11 @@ import picocli.CommandLine.Command;
         description = "DIL project",
         versionProvider = ManifestVersionProvider.class,
         subcommands = {
-            InitCommand.class,
-            CleanCommand.class,
-            BuildCommand.class,
-            ServeCommand.class
+                InitCommand.class,
+                CleanCommand.class,
+                BuildCommand.class,
+                ServeCommand.class,
+                PublishCommand.class
         })
 public class Main {
     public static void main(String[] args) {

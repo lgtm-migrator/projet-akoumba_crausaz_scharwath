@@ -31,7 +31,7 @@ public class Configuration {
 
     private String language;
 
-    private String publishProtocol;
+    private String publishDir;
 
     private String publishServer;
 
@@ -58,6 +58,7 @@ public class Configuration {
         this.url = url;
         this.language = language;
         this.title = title;
+        this.publishDir = "";
     }
 
     /**
@@ -88,12 +89,12 @@ public class Configuration {
     }
 
     /**
-     * Get the wished publish protocol
+     * Get the path of publish in the remote server
      *
-     * @return publish protocol
+     * @return path of publish
      */
-    public String getPublishProtocol() {
-        return publishProtocol;
+    public String getPublishDir() {
+        return publishDir;
     }
 
     /**
