@@ -4,6 +4,10 @@ import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
+
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -18,6 +22,8 @@ import picocli.CommandLine.Command;
         name = "build",
         description = "Build the project in a build folder destination",
         version = "1.0")
+@Benchmark
+@BenchmarkMode(Mode.AverageTime)
 public class BuildCommand extends BaseCommand {
     private static final Logger LOG = Logger.getLogger(BuildCommand.class.getName());
 

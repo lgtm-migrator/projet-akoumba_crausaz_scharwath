@@ -7,6 +7,7 @@ import ch.heigvd.dil.project.commands.ServeCommand;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
+
 @Command(
         mixinStandardHelpOptions = true,
         name = "dil",
@@ -18,8 +19,11 @@ import picocli.CommandLine.Command;
             BuildCommand.class,
             ServeCommand.class
         })
+
 public class Main {
     public static void main(String[] args) {
         new CommandLine(new Main()).execute(args);
+
+
     }
 }
