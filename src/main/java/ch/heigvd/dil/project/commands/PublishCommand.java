@@ -1,6 +1,13 @@
 package ch.heigvd.dil.project.commands;
 
+import ch.heigvd.dil.project.core.App;
+import ch.heigvd.dil.project.core.Configuration;
+import ch.heigvd.dil.project.core.FilesManager.FTPPublisher;
 import picocli.CommandLine;
+
+import java.io.File;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  * This class represents the command line interface for the publish command.
@@ -16,15 +23,26 @@ import picocli.CommandLine;
         mixinStandardHelpOptions = true)
 public class PublishCommand extends BaseCommand {
     @CommandLine.Parameters(index = "0", description = "Path to the site to publish")
-    String creationPath;
+    String buildPath;
+
+    private static final Logger LOG = Logger.getLogger(PublishCommand.class.getName());
 
     @Override
     protected String getRootPath() {
-        return creationPath;
+        return buildPath;
     }
 
     @Override
     protected void execute() {
+        if (!new File(buildPath, "build").exists()) {
+            LOG.severe("No build folder found, skipping clean command");
+            return;
+        }
 
+        try {
+            FTPPublisher.publish(buildPath);
+        } catch (Exception e) {
+            LOG.severe(e.toString());
+        }
     }
 }

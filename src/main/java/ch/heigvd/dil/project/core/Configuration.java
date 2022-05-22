@@ -114,6 +114,15 @@ public class Configuration {
         return publishPassword;
     }
 
+    /**
+     * Get the destination publish server
+     *
+     * @return publish server
+     */
+    public String getPublishServer() {
+        return publishServer;
+    }
+
     @JsonIgnore
     public URI getURI() {
         try {
