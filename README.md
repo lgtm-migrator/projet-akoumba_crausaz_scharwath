@@ -101,6 +101,38 @@ Les noms des branches doivent être explicites et un préfixe indique quel trava
 - `fb_name`: branche d'ajout de fonctionnalité
 - `rf_name`: branche de refactoring
 
+### Issues
+
+Chaque tâche, correctif ou proposition d'amélioration se fait au travers d'une issue GitHub. Cela permettra de centraliser
+le suivi du travail à faire / en cours, ces issues sont notamment intégrées à l'automatisation d'un Kanban.
+
+Pour faciliter la création de ces issues, nous avons mis en place deux _issues templates_ sur GitHub:
+
+#### Demande de fonctionnalité
+
+Il s'agit du modèle que nous utilisons pour décrire une nouvelle fonctionnalité à ajouter dans notre application. 
+Ce modèle est composé de quatres parties:
+
+- L'estimation du temps nécessaire (est remplie par le(s) développeur(s), généralement en commun lors du début de sprint).
+  Cette estimation contient le nombre d'heures optimiste, pessimiste, attendue et réelle. Cette dernière est indiquée après avoir terminé la tâche.
+- Description de la problématique
+- Description de la solution souhaitée
+- Éventuelles alternatives à considérer
+- Contenu additionnel
+
+Dans certains cas, certaines de ces sections peuvent être omises.
+
+#### Report de bug
+
+Il s'agit du modèle que nous utilisons pour signaler la découverte d'un problème / bug dans notre application.
+Ce modèle est séparé en quatres parties:
+
+- Description concise du problème rencontré
+- Actions à réaliser pour reproduire le bug / screenshots
+- Comportement attendu
+- Indications supplémentaires (OS, version etc.)
+
+
 ## Code review
 
 ### Processus de développement
@@ -174,6 +206,22 @@ void test(int test) {
 Ces règles ont été appliquées grâce à la dépendance spotless, qui lint le code automatiquement lorsque nous effectuons un push sur n'importe quelle branche.
 Nous avons appliqué une GitHub Action qui permet d'exécuter ce lint si nécessaire après un push (un nouveau commit est ainsi ajouté avec le code reformaté).
 
+
+### Tests
+
+Dans notre projet, nous avons mis en place différents types de tests: unitaires, intégration et systèmes, au travers de 
+la librairie JUnit.
+
+Durant le projet, nous nous efforçons à appliquer le *Test First Programming*. Cela consiste en le fait d'écrire une série
+de tests visant à englober les scénarios d'utilisation d'une nouvelle fonctionnalité.
+
+De manière générale, les scénarios de tests sont les suivants:
+
+- Comportement en cas de paramètres invalides
+- Comportement en cas d'état incohérent (principalement au niveau du système de fichiers pour les commandes).
+- Vérification de comportement correct
+- Détection de potentiels cas limites.
+
 # Projet
 
 Dans ce chapitre, nous expliquerons plus en détails le déroulement du projet. Nous discuterons notamment de nos choix d'implémentation, de modélisation et de code reuse au travers des différents sprints.
@@ -196,6 +244,16 @@ Nous avons effectué ce choix parmi les formats JSON, YAML et TOML. Après avoir
 | OkHttp            | Utilisé pour la construction d'URLs                             | 4.9.3   | https://square.github.io/okhttp/          |
 | Commonmark        | Outils de parsing et conversion markdown                        | 0.18.2  |                                           |
 | Handlebars (Java) | Moteur de templating                                            | 4.3.0   | https://github.com/jknack/handlebars.java |
+
+
+Les dépendances suivantes nous ont été imposées: Maven, JUnit, Picocli.
+
+Les autres dépendances ont été choisies après diverses recherches et comparatifs:
+
+**Spotless**
+
+TODO: Explication des choix de ses librairies
+
 
 ## Sprint 1
 
@@ -227,17 +285,19 @@ Temps de travail : 3 semaines.
   - [x] Ne pas autoriser de merge si les tests ne passent pas
 
 ### Temps estimé des étapes du sprint 1
-| No  | Étape                                                                     | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
-|-----|---------------------------------------------------------------------------|-----------|------------|---------|------|-----------|------------|
-| 1   | Diagramme de PERT                                                         | 1h        | 2h         | 1h      | 1h   | -         | #25        |
-| 2   | Diagramme UML Use Case                                                    | 1h        | 3h         | 2h      | 2h   | -         | #26        |
-| 3   | Choix des différentes formats utilisés                                    | 1h        | 2h         | 1h      | 1h   | -         | -          |
-| 4   | créer commande `--version` pour afficher la version du générateur de site | 1h        | 2h         | 1h      | 1h   | 1, 2      | #22        |
-| 5   | commande `init`: créer une structure basique                              | 3h        | 5h         | 4h      | 4h   | 1, 2      | #20        |
-| 6   | Parser les fichiers markdown                                              | 2h        | 4h         | 2h      | 2h   | 5         | #27        |
-| 7   | Fusionner le résultat du parser en une page html                          | 2h        | 5h         | 3h      | 2h   | 6         | #28        |
-| 8   | Supprimer les fichiers générés (/mon/site/build)                          | 1h        | 2h         | 1h      | 1h   | 7         | #23        |
-| 9   | Mettre en place une validation des tests sur push + configration github   | 2h        | 4h         | 3h      | 2h   | 1, 2      | #24        |
+| No       | Étape                                                                     | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|----------|---------------------------------------------------------------------------|-----------|------------|---------|------|-----------|------------|
+| 1        | Diagramme de PERT                                                         | 1h        | 2h         | 1h      | 1h   | -         | #25        |
+| 2        | Diagramme UML Use Case                                                    | 1h        | 3h         | 2h      | 2h   | -         | #26        |
+| 3        | Choix des différentes formats utilisés                                    | 1h        | 2h         | 1h      | 1h   | -         | -          |
+| 4        | créer commande `--version` pour afficher la version du générateur de site | 1h        | 2h         | 1h      | 1h   | 1, 2      | #22        |
+| 5        | commande `init`: créer une structure basique                              | 3h        | 5h         | 4h      | 4h   | 1, 2      | #20        |
+| 6        | Parser les fichiers markdown                                              | 2h        | 4h         | 2h      | 2h   | 5         | #27        |
+| 7        | Fusionner le résultat du parser en une page html                          | 2h        | 5h         | 3h      | 2h   | 6         | #28        |
+| 8        | Supprimer les fichiers générés (/mon/site/build)                          | 1h        | 2h         | 1h      | 1h   | 7         | #23        |
+| 9        | Mettre en place une validation des tests sur push + configration github   | 2h        | 4h         | 3h      | 2h   | 1, 2      | #24        |
+| *Totaux* |                                                                           | 14h       | 29h        | 18h     | 16h  |           |            |
+
 
 #### PERT
 
@@ -292,20 +352,21 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 
 ### Temps estimé des étapes du sprint 2
-| No  | Étape                       | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
-|-----|-----------------------------|-----------|------------|---------|------|-----------|------------|
-| 1   | Refactor du sprint          | 2h        | 5h         | 3h      | 3h   | -         | #45        |
-| 2   | Diagramme UML               | 1h        | 3h         | 2h      | 1h   | 1         | #46        |
-| 3   | Diagramme de séquence       | 1h        | 3h         | 2h      | -    | -         | #47        |
-| 4   | Tests d'intégration         | 2h        | 4h         | 3h      | 3h   | 1,2       | #49        |
-| 5   | Tests système               | 1h        | 3h         | 2h      | 1h   | 1,2       | #50        |
-| 6   | Intégration moteur template | 2h        | 3h         | 2h      | 2h   | 1,2       | #52        |
-| 7   | Use case UML                | 1h        | 2h         | 1h      | 1h   | -         | #53        |
-| 8   | Création layouts            | 1h        | 2h         | 1h      | 1h   | 1         | #54        |
-| 9   | Injection build             | 3h        | 6h         | 4h      | 5h   | 8         | #55        |
-| 10  | Serveur HTTP                | 2h        | 4h         | 2h      | 2h   | 9         | #56        |
-| 11  | Release automatique         | 1h        | 3h         | 1h      | 1h   | -         | #57        |
-| 12  | Logging                     | 1h        | 3h         | 2h      | 1h   | 1         | #58        |
+| No       | Étape                       | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|----------|-----------------------------|-----------|------------|---------|------|-----------|------------|
+| 1        | Refactor du sprint          | 2h        | 5h         | 3h      | 3h   | -         | #45        |
+| 2        | Diagramme UML               | 1h        | 3h         | 2h      | 1h   | 1         | #46        |
+| 3        | Diagramme de séquence       | 1h        | 3h         | 2h      | -    | -         | #47        |
+| 4        | Tests d'intégration         | 2h        | 4h         | 3h      | 3h   | 1,2       | #49        |
+| 5        | Tests système               | 1h        | 3h         | 2h      | 1h   | 1,2       | #50        |
+| 6        | Intégration moteur template | 2h        | 3h         | 2h      | 2h   | 1,2       | #52        |
+| 7        | Use case UML                | 1h        | 2h         | 1h      | 1h   | -         | #53        |
+| 8        | Création layouts            | 1h        | 2h         | 1h      | 1h   | 1         | #54        |
+| 9        | Injection build             | 3h        | 6h         | 4h      | 5h   | 8         | #55        |
+| 10       | Serveur HTTP                | 2h        | 4h         | 2h      | 2h   | 9         | #56        |
+| 11       | Release automatique         | 1h        | 3h         | 1h      | 1h   | -         | #57        |
+| 12       | Logging                     | 1h        | 3h         | 2h      | 1h   | 1         | #58        |
+| *Totaux* |                             | 18h       | 41h        | 25h     | 21h  |           |            |
 
 #### Comparaison temps estimé / temps réel
 
@@ -347,8 +408,8 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 
 - Modélisation UML
   - [ ] Modélisation du FileWatcher
-  - [ ] Diagramme de sequence
-  - [ ] Enrichir le use case diagram
+  - [x] Diagramme de sequence
+  - [x] Enrichir le use case diagram
 - Documentation
   - [x] Build la JavaDoc
   - [ ] Manuel utilisateur
@@ -365,21 +426,27 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 - Délivration continue
   - [ ] Ajouter la JavaDoc à la release
 - Optionnel
-  - [ ] Template CSS
+  - [x] Template CSS
+
+
 ### Temps estimé des étapes du sprint 3
 
 | No  | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
-|-----|---------------------------------------------------|-----------|------------|---------|--|-----------|------------|
-| 1   | Créer diagramme de séquence                       | 1h        | 3h         | 2h      |  | -          | #47        |
-| 2   | Build la JavaDoc avec une commande                | 1h        | 2h         | 1h      |  | -          | #73        |
-| 3   | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      |  | 2          | #74        |
-| 4   | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      |  | 11          | #75        |
-| 5   | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      |  | 4          | #76        |
-| 7   | Manuel utilisateur                                | 1h        | 2h         | 1h      |  | -          | #77        |
-| 6   | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      |  | -          | #78        |
-| 8   | Mesure de performance                             | 2h        | 5h         | 3h      |  | -          | #79        |
-| 9   | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      |  | -          | #80        |
-| 10  | Commande publish                                  | 3h        | 6h         | 5h      |  | -          | #81        |
-| 11  | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      |  | -          | #82        |
-| 12  | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      |  | -          | #84        |
+|-----|---------------------------------------------------|-----------|------------|---------|--|-----------|----------------|
+| 1   | Créer diagramme de séquence                       | 1h        | 3h         | 2h      | h | -          | #47        |
+| 2   | Build la JavaDoc avec une commande                | 1h        | 2h         | 1h      | h | -          | #73        |
+| 3   | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      | h | 2          | #74        |
+| 4   | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      | h | 11          | #75        |
+| 5   | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      | h| 4          | #76        |
+| 7   | Manuel utilisateur                                | 1h        | 2h         | 1h      | h | -          | #77        |
+| 6   | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      | h | -          | #78        |
+| 8   | Mesure de performance                             | 2h        | 5h         | 3h      | h | -          | #79        |
+| 9   | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | h | -          | #80        |
+| 10  | Commande publish                                  | 3h        | 6h         | 5h      | h | -          | #81        |
+| 11  | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | h | -          | #82        |
+| 12  | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | h | -          | #84        |
+| *Totaux* |                             |  h       |  h        |  h     | h  |        h   |            |
 
+### Problèmes rencontrés
+
+### Ressenti du groupe sur le sprint 3
