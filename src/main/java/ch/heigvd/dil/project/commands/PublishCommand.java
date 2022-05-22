@@ -2,6 +2,13 @@ package ch.heigvd.dil.project.commands;
 
 import picocli.CommandLine;
 
+/**
+ * This class represents the command line interface for the publish command.
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 @CommandLine.Command(
         name = "publish",
         description = "Publish builded files to a remove server",
