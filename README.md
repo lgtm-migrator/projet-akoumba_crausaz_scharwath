@@ -264,7 +264,28 @@ Les autres dépendances ont été choisies après diverses recherches et compara
 
 **Spotless**
 
-TODO: Explication des choix de ses librairies
+Nous avons été conseillés de mettre en place un linter et avons décidé de l'appliquer au niveau d'une CI. La popularité
+de cet outil et ses nombreuses configurations préconçues ont motivé notre choix.
+
+**Jackson**
+
+Nous cherchions une librairie pour lire et écrire nos instances d'objets de configuration vers du YAML. Jackson semblait
+très facile d'utilisation et nous a facilité cette sérialisation.
+
+**OkHttp**
+
+Cette librairie nous a permis de pouvoir effectuer facilement des vérifications sur des formats d'URL et nous a servi lors
+de la rédaction de test d'intégrations (par exemple pour tester la commande serve).
+La documentation concise et la facilité d'utilisation de cette librairie nous ont convaincus.
+
+**Commonmark**
+
+Cette librairie nous a permis de transformer du markdown en HTML très facilement, ce qui a motivé notre choix.
+
+**Handlebars**
+
+Handlebar est un moteur de templating très connu. Certains membres du groupes le connaissaient déjà et notre choix s'est donc
+logiquement porté sur cet outil.
 
 
 ## Sprint 1
