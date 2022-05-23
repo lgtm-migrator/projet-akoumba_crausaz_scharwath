@@ -15,7 +15,13 @@ Le projet s'utilise en suivant les étapes suivantes :
 ### 1. Téléchargement
 
 l faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
-TODO
+
+Décompressez le fichier `statique.zip` à un endroit souhaité puis ajoutez le programme à votre variable d'envrionnement `path`.
+
+- Sur Linux / MacOS: `export PATH=$PATH:`pwd`/statique/bin`
+- Sur Windows: https://www.pcastuces.com/pratique/astuces/5334.htm
+
+Vous pouvez désormais lancer le programme grâce à la commande `statique`.
 
 ### 2. Initialisation du projet
 Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom de `mon/site`.
@@ -41,9 +47,17 @@ Nous allons utiliser la commande `statique serve mon/site` pour construire le se
 Nous pouvons specifier le port du serveur en utilisant la commande `statique serve mon/site -p 8080`, sinon
 le port sera define par la configuration du site.
 
-#### 6. Déploiement distant (optionnel)
+#### 6. Déploiement FTP distant (optionnel)
 
-TODO
+Si vous souhaitez déployer directement le dossier `build` vers un serveur FTP, configurez le fichier `config.yaml` selon l'exemple suivant :
+```yaml
+publishDir: "/"
+publishServer: "url.serveur.com"
+publishUsername: "username"
+publishPassword: "password"
+```
+
+Une fois la commande `statique build mon/site` effectuée, vous pouvez déployer votre site grâce à la commande `statique publish mon/site`.
 
 # Travail en équipe
 
@@ -149,13 +163,13 @@ Ce modèle est séparé en quatres parties:
 
 Lors du travail sur une issue, créer une pull request en mode *draft* et lier l'issue concernée. Cela permet de voir l'historique des modifications et d'automatiser le kanban du projet.
 
-Tant que la PR ne passe pas tous les tests ou qu'elle n'est pas prête à être review par un autre membres de l'équipe, il faut la laisser en mode draft.
+Tant que la PR ne passe pas tous les tests ou qu'elle n'est pas prête à être review par un autre membre de l'équipe, il faut la laisser en mode draft.
 
 Une fois que l'issue est corrigée, repasser la PR est mode review et ajouter des reviewers. Si cela est possible, demander une review à un membre qui n'a pas travaillé sur cette PR.
 
 ![image](https://user-images.githubusercontent.com/15279957/160237721-2a60c637-f8b8-438b-a173-e8af1f41917e.png)
 
-Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository: si l'on ajoute une nouvelle issue, elle est ajoutée dans "To do". Lorsqu'elle est attribué et liée à une PR, l'issue est déplacée dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
+Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository : si l'on ajoute une nouvelle issue, elle est ajoutée dans "To do". Lorsqu'elle est attribué et liée à une PR, l'issue est déplacée dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
 
 ### Format de message
 
