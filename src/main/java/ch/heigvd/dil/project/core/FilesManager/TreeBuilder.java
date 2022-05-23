@@ -1,7 +1,5 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -11,6 +9,7 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
 
 /**
  * Class used to make actions on file structures
@@ -52,9 +51,7 @@ public class TreeBuilder {
         var file = path.toFile();
         if (file.getName().endsWith(".md")) {
             var htmlFile =
-                    new File(
-                            destFile.getParentFile(),
-                            destFile.getName().replace(".md", ".html"));
+                    new File(destFile.getParentFile(), destFile.getName().replace(".md", ".html"));
             new FileBuilder(file, htmlFile).build();
         } else {
             if (file.isDirectory()) {
@@ -63,11 +60,7 @@ public class TreeBuilder {
                 FileUtils.copyFile(file, destFile);
             }
         }
-        LOG.info(
-                "Copied "
-                        + file.getAbsolutePath()
-                        + " to "
-                        + destFile.getAbsolutePath());
+        LOG.info("Copied " + file.getAbsolutePath() + " to " + destFile.getAbsolutePath());
     }
 
     /**

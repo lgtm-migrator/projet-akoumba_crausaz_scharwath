@@ -1,11 +1,11 @@
 package ch.heigvd.dil.project.core.FilesManager;
 
+import static java.nio.file.StandardWatchEventKinds.*;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-
-import static java.nio.file.StandardWatchEventKinds.*;
 
 /**
  * Class used to make actions on file structures
@@ -25,7 +25,7 @@ public class FilesWatcher {
     /**
      * Create a new FilesWatcher
      *
-     * @param root    source structure
+     * @param root source structure
      * @param handler handler to use
      */
     public FilesWatcher(Path root, FilesWatcherHandler handler) throws IOException {
@@ -34,20 +34,22 @@ public class FilesWatcher {
         watcher = FileSystems.getDefault().newWatchService();
     }
 
-
     private void createTree(Path from) {
         try {
-            Files.walkFileTree(from, new SimpleFileVisitor<>() {
-                @Override
-                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                    if (ignoreFiles.contains(dir)) {
-                        return FileVisitResult.SKIP_SUBTREE;
-                    }
-                    System.out.println("Watching directory: " + dir.toAbsolutePath());
-                    dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
-                    return FileVisitResult.CONTINUE;
-                }
-            });
+            Files.walkFileTree(
+                    from,
+                    new SimpleFileVisitor<>() {
+                        @Override
+                        public FileVisitResult preVisitDirectory(
+                                Path dir, BasicFileAttributes attrs) throws IOException {
+                            if (ignoreFiles.contains(dir)) {
+                                return FileVisitResult.SKIP_SUBTREE;
+                            }
+                            System.out.println("Watching directory: " + dir.toAbsolutePath());
+                            dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
+                            return FileVisitResult.CONTINUE;
+                        }
+                    });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,49 +66,47 @@ public class FilesWatcher {
         ignoreFiles.add(ignorePath);
     }
 
-    /**
-     * Start watching the source structure
-     */
+    /** Start watching the source structure */
     public Thread watch() {
         this.createTree(root);
-        var t = new Thread(() -> {
-            WatchKey key;
-            while (true) {
-                try {
-                    if ((key = watcher.take()) == null) break;
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                for (WatchEvent<?> event : key.pollEvents()) {
-                    try {
-                        var kind = event.kind();
-                        var file = root.resolve(event.context().toString());
-                        if (ignoreFiles.contains(file)) {
-                            continue;
-                        }
-                        handler.onChange(file, kind);
-                        if (kind == ENTRY_CREATE) {
-                            createTree(file);
-                            handler.onCreate(file);
-                        } else if (kind == ENTRY_DELETE) {
-                            handler.onDelete(file);
-                        } else if (kind == ENTRY_MODIFY) {
-                            handler.onModify(file);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                key.reset();
-            }
-        });
+        var t =
+                new Thread(
+                        () -> {
+                            WatchKey key;
+                            while (true) {
+                                try {
+                                    if ((key = watcher.take()) == null) break;
+                                } catch (InterruptedException e) {
+                                    throw new RuntimeException(e);
+                                }
+                                for (WatchEvent<?> event : key.pollEvents()) {
+                                    try {
+                                        var kind = event.kind();
+                                        var file = root.resolve(event.context().toString());
+                                        if (ignoreFiles.contains(file)) {
+                                            continue;
+                                        }
+                                        handler.onChange(file, kind);
+                                        if (kind == ENTRY_CREATE) {
+                                            createTree(file);
+                                            handler.onCreate(file);
+                                        } else if (kind == ENTRY_DELETE) {
+                                            handler.onDelete(file);
+                                        } else if (kind == ENTRY_MODIFY) {
+                                            handler.onModify(file);
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                key.reset();
+                            }
+                        });
         t.start();
         return t;
     }
 
-    /**
-     * Stop watching the source structure
-     */
+    /** Stop watching the source structure */
     public void stop() throws IOException {
         watcher.close();
     }

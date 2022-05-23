@@ -13,26 +13,30 @@ import java.nio.file.WatchEvent;
 public abstract class FilesWatcherHandler {
     /**
      * Called when a file change ( create, delete or modify )
+     *
      * @param path - path of the file
      * @param kind - kind of the event
      */
-    public void onChange(Path path, WatchEvent.Kind<?> kind){}
+    public void onChange(Path path, WatchEvent.Kind<?> kind) {}
 
     /**
      * Called when a file is created
+     *
      * @param path - path of the file
      */
-    public void onCreate(Path path){}
+    public void onCreate(Path path) {}
 
     /**
      * Called when a file is deleted
+     *
      * @param path - path of the file
      */
-    public void onDelete(Path path){}
+    public void onDelete(Path path) {}
 
     /**
      * Called when a file is modified
+     *
      * @param path - path of the file
      */
-    public void onModify(Path path){}
+    public void onModify(Path path) {}
 }

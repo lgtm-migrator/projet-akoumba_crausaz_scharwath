@@ -28,7 +28,9 @@ public class BuildCommand extends BaseCommand {
     @CommandLine.Parameters(index = "0", description = "Path to the site to build")
     String creationPath;
 
-    @CommandLine.Option(names = {"-w", "--watch"}, description = "Watch the site for changes")
+    @CommandLine.Option(
+            names = {"-w", "--watch"},
+            description = "Watch the site for changes")
     boolean watch;
 
     @Override
@@ -55,20 +57,25 @@ public class BuildCommand extends BaseCommand {
             e.printStackTrace();
         }
 
-        if(watch) {
+        if (watch) {
             try {
-                var watcher = new FilesWatcher(srcDir.toPath(), new FilesWatcherHandler() {
-                    @Override
-                    public void onChange(Path path, WatchEvent.Kind<?> kind) {
-                        LOG.info("File " + path.toAbsolutePath() + " has changed");
-                        try {
-                            treeBuilder.build();
-                        } catch (IOException e) {
-                            LOG.severe("An error occurred while building the site: " + e.getMessage());
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                var watcher =
+                        new FilesWatcher(
+                                srcDir.toPath(),
+                                new FilesWatcherHandler() {
+                                    @Override
+                                    public void onChange(Path path, WatchEvent.Kind<?> kind) {
+                                        LOG.info("File " + path.toAbsolutePath() + " has changed");
+                                        try {
+                                            treeBuilder.build();
+                                        } catch (IOException e) {
+                                            LOG.severe(
+                                                    "An error occurred while building the site: "
+                                                            + e.getMessage());
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
                 watcher.addIgnoreFile("build");
                 watcher.watch();
             } catch (Exception e) {
