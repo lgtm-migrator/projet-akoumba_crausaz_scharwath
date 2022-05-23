@@ -32,7 +32,7 @@ public class PublishCommand extends BaseCommand {
     @Override
     protected void execute() {
         if (!new File(buildPath, "build").exists()) {
-            LOG.severe("No build folder found, skipping clean publish");
+            LOG.severe("No build folder found, skipping publish");
             return;
         }
 
