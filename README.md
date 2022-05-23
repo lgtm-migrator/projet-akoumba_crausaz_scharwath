@@ -465,14 +465,22 @@ Temps de travail: 3 semaines
 
 ### Modélisation de l'abstraction du FileWatcher
 
-IMAGE ICI
-
+![FilesWatcher](https://user-images.githubusercontent.com/15279957/169917117-16d5df5c-2304-4b9c-a37e-cd6c0ff3c6e4.png)
 
 ### Resultats du Code coverage
 
 Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie JaCoCo, ci-dessous les résultats que vous avons obtenus:
 
-TODO: IMAGE ICI
+Vue globale:
+![jacoco_main](https://user-images.githubusercontent.com/15279957/169917927-06c5fedf-9ef5-414a-a686-6c70a7920ab1.png)
+
+Vue détailée par package:
+![jacoco_commands](https://user-images.githubusercontent.com/15279957/169917951-6aa220a9-18a4-446d-95e7-e5386298deb8.png)
+![jacoco_core](https://user-images.githubusercontent.com/15279957/169917953-f93b8e8b-27ae-43a9-bf2b-2494c19c43af.png)
+![jacoco_filemanager](https://user-images.githubusercontent.com/15279957/169917955-5177afb9-7502-408b-a0e3-26dedd59278f.png)
+![jacoco_project](https://user-images.githubusercontent.com/15279957/169917957-b201a6b1-59a9-4b13-983e-6d5b44c5c10c.png)
+
+Nous constatons que nous devrions améliorer nos tests concernant le FTPPublisher et la classe Configuration.
 
 ### Mesure de performance
 
@@ -506,7 +514,7 @@ Cet outil effectue une analyse statique de notre code Java
 | 10       | Commande publish                                  | 3h        | 6h         | 5h      | 3h   | -         | #81        |
 | 11       | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | 2h   | -         | #82        |
 | 12       | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | 1h   | -         | #84        |
-| *Totaux* |                                                   | h         | h          | h       | h    | h         |            |
+| *Totaux* |                                                   | 21h       | 44h        | 31h     | h    |           |            |
 
 #### Comparaison temps estimé / temps réel
 
