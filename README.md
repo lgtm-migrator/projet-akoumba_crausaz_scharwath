@@ -442,64 +442,89 @@ Temps de travail: 3 semaines
 ### Étapes du sprint 3
 
 - Modélisation UML
-  - [ ] Modélisation du FileWatcher
+  - [x] Modélisation du FileWatcher
   - [x] Diagramme de sequence
   - [x] Enrichir le use case diagram
 - Javadoc, Manuel utilisateur
   - [x] Build la JavaDoc
-  - [ ] Rédaction d'un manuel utilisateur
+  - [x] Rédaction d'un manuel utilisateur
 - Génération du site statique à la volée
-  - [ ] Implémenter une abstraction
-  - [ ] Implémenter la commande `--watch`
+  - [x] Implémenter une abstraction
+  - [x] Implémenter la commande `--watch`
 - Code coverage, Code benchmarking , Code quality
-  - [ ] Code coverage avec  `Jacoco`
-  - [ ] Mesure de performance avec `JMH`  et `VisualVM` pour la visualisation
-  - [ ] Qualité de code avec ` LGTM` et `SonarQube` 
+  - [x] Code coverage avec  `Jacoco`
+  - [x] Mesure de performance avec `JMH`  et `VisualVM` pour la visualisation
+  - [x] Qualité de code avec ` LGTM` et `SonarQube` 
 - Publication du site dans un répertoire distant
-  - [ ] Modifier la configuration
-  - [ ] Implémenter la commande `publish` pour publier le build sur un server distant
+  - [x] Modifier la configuration
+  - [x] Implémenter la commande `publish` pour publier le build sur un server distant
 - Délivration continue
-  - [ ] Ajouter la JavaDoc à la release
+  - [x] Ajouter la JavaDoc à la release
 - Optionnel
   - [x] Template CSS
 
-### Temps estimé des étapes du sprint 3
+### Modélisation de l'abstraction du FileWatcher
 
-| No  | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
-|-----|---------------------------------------------------|-----------|------------|---------|--|-----------|----------------|
-| 1   | Créer diagramme de séquence                       | 1h        | 3h         | 2h      | h | -          | #47        |
-| 2   | Build la JavaDoc avec une commande                | 1h        | 2h         | 1h      | h | -          | #73        |
-| 3   | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      | h | 2          | #74        |
-| 4   | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      | h | 11          | #75        |
-| 5   | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      | h| 4          | #76        |
-| 7   | Manuel utilisateur                                | 1h        | 2h         | 1h      | h | -          | #77        |
-| 6   | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      | h | -          | #78        |
-| 8   | Mesure de performance                             | 2h        | 5h         | 3h      | h | -          | #79        |
-| 9   | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | h | -          | #80        |
-| 10  | Commande publish                                  | 3h        | 6h         | 5h      | h | -          | #81        |
-| 11  | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | h | -          | #82        |
-| 12  | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | h | -          | #84        |
-| *Totaux* |                             |  h       |  h        |  h     | h  |        h   |            |
+IMAGE ICI
 
 
 ### Resultats du Code coverage
-Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie Jacocco, ci après les résultats que vous avons obtenu. 
+Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie Jacocco, ci après les résultats que vous avons obtenu.
 
 ### Mesure de performance
 
-Afin de mesurer les performances de notre implémentation, nous avons utilisé 2 technologies principalement, `JMH` afin  et `VisualMH`. Ici, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci après les résultats  que nous avons obtenu.
+Afin de mesurer les performances de notre implémentation, nous avons utilisé 2 technologies principalement, `JMH` afin  et `VisualMH`.
+Ici, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-après les résultats, que nous avons obtenus.
 
 #### Interprétation
 
+TODO
+
 ### Qualité de code
+
+L'outil LGTM a été ajouté de manière globale sur notre projet (par le client). De ce fait, nous n'avons pas vraiment effectué de comparaison
+entre plusieurs outils semblables.
+
+Cet outil effectue une analyse statique de notre code Java
+
+### Temps estimé des étapes du sprint 3
+
+| No       | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|----------|---------------------------------------------------|-----------|------------|---------|------|-----------|------------|
+| 1        | Créer diagramme de séquence                       | 1h        | 3h         | 2h      | 2h   | -         | #47        |
+| 2        | Build la JavaDoc avec une commande                | 1h        | 2h         | 1h      | 1h   | -         | #73        |
+| 3        | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      | 1h   | 2         | #74        |
+| 4        | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      | 4h   | 11        | #75        |
+| 5        | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      | 1h   | 4         | #76        |
+| 7        | Manuel utilisateur                                | 1h        | 2h         | 1h      | h    | -         | #77        |
+| 6        | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      | 1h   | -         | #78        |
+| 8        | Mesure de performance                             | 2h        | 5h         | 3h      | h    | -         | #79        |
+| 9        | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | -h   | -         | #80        |
+| 10       | Commande publish                                  | 3h        | 6h         | 5h      | 3h   | -         | #81        |
+| 11       | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | 2h   | -         | #82        |
+| 12       | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | 1h   | -         | #84        |
+| *Totaux* |                                                   | h         | h          | h       | h    | h         |            |
+
+#### Comparaison temps estimé / temps réel
+
+
 
 ### Problèmes rencontrés
 
 ### Ressenti du groupe sur le sprint 3
-#### Comparaison temps estimé / temps réel
+
+Nous sommes globalement convaincus de notre travail effectué lors de sprint. Nous avons réussi à effectué les tâches critiques
+du backlog et ceci dans le temps imposé. Notre application contient des fonctionnalités très intéressantes tels que le système
+de re-build à la volée et la publication vers un serveur distant en FTP.
 
 
 ### Etat du backlog en fin de sprint
 
-Les tâches attribuées selon les stories client on toutes été réalisés, nous avons cependant laissé quelques recommandations des clients (feedback)
+Les tâches attribuées selon les stories client ont toutes été réalisés, nous avons cependant laissé quelques recommandations des clients (feedback)
 en backlog pour le 4e et dernier sprint.
+
+| Étape                 | Description                                                                                                                               |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajout de tests        | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
+| Remise à niveau       | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
+| Complexité des tâches | Notre rapport devra contenir une évaluation de complexité des tâches et mieux mettre en avant la séparation des étapes selon les stories. |
