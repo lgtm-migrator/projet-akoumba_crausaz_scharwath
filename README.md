@@ -419,7 +419,7 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 - Code coverage, Code benchmarking , Code quality
   - [ ] Code coverage avec  `Jacoco`
   - [ ] Mesure de performance avec `JMH`  et `VisualVM` pour la visualisation
-  - [ ] Qualité de code avec ` LGTM` et SonarQube` 
+  - [ ] Qualité de code avec ` LGTM` et `SonarQube` 
 - Publication du site dans un répertoire distant
   - [ ] Modifier la configuration
   - [ ] Implémenter la commande `publish` pour publier le build sur un server distant
