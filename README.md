@@ -469,7 +469,10 @@ IMAGE ICI
 
 
 ### Resultats du Code coverage
-Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie Jacocco, ci après les résultats que vous avons obtenu.
+
+Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie JaCoCo, ci-dessous les résultats que vous avons obtenus:
+
+TODO: IMAGE ICI
 
 ### Mesure de performance
 
@@ -507,14 +510,17 @@ Cet outil effectue une analyse statique de notre code Java
 
 #### Comparaison temps estimé / temps réel
 
-
+Globalement, nous avons respecté pour la plupart des tâches les temps attendus, pour certaines nous avons même réussi à atteindre des temps optimistes.
 
 ### Problèmes rencontrés
 
+Nous avons passé pas mal de temps à nous documenter sur le fonctionnement du WatchService afin de réaliser une abstraction simple
+et cohérente pour notre application.
+
 ### Ressenti du groupe sur le sprint 3
 
-Nous sommes globalement convaincus de notre travail effectué lors de sprint. Nous avons réussi à effectué les tâches critiques
-du backlog et ceci dans le temps imposé. Notre application contient des fonctionnalités très intéressantes tels que le système
+Nous sommes globalement convaincus de notre travail effectué lors de sprint. Nous avons réussi à accomplir les tâches critiques
+du backlog et ceci dans le temps imposé. Notre application contient des fonctionnalités très intéressantes telles que le système
 de re-build à la volée et la publication vers un serveur distant en FTP.
 
 
@@ -523,8 +529,8 @@ de re-build à la volée et la publication vers un serveur distant en FTP.
 Les tâches attribuées selon les stories client ont toutes été réalisés, nous avons cependant laissé quelques recommandations des clients (feedback)
 en backlog pour le 4e et dernier sprint.
 
-| Étape                 | Description                                                                                                                               |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Ajout de tests        | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
-| Remise à niveau       | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
-| Complexité des tâches | Notre rapport devra contenir une évaluation de complexité des tâches et mieux mettre en avant la séparation des étapes selon les stories. |
+| Étape                          | Description                                                                                                                               |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajout de tests                 | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
+| Remise à niveau des diagrammes | Il nous faut mettre à jour les diagrammes de séquences, activité et UML                                                                   |
+| Complexité des tâches          | Notre rapport devra contenir une évaluation de complexité des tâches et mieux mettre en avant la séparation des étapes selon les stories. |
