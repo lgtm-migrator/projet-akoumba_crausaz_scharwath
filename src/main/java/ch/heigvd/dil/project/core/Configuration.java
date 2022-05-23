@@ -29,6 +29,14 @@ public class Configuration {
 
     private String language;
 
+    private String publishDir;
+
+    private String publishServer;
+
+    private String publishUsername;
+
+    private String publishPassword;
+
     /**
      * Creates an empty site configuration
      *
@@ -47,6 +55,10 @@ public class Configuration {
         this.url = url;
         this.language = language;
         this.title = title;
+        this.publishDir = "/";
+        this.publishServer = "";
+        this.publishUsername = "";
+        this.publishPassword = "";
     }
 
     /**
@@ -74,6 +86,42 @@ public class Configuration {
      */
     public String getTitle() {
         return title;
+    }
+
+    /**
+     * Get the path of publish in the remote server
+     *
+     * @return path of publish
+     */
+    public String getPublishDir() {
+        return publishDir;
+    }
+
+    /**
+     * Get the username for publishing
+     *
+     * @return username
+     */
+    public String getPublishUsername() {
+        return publishUsername;
+    }
+
+    /**
+     * Get the password for publishing
+     *
+     * @return password
+     */
+    public String getPublishPassword() {
+        return publishPassword;
+    }
+
+    /**
+     * Get the destination publish server
+     *
+     * @return publish server
+     */
+    public String getPublishServer() {
+        return publishServer;
     }
 
     @JsonIgnore
