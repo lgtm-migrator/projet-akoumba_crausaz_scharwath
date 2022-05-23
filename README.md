@@ -10,30 +10,40 @@ Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois spri
 
 # Comment utiliser le projet ?
 
-Il faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
+Le projet s'utilise en suivant les étapes suivantes :
 
-Le projet s'utilise en 4 étapes :
-### 1. Initialisation du projet
+### 1. Téléchargement
+
+l faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
+TODO
+
+### 2. Initialisation du projet
 Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom de `mon/site`.
 Nous allons utiliser la commande `statique init mon/site` pour cela. 
 Cette commande va créer un dossier `mon/site` dans le dossier courant et va créer un exemple de site.
-### 2. Ajouter du contenu et configurer le site
+
+### 3. Ajouter du contenu et configurer le site
 Maintenant que le projet est initialisé, nous allons ajouter du contenu et configurer le site.
 A la racine du projet se trouve un fichier `config.yml` qui contient la configuration du site.
 Comme l'URL, le titre et la langue du site. Vous remarquerez que le contenu du site utilise des fichiers Markdown.
 Ces fichiers Markdown ont une entête en `yaml` qui contient les informations sur le contenu de la page.
 Remarque : L'arborescence du site restera identique à celui du projet.
 
-### 3. Construction du projet
+### 4. Construction du projet
 Nous allons maintenant construire le projet.
 Nous allons utiliser la commande `statique build mon/site` pour construire le site.
 Cette commande va créer un dossier `build` dans le dossier courant et va convertir tous les fichiers Markdown en HTML.
 Cela va également copier tous les autres fichiers du projet.
-### 4. Création du serveur
+
+### 5. Création du serveur
 Nous allons maintenant créer le serveur.
 Nous allons utiliser la commande `statique serve mon/site` pour construire le serveur.
 Nous pouvons specifier le port du serveur en utilisant la commande `statique serve mon/site -p 8080`, sinon
 le port sera define par la configuration du site.
+
+#### 6. Déploiement distant (optionnel)
+
+TODO
 
 # Travail en équipe
 
@@ -99,7 +109,7 @@ Les noms des branches doivent être explicites et un préfixe indique quel trava
 
 - `fix_name`: branche de correction de bug
 - `fb_name`: branche d'ajout de fonctionnalité
-- `rf_name`: branche de refactoring
+- `ref_name`: branche de refactoring
 
 ### Issues
 
@@ -234,21 +244,23 @@ Nous avons effectué ce choix parmi les formats JSON, YAML et TOML. Après avoir
 
 ### Dépendances
 
-| Nom               | Description                                                     | Version | Site officiel                             |
-|-------------------|-----------------------------------------------------------------|---------|-------------------------------------------|
-| Maven             | Gestionnaire de projet / dépendances                            | 3.6     | https://maven.apache.org/                 |
-| JUnit             | Librairie de test automatisé                                    | 4.13.2  | https://junit.org/junit5/                 |
-| Picocli           | Framework de création de CLI                                    | 4.6.3   | https://picocli.info/                     |
-| Spotless          | Linter / formatter                                              | 2.22.0  | https://github.com/diffplug/spotless      |
-| Jackson           | Outil de sérialisation, nous utilisons les sous-librairies YAML | 2.13.2  | https://github.com/FasterXML/jackson      |
-| OkHttp            | Utilisé pour la construction d'URLs                             | 4.9.3   | https://square.github.io/okhttp/          |
-| Commonmark        | Outils de parsing et conversion markdown                        | 0.18.2  |                                           |
-| Handlebars (Java) | Moteur de templating                                            | 4.3.0   | https://github.com/jknack/handlebars.java |
+| Nom                  | Description                                                     | Version | Site officiel                                  |
+|----------------------|-----------------------------------------------------------------|---------|------------------------------------------------|
+| Maven                | Gestionnaire de projet / dépendances                            | 3.6     | https://maven.apache.org/                      |
+| JUnit                | Librairie de test automatisé                                    | 4.13.2  | https://junit.org/junit5/                      |
+| Picocli              | Framework de création de CLI                                    | 4.6.3   | https://picocli.info/                          |
+| Spotless             | Linter / formatter                                              | 2.22.0  | https://github.com/diffplug/spotless           |
+| Jackson              | Outil de sérialisation, nous utilisons les sous-librairies YAML | 2.13.2  | https://github.com/FasterXML/jackson           |
+| OkHttp               | Utilisé pour la construction d'URLs                             | 4.9.3   | https://square.github.io/okhttp/               |
+| Commonmark           | Outils de parsing et conversion markdown                        | 0.18.2  | https://commonmark.org/                        |
+| Handlebars (Java)    | Moteur de templating                                            | 4.3.0   | https://github.com/jknack/handlebars.java      |
+| JaCoCo               | Outil de code coverage                                          | 0.8.3   | https://www.jacoco.org/jacoco/trunk/index.html |
+| Maven Javadoc Plugin | Génération et configuration de la JavaDoc                       | 3.4.0   | https://github.com/jknack/handlebars.java      |
 
 
-Les dépendances suivantes nous ont été imposées: Maven, JUnit, Picocli.
+Les dépendances suivantes nous ont été imposées : Maven, JUnit, Picocli, JaCoCo, JavaDoc.
 
-Les autres dépendances ont été choisies après diverses recherches et comparatifs:
+Les autres dépendances ont été choisies après diverses recherches et comparatifs :
 
 **Spotless**
 
@@ -306,7 +318,7 @@ Voici la réprésentation sous forme de diagramme PERT des étapes sur sprint 1.
 <img width="1280" alt="PERT" src="https://user-images.githubusercontent.com/15279957/162083907-da00d909-0a1b-40cf-84bd-06335b9054a9.png">
 
 
-Nous avons choisi le format Markdown pour la saisie du contenu car en plus d'une syntaxe simple, il existe une panoplie de ressources permettant de compiler du Markdown en HTML
+Nous avons choisi le format Markdown pour la saisie du contenu, car en plus d'une syntaxe simple, il existe une panoplie de ressources permettant de compiler du Markdown en HTML
 
 ### Use Case
 
@@ -404,6 +416,8 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 
 ## Sprint 3
 
+Temps de travail: 3 semaines
+
 ### Étapes du sprint 3
 
 - Modélisation UML
@@ -427,7 +441,6 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
   - [ ] Ajouter la JavaDoc à la release
 - Optionnel
   - [x] Template CSS
-
 
 ### Temps estimé des étapes du sprint 3
 
@@ -462,3 +475,10 @@ Afin de mesurer les performances de notre implémentation, nous avons utilisé 2
 ### Problèmes rencontrés
 
 ### Ressenti du groupe sur le sprint 3
+#### Comparaison temps estimé / temps réel
+
+
+### Etat du backlog en fin de sprint
+
+Les tâches attribuées selon les stories client on toutes été réalisés, nous avons cependant laissé quelques recommandations des clients (feedback)
+en backlog pour le 4e et dernier sprint.
