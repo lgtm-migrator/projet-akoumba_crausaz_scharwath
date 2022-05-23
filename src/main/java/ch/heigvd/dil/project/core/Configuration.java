@@ -55,8 +55,8 @@ public class Configuration {
         this.url = url;
         this.language = language;
         this.title = title;
-        this.publishDir = "";
-        this.publishServer = "/";
+        this.publishDir = "/";
+        this.publishServer = "";
         this.publishUsername = "";
         this.publishPassword = "";
     }
