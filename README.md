@@ -418,7 +418,7 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
   - [ ] Implémenter la commande `--watch`
 - Code coverage, Code benchmarking , Code quality
   - [ ] Code coverage avec  `Jacoco`
-  - [ ] Mesure de performance`avec `JMH`  et `VisualVM` pour la visualisation
+  - [ ] Mesure de performance avec `JMH`  et `VisualVM` pour la visualisation
   - [ ] Qualité de code avec ` LGTM` et SonarQube` 
 - Publication du site dans un répertoire distant
   - [ ] Modifier la configuration
