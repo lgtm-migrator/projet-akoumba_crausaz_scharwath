@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class for template injection & compilations methods
+ * Class for template injection and compilations methods
  *
  * @author Akoumba Ludivine
  * @author Crausaz Nicolas
