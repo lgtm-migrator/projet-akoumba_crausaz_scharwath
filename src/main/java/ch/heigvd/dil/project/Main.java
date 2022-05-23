@@ -10,11 +10,11 @@ import picocli.CommandLine.Command;
         description = "DIL project",
         versionProvider = ManifestVersionProvider.class,
         subcommands = {
-                InitCommand.class,
-                CleanCommand.class,
-                BuildCommand.class,
-                ServeCommand.class,
-                PublishCommand.class
+            InitCommand.class,
+            CleanCommand.class,
+            BuildCommand.class,
+            ServeCommand.class,
+            PublishCommand.class
         })
 public class Main {
     public static void main(String[] args) {

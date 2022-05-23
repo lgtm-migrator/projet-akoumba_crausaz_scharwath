@@ -1,10 +1,9 @@
 package ch.heigvd.dil.project.commands;
 
 import ch.heigvd.dil.project.core.FilesManager.FTPPublisher;
-import picocli.CommandLine;
-
 import java.io.File;
 import java.util.logging.Logger;
+import picocli.CommandLine;
 
 /**
  * This class represents the command line interface for the publish command.

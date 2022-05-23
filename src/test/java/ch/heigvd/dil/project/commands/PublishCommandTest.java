@@ -1,16 +1,15 @@
 package ch.heigvd.dil.project.commands;
 
+import java.io.File;
+import java.io.IOException;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.After;
 import org.junit.Test;
 import picocli.CommandLine;
 
-import java.io.File;
-import java.io.IOException;
-
 public class PublishCommandTest {
     private static final String TEST_FOLDER = "./website";
-    private static final String[] args = new String[]{TEST_FOLDER};
+    private static final String[] args = new String[] {TEST_FOLDER};
 
     @Test
     public void shouldSkipIfNoBuildFiles() {

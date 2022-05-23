@@ -2,18 +2,16 @@ package ch.heigvd.dil.project.core.FilesManager;
 
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.Configuration;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.net.PrintCommandListener;
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
-
 import java.io.*;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPReply;
 
 /**
  * Utility class for FTP operations
@@ -61,7 +59,11 @@ public class FTPPublisher {
                 Path.of(sourceFolder),
                 new SimpleFileVisitor<>() {
                     private void uploadFile(Path path) throws IOException {
-                        String file = new File(sourceFolder).toURI().relativize(new File(String.valueOf(path)).toURI()).getPath();
+                        String file =
+                                new File(sourceFolder)
+                                        .toURI()
+                                        .relativize(new File(String.valueOf(path)).toURI())
+                                        .getPath();
 
                         createDirectoryStructure(FilenameUtils.getPath(file), client);
 
@@ -76,7 +78,8 @@ public class FTPPublisher {
                     }
 
                     @Override
-                    public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) throws IOException {
+                    public FileVisitResult visitFile(Path path, BasicFileAttributes attrs)
+                            throws IOException {
                         visit(path, attrs);
                         return FileVisitResult.CONTINUE;
                     }
@@ -90,10 +93,11 @@ public class FTPPublisher {
      * Created a hierachy of folders on a remote FTP server
      *
      * @param dirsPath Path of folders
-     * @param client   FTP client
+     * @param client FTP client
      * @throws IOException If error while creating the folders
      */
-    private static void createDirectoryStructure(String dirsPath, FTPClient client) throws IOException {
+    private static void createDirectoryStructure(String dirsPath, FTPClient client)
+            throws IOException {
         String[] directories = dirsPath.split("/");
         if (directories.length == 0) return;
 
@@ -106,7 +110,8 @@ public class FTPPublisher {
                         throw new IOException("Unable to create remote directory");
                     }
                     if (!client.changeWorkingDirectory(dir)) {
-                        throw new IOException("Unable to change into newly created remote directory");
+                        throw new IOException(
+                                "Unable to change into newly created remote directory");
                     }
                 }
             }

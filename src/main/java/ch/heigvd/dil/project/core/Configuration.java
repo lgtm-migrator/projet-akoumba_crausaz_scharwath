@@ -3,14 +3,12 @@ package ch.heigvd.dil.project.core;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import okhttp3.HttpUrl;
 
 /**
@@ -44,15 +42,14 @@ public class Configuration {
      *
      * <p>Empty constructor is needed for YAML conversion
      */
-    public Configuration() {
-    }
+    public Configuration() {}
 
     /**
      * Creates a site configuration
      *
-     * @param url      site url
+     * @param url site url
      * @param language site language
-     * @param title    site title
+     * @param title site title
      */
     public Configuration(String url, String language, String title) {
         this.url = url;
