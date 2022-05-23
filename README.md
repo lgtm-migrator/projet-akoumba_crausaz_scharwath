@@ -410,17 +410,17 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
   - [ ] Modélisation du FileWatcher
   - [x] Diagramme de sequence
   - [x] Enrichir le use case diagram
-- Documentation
+- Javadoc, Manuel utilisateur
   - [x] Build la JavaDoc
-  - [ ] Manuel utilisateur
-- File Watch
+  - [ ] Rédaction d'un manuel utilisateur
+- Génération du site statique à la volée
   - [ ] Implémenter une abstraction
   - [ ] Implémenter la commande `--watch`
-- Outils
-  - [ ] Code coverage
-  - [ ] Mesure de performance
-  - [ ] Qualité de code
-- Publish
+- Code coverage, Code benchmarking , Code quality
+  - [ ] Code coverage avec  `Jacoco`
+  - [ ] Mesure de performance`avec `JMH`  et `VisualVM` pour la visualisation
+  - [ ] Qualité de code avec ` LGTM` et SonarQube` 
+- Publication du site dans un répertoire distant
   - [ ] Modifier la configuration
   - [ ] Implémenter la commande `publish` pour publier le build sur un server distant
 - Délivration continue
@@ -446,6 +446,18 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 | 11  | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | h | -          | #82        |
 | 12  | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | h | -          | #84        |
 | *Totaux* |                             |  h       |  h        |  h     | h  |        h   |            |
+
+
+### Resultats du Code coverage
+Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie Jacocco, ci après les résultats que vous avons obtenu. 
+
+### Mesure de performance
+
+Afin de mesurer les performances de notre implémentation, nous avons utilisé 2 technologies principalement, `JMH` afin  et `VisualMH`. Ici, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci après les résultats  que nous avons obtenu.
+
+#### Interprétation
+
+### Qualité de code
 
 ### Problèmes rencontrés
 
