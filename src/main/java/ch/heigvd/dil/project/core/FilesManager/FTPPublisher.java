@@ -2,6 +2,7 @@ package ch.heigvd.dil.project.core.FilesManager;
 
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.Configuration;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
@@ -13,11 +14,25 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Objects;
 
+/**
+ * Utility class for FTP operations
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class FTPPublisher {
 
-    public static void publish(String sourceFolder) throws RuntimeException, IOException {
+    /**
+     * Publish a folder content to a remote FTP server
+     *
+     * <p>Will ignore empty folders
+     *
+     * @param sourceFolder folder which content will be published
+     * @throws IOException If connection or publish failed
+     */
+    public static void publish(String sourceFolder) throws IOException {
 
         // Check configuration
         Configuration config = App.getInstance().getRootConfig();
@@ -29,13 +44,11 @@ public class FTPPublisher {
         // Try to connect
         FTPClient client = new FTPClient();
 
-        client.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
-
         client.connect(config.getPublishServer());
         int reply = client.getReplyCode();
         if (!FTPReply.isPositiveCompletion(reply)) {
             client.disconnect();
-            throw new RuntimeException("Error while connecting to FTP Server");
+            throw new IOException("Error while connecting to FTP Server");
         }
 
         client.login(config.getPublishUsername(), config.getPublishPassword());
@@ -49,9 +62,9 @@ public class FTPPublisher {
                 new SimpleFileVisitor<>() {
                     private void uploadFile(Path path) throws IOException {
                         String file = new File(sourceFolder).toURI().relativize(new File(String.valueOf(path)).toURI()).getPath();
-                        // TODO: Create file if has structure of folder
-                        // System.out.println(file);
-                        // client.makeDirectory(Path.of(file.getParent()));
+
+                        createDirectoryStructure(FilenameUtils.getPath(file), client);
+
                         try (InputStream in = new FileInputStream(sourceFolder + "/" + file)) {
                             client.storeFile(publishPath + file, in);
                         }
@@ -71,5 +84,32 @@ public class FTPPublisher {
 
         client.logout();
         client.disconnect();
+    }
+
+    /**
+     * Created a hierachy of folders on a remote FTP server
+     *
+     * @param dirsPath Path of folders
+     * @param client   FTP client
+     * @throws IOException If error while creating the folders
+     */
+    private static void createDirectoryStructure(String dirsPath, FTPClient client) throws IOException {
+        String[] directories = dirsPath.split("/");
+        if (directories.length == 0) return;
+
+        client.changeWorkingDirectory("/");
+
+        for (String dir : directories) {
+            if (!dir.isEmpty()) {
+                if (!client.changeWorkingDirectory(dir)) {
+                    if (!client.makeDirectory(dir)) {
+                        throw new IOException("Unable to create remote directory");
+                    }
+                    if (!client.changeWorkingDirectory(dir)) {
+                        throw new IOException("Unable to change into newly created remote directory");
+                    }
+                }
+            }
+        }
     }
 }
