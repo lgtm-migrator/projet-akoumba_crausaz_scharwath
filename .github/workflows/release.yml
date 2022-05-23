@@ -22,8 +22,8 @@ jobs:
 
       - uses: actions/upload-artifact@v1
         with:
-            name: Package
-            path: release
+          name: Package
+          path: release
 
       - uses: montudor/action-zip@v1
         with:
@@ -51,13 +51,13 @@ jobs:
           asset_name: statique.zip
           asset_content_type: application/zip
 
-        - name: Upload JavaDoc
-          id: upload-jdoc
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./release/JavaDoc.zip
-            asset_name: JavaDoc.zip
-            asset_content_type: application/zip
+      - name: Upload JavaDoc
+        id: upload-jdoc
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release/JavaDoc.zip
+          asset_name: JavaDoc.zip
+          asset_content_type: application/zip
