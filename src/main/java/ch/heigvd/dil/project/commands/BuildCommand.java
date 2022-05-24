@@ -33,10 +33,7 @@ public class BuildCommand extends BaseCommand {
     protected String getRootPath() {
         return creationPath;
     }
-    @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @Fork(value = 1)
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+
     @Override
     public void execute() {
         // Check if the source projet exists
