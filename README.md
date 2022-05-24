@@ -499,7 +499,12 @@ Nous constatons que nous devrions améliorer nos tests concernant le FTPPublishe
 ### Mesure de performance
 
 Afin de mesurer les performances de notre implémentation, nous avons utilisé 2 technologies principalement, `JMH` afin  et `VisualMH`.
-Ici, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-après les résultats, que nous avons obtenus.
+
+Avec `JMH`, nous avons effectué un test de performance de la méthode qui injecte du contenu dans un template Handlebars, voici le résultat:
+
+![jmh](https://user-images.githubusercontent.com/15279957/169984490-ddc3f361-666b-43b1-ace3-f48a6f714420.png)
+
+Avec `VisualVM`, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus:
 
 #### Interprétation
 
@@ -521,7 +526,7 @@ Cet outil effectue une analyse statique de notre code Java
 | 3        | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      | 1h   | 2         | #74        |
 | 4        | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      | 4h   | 11        | #75        |
 | 5        | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      | 1h   | 4         | #76        |
-| 7        | Manuel utilisateur                                | 1h        | 2h         | 1h      | h    | -         | #77        |
+| 7        | Manuel utilisateur                                | 1h        | 2h         | 1h      | 1h    | -         | #77        |
 | 6        | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      | 1h   | -         | #78        |
 | 8        | Mesure de performance                             | 2h        | 5h         | 3h      | h    | -         | #79        |
 | 9        | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | -h   | -         | #80        |
