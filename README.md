@@ -506,9 +506,7 @@ Avec `JMH`, nous avons effectué un test de performance de la méthode qui injec
 
 Avec `VisualVM`, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus:
 
-#### Interprétation
-
-TODO
+Nous n'avons pas réussi à obtenir des résultats cohérents en utilisant VisualVM. Nous allons retenter l'expérience au prochain sprint.
 
 ### Qualité de code
 
@@ -526,14 +524,14 @@ Cet outil effectue une analyse statique de notre code Java
 | 3        | Ajouter la JavaDoc dans la release (CI)           | 1h        | 2h         | 1h      | 1h   | 2         | #74        |
 | 4        | Implémenter une abstraction de FileWatcher        | 3h        | 5h         | 4h      | 4h   | 11        | #75        |
 | 5        | Intégrer l'abstraction FileWatcher à notre projet | 3h        | 5h         | 4h      | 1h   | 4         | #76        |
-| 7        | Manuel utilisateur                                | 1h        | 2h         | 1h      | 1h    | -         | #77        |
+| 7        | Manuel utilisateur                                | 1h        | 2h         | 1h      | 1h   | -         | #77        |
 | 6        | Intégrer un outil de code coverage                | 1h        | 3h         | 2h      | 1h   | -         | #78        |
-| 8        | Mesure de performance                             | 2h        | 5h         | 3h      | h    | -         | #79        |
+| 8        | Mesure de performance                             | 2h        | 5h         | 3h      | -    | -         | #79        |
 | 9        | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | -h   | -         | #80        |
 | 10       | Commande publish                                  | 3h        | 6h         | 5h      | 3h   | -         | #81        |
 | 11       | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | 2h   | -         | #82        |
 | 12       | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | 1h   | -         | #84        |
-| *Totaux* |                                                   | 21h       | 44h        | 31h     | h    |           |            |
+| *Totaux* |                                                   | 21h       | 44h        | 31h     | 17h  |           |            |
 
 #### Comparaison temps estimé / temps réel
 
@@ -542,7 +540,7 @@ Globalement, nous avons respecté pour la plupart des tâches les temps attendus
 ### Problèmes rencontrés
 
 Nous avons passé pas mal de temps à nous documenter sur le fonctionnement du WatchService afin de réaliser une abstraction simple
-et cohérente pour notre application.
+et cohérente pour notre application. Nous n'avons pas réussi à faire un profilage de la commande build avec VisualVM.
 
 ### Ressenti du groupe sur le sprint 3
 
@@ -561,3 +559,4 @@ en backlog pour le 4e et dernier sprint.
 | Ajout de tests                 | Sur la commande build, il faut ajouter des tests d'intégration                                                                            |
 | Remise à niveau des diagrammes | Il nous faut mettre à jour les diagrammes de séquences, activité et UML                                                                   |
 | Complexité des tâches          | Notre rapport devra contenir une évaluation de complexité des tâches et mieux mettre en avant la séparation des étapes selon les stories. |
+| Mesure de performance          | Terminer la seconde partie de l'évaluation de performance avec VisualVM                                                                   |
