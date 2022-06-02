@@ -14,9 +14,9 @@ Le projet s'utilise en suivant les étapes suivantes :
 
 ### 1. Téléchargement
 
-l faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
+Il faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
 
-Décompressez le fichier `statique.zip` à un endroit souhaité puis ajoutez le programme à votre variable d'envrionnement `path`.
+Décompressez le fichier `statique.zip` à un endroit souhaité puis ajoutez le programme à votre variable d'environnement `path`.
 
 - Sur Linux / MacOS: `export PATH=$PATH:`pwd`/statique/bin`
 - Sur Windows: https://www.pcastuces.com/pratique/astuces/5334.htm
@@ -28,24 +28,68 @@ Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom
 Nous allons utiliser la commande `statique init mon/site` pour cela. 
 Cette commande va créer un dossier `mon/site` dans le dossier courant et va créer un exemple de site.
 
+Voici la structure d'exemple générée par défault :
+
+```text
+├── config.yml              # Fichier de configuration globale
+├── index.md                # Page principale du site
+├── layouts                 # Dossier contenant les templates partiels
+│   ├── footer.html   # Template pour le pied de page
+│   ├── layout.html   # Template pour le layout par défaut
+│   └── navbar.html   # Template pour la barre de navigation
+├── page                    # Dossier pour une page secondaire
+│   └── page.md       # Contenu de la page secondaire
+└── photo.jpg               # Un asset d'exemple
+```
+
 ### 3. Ajouter du contenu et configurer le site
 Maintenant que le projet est initialisé, nous allons ajouter du contenu et configurer le site.
-A la racine du projet se trouve un fichier `config.yml` qui contient la configuration du site.
-Comme l'URL, le titre et la langue du site. Vous remarquerez que le contenu du site utilise des fichiers Markdown.
-Ces fichiers Markdown ont une entête en `yaml` qui contient les informations sur le contenu de la page.
-Remarque : L'arborescence du site restera identique à celui du projet.
+À la racine du projet se trouve un fichier `config.yml` qui contient la configuration du site.
+
+```yml
+title: "my nice website"    # Le titre du site
+url: "localhost:8080"       # URL du site
+language: "en"              # Langage du site, format ISO 639-1
+publishDir: "/"             # Chemin de déploiement sur le serveur distant
+publishServer: ""           # URL du serveur distant
+publishUsername: ""         # Username pour la connexion au serveur distant
+publishPassword: ""         # Mot de passe pour la connexion au serveur distant
+```
+
+Vous remarquerez que le contenu des pages sont des fichiers Markdown.
+Ces fichiers Markdown ont un entête en `yaml` qui contient les informations sur le contenu de la page.
+
+```yml
+title: "Title page"     # Titre de la page
+author: "My author"     # Auteur de la page
+date: "2022-02-02"      # Date de publication
+
+---                     # Section markdown
+# Wahoou same site !
+
+Link to my second page: [page 2](../index.md)
+
+## Look ! the same picture ! Nice !
+![Un meme](../photo.jpg)
+```
+
+La seconde partie du fichier contient le markdown qui sera tranformé en `html`.
+Lien vers la [documentation markdown](https://www.markdownguide.org/basic-syntax/)
+
 
 ### 4. Construction du projet
 Nous allons maintenant construire le projet.
 Nous allons utiliser la commande `statique build mon/site` pour construire le site.
 Cette commande va créer un dossier `build` dans le dossier courant et va convertir tous les fichiers Markdown en HTML.
-Cela va également copier tous les autres fichiers du projet.
+Les différents fichiers `markdown` et layouts des pages seront compilé en `html` et copié vers ce dossier.
+La structure des fichiers sera conservée.
 
 ### 5. Création du serveur
-Nous allons maintenant créer le serveur.
-Nous allons utiliser la commande `statique serve mon/site` pour construire le serveur.
+
+Il est possible de voir le résultat directement au travers d'un serveur web sur votre machine locale.
+Pour ce faire, nous allons utiliser la commande `statique serve mon/site` pour construire le serveur.
 Nous pouvons specifier le port du serveur en utilisant la commande `statique serve mon/site -p 8080`, sinon
-le port sera define par la configuration du site.
+le port sera défini par la configuration du site.
 
 #### 6. Déploiement FTP distant (optionnel)
 
