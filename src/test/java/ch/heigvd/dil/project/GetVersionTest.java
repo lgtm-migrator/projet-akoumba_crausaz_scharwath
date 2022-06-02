@@ -1,8 +1,8 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GetVersionTest {
     @Test

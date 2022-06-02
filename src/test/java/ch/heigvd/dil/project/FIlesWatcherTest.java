@@ -2,16 +2,22 @@ package ch.heigvd.dil.project;
 
 import ch.heigvd.dil.project.core.FilesManager.FilesWatcher;
 import ch.heigvd.dil.project.core.FilesManager.FilesWatcherHandler;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.HashSet;
-import org.apache.commons.io.FileUtils;
-import org.junit.After;
-import org.junit.Test;
 
 public class FIlesWatcherTest {
-    private final Path rootPath = Path.of("./data/watcher");
+    private final static Path rootPath = Path.of("./data/watcher");
+
+    @AfterAll
+    static void tearDown() throws IOException {
+        FileUtils.deleteDirectory(rootPath.toFile());
+    }
 
     @Test
     public void shouldCreateInstance() throws IOException, InterruptedException {
@@ -46,10 +52,5 @@ public class FIlesWatcherTest {
         filesWatcher.stop();
         // check if all files have been created
         assert (testFiles.size() == files.size());
-    }
-
-    @After
-    public void tearDown() throws IOException {
-        FileUtils.deleteDirectory(rootPath.toFile());
     }
 }

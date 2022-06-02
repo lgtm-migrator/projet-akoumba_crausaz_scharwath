@@ -1,21 +1,26 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.FileBuilder;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.io.IOException;
-import org.apache.commons.io.FileUtils;
-import org.junit.Before;
-import org.junit.Test;
 
-/** Unit test for simple App. */
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+/**
+ * Unit test for simple App.
+ */
 public class FileBuilderTest {
 
-    @Before
-    public void before() {
+    @BeforeAll
+    @AfterAll
+    static void clean() {
         File buildFolder = new File("./data/site/build");
         try {
             FileUtils.deleteDirectory(buildFolder);

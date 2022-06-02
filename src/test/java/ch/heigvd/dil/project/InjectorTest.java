@@ -4,28 +4,37 @@ import ch.heigvd.dil.project.commands.InitCommand;
 import ch.heigvd.dil.project.core.Configuration;
 import ch.heigvd.dil.project.core.FilesManager.Injector;
 import ch.heigvd.dil.project.core.PageConfiguration;
+import org.codehaus.plexus.util.FileUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import picocli.CommandLine;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import org.codehaus.plexus.util.FileUtils;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import picocli.CommandLine;
 
-/** Tests the template injection system */
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Tests the template injection system
+ */
 public class InjectorTest {
 
     private static final String TEST_FOLDER = "./website";
     private static final String LAYOUT_PATH = TEST_FOLDER + "/layouts/layout";
 
-    @Before
-    public void initMockProject() {
+    @BeforeAll
+    static void initMockProject() {
         // Here we use another command (init)
-        String[] args = new String[] {TEST_FOLDER};
+        String[] args = new String[]{TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
+    }
+
+    @AfterAll
+    static void clearProject() throws IOException {
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     /**
@@ -40,10 +49,12 @@ public class InjectorTest {
                         "Hello {{ url }}, {{ title }}, {{ language }}",
                         new Configuration("localhost", "fr", "Mon super site"));
 
-        Assert.assertEquals(res, "Hello localhost, Mon super site, fr");
+        assertEquals(res, "Hello localhost, Mon super site, fr");
     }
 
-    /** Test the injection of variables Unit test */
+    /**
+     * Test the injection of variables Unit test
+     */
     @Test
     public void shouldInjectVariablesAndPartialsInLayout() throws IOException {
         Configuration siteConfig = new Configuration("localhost:8080", "fr", "super site");
@@ -51,10 +62,5 @@ public class InjectorTest {
                 new PageConfiguration("mon titre de page", "Nicolas Crausaz", "2022-05-02");
 
         Injector.injectLayout(Path.of(LAYOUT_PATH), siteConfig, pageConfig, "le contenu");
-    }
-
-    @After
-    public void clearProject() throws IOException {
-        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 }

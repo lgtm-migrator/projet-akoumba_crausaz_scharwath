@@ -2,6 +2,7 @@ package ch.heigvd.dil.project.commands;
 
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
@@ -9,9 +10,10 @@ import picocli.CommandLine;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CleanCommandTest {
+
+public class BuildCommandTest {
 
     private static final String TEST_FOLDER = "./website";
 
@@ -26,24 +28,21 @@ public class CleanCommandTest {
     @BeforeAll
     @AfterAll
     static void clearProject() throws IOException {
+        System.out.println("clearing mock project " + TEST_FOLDER);
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
+    }
+
+    @AfterEach
+    void clearBuildFolder() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     @Test
-    public void shouldCleanBuildFolder() {
+    public void shouldBuildProject() {
         String[] args = new String[]{TEST_FOLDER};
-        CommandLine cmd = new CommandLine(new CleanCommand());
+        CommandLine cmd = new CommandLine(new BuildCommand());
         cmd.execute(args);
-
-        assertFalse(new File(TEST_FOLDER, "build").exists());
-    }
-
-    @Test
-    public void shouldIgnoreIfNoBuildFolder() {
-        String[] args = new String[]{TEST_FOLDER};
-        CommandLine cmd = new CommandLine(new CleanCommand());
-        cmd.execute(args);
-
-        assertFalse(new File(TEST_FOLDER, "build").exists());
+        File buildFolder = new File(TEST_FOLDER, "build");
+        assertTrue(buildFolder.exists());
     }
 }

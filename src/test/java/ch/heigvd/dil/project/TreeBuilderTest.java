@@ -1,23 +1,26 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertTrue;
-
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
-import java.io.File;
-import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-/** Unit test for simple App. */
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/**
+ * Unit test for simple App.
+ */
 public class TreeBuilderTest {
-    @Before
-    @After
-    public void before() {
+    @BeforeAll
+    @AfterAll
+    static void init() {
         File buildFolder = new File("./data/site/build");
         try {
             FileUtils.deleteDirectory(buildFolder);
@@ -36,8 +39,8 @@ public class TreeBuilderTest {
         assertTrue(dest.exists());
         assertTrue(
                 FileUtils.listFilesAndDirs(
-                                        dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                                .size()
+                                dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
+                        .size()
                         > 0);
     }
 }

@@ -1,28 +1,34 @@
 package ch.heigvd.dil.project.commands;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.codehaus.plexus.util.FileUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
 
 public class ServerCommandTest {
     static final String TEST_FOLDER = "./website";
 
-    private static final String[] args = new String[] {TEST_FOLDER};
+    private static final String[] args = new String[]{TEST_FOLDER};
 
-    @Before
-    public void initAndBuild() {
+    @BeforeAll
+    static void initAndBuild() {
         CommandLine cmd1 = new CommandLine(new InitCommand());
         CommandLine cmd2 = new CommandLine(new BuildCommand());
         cmd1.execute(args);
         cmd2.execute(args);
+    }
+
+    @AfterAll
+    static void clean() throws IOException {
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
     @Test
@@ -37,10 +43,5 @@ public class ServerCommandTest {
             assert (response.code() == 200);
             assert (Objects.requireNonNull(response.body()).toString().length() > 0);
         }
-    }
-
-    @After
-    public void clean() throws IOException {
-        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 }
