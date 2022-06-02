@@ -1,23 +1,23 @@
 package ch.heigvd.dil.project;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import ch.heigvd.dil.project.commands.InitCommand;
 import ch.heigvd.dil.project.core.Configuration;
 import ch.heigvd.dil.project.core.FilesManager.Injector;
 import ch.heigvd.dil.project.core.PageConfiguration;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
  * Tests the template injection system
+ *
  * @author Maxime Scharwath
  * @author Nicolas Crausaz
  * @author Ludivine Akoumba
@@ -30,7 +30,7 @@ public class InjectorTest {
     @BeforeAll
     static void initMockProject() {
         // Here we use another command (init)
-        String[] args = new String[]{TEST_FOLDER};
+        String[] args = new String[] {TEST_FOLDER};
         CommandLine cmd = new CommandLine(new InitCommand());
         cmd.execute(args);
     }
@@ -55,9 +55,7 @@ public class InjectorTest {
         assertEquals(res, "Hello localhost, Mon super site, fr");
     }
 
-    /**
-     * Test the injection of variables Unit test
-     */
+    /** Test the injection of variables Unit test */
     @Test
     public void shouldInjectVariablesAndPartialsInLayout() throws IOException {
         Configuration siteConfig = new Configuration("localhost:8080", "fr", "super site");
