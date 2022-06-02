@@ -13,27 +13,45 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * PublishCommandTest class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class PublishCommandTest {
     private static final String TEST_FOLDER = "./website";
     private static final String[] args = new String[]{TEST_FOLDER};
 
+    /**
+     * Create a temporary folder for the tests.
+     */
     @BeforeAll
     @AfterAll
     static void cleanAll() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /**
+     * Delete the temporary folder after each test.
+     */
     @AfterEach
     void clean() throws IOException {
         cleanAll();
     }
 
+    /**
+     * If the folder does not exist, the command should not fail.
+     */
     @Test
     public void shouldSkipIfNoBuildFiles() {
         CommandLine cmd = new CommandLine(new PublishCommand());
         assertDoesNotThrow(() -> cmd.execute(args));
     }
 
+    /**
+     * If configuration id invalid, the command should throw an exception.
+     */
     @Test
     public void shouldThrowIfInvalidConfiguration() {
         CommandLine cmd = new CommandLine(new InitCommand());

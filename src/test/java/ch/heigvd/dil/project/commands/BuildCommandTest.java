@@ -12,11 +12,19 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
+/**
+ * Test class for the BuildCommand class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class BuildCommandTest {
 
     private static final String TEST_FOLDER = "./website";
 
+    /**
+     * Create a temporary folder for the tests.
+     */
     @BeforeAll
     static void initMockProject() {
         // Here we use another command (init)
@@ -25,18 +33,26 @@ public class BuildCommandTest {
         cmd.execute(args);
     }
 
+    /**
+     * Delete the temporary folder after the tests.
+     */
     @BeforeAll
     @AfterAll
     static void clearProject() throws IOException {
-        System.out.println("clearing mock project " + TEST_FOLDER);
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /**
+     * Delete the temporary folder after each test.
+     */
     @AfterEach
     void clearBuildFolder() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /**
+     * Test the build command.
+     */
     @Test
     public void shouldBuildProject() {
         String[] args = new String[]{TEST_FOLDER};

@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for Version Provider.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class GetVersionTest {
     @Test
     public void shouldGetAVersionArray() {

@@ -13,11 +13,20 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * ServerCommandTest class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class ServerCommandTest {
     static final String TEST_FOLDER = "./website";
 
     private static final String[] args = new String[]{TEST_FOLDER};
 
+    /**
+     * Create a temporary folder for the tests.
+     */
     @BeforeAll
     static void initAndBuild() {
         CommandLine cmd1 = new CommandLine(new InitCommand());
@@ -26,11 +35,17 @@ public class ServerCommandTest {
         cmd2.execute(args);
     }
 
+    /**
+     * Delete the temporary folder after the tests.
+     */
     @AfterAll
     static void clean() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /**
+     * Should answer the GET request with a 200 status code.
+     */
     @Test
     public void shouldAnswerOK() throws IOException {
         CommandLine cmd = new CommandLine(new ServeCommand());

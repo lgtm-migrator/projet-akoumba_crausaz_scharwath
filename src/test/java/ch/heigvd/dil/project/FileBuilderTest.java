@@ -14,10 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
- * Unit test for simple App.
+ * Test class for the FileBuilder class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
  */
 public class FileBuilderTest {
 
+    /**
+     * Delete the temporary folder after and before the tests.
+     */
     @BeforeAll
     @AfterAll
     static void clean() {
@@ -29,6 +35,9 @@ public class FileBuilderTest {
         }
     }
 
+    /**
+     * Should build a file
+     */
     @Test
     public void shouldBuildFile() {
         var srcFile = new File("./data/site/index.md");

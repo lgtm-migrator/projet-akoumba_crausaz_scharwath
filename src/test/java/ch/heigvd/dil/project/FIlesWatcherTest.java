@@ -11,6 +11,12 @@ import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.HashSet;
 
+/**
+ * Test class for the FilesWatcher class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class FIlesWatcherTest {
     private final static Path rootPath = Path.of("./data/watcher");
 

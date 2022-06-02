@@ -15,7 +15,10 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Unit test for simple App.
+ * Test class for the TreeBuilder class.
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
  */
 public class TreeBuilderTest {
     @BeforeAll
