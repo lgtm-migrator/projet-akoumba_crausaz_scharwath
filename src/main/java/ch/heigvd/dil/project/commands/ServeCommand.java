@@ -3,12 +3,13 @@ package ch.heigvd.dil.project.commands;
 import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.logging.Logger;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the serve command.
@@ -35,6 +36,11 @@ public class ServeCommand extends BaseCommand {
             defaultValue = "-1")
     int port;
 
+    @CommandLine.Option(
+            names = {"-w", "--watch"},
+            description = "Watch the site for changes")
+    boolean watch;
+
     @Override
     protected String getRootPath() {
         return websitePath;
@@ -42,6 +48,9 @@ public class ServeCommand extends BaseCommand {
 
     @Override
     public void execute() {
+        if (watch) {
+            new CommandLine(new BuildCommand()).execute(websitePath, "--watch");
+        }
         var buildPath = App.getInstance().getRootPathAsPath().resolve("build");
         if (!buildPath.toFile().exists()) {
             throw new IllegalArgumentException(
