@@ -2,23 +2,23 @@ package ch.heigvd.dil.project;
 
 import ch.heigvd.dil.project.core.FilesManager.FilesWatcher;
 import ch.heigvd.dil.project.core.FilesManager.FilesWatcherHandler;
-import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.HashSet;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for the FilesWatcher class.
+ *
  * @author Maxime Scharwath
  * @author Nicolas Crausaz
  * @author Ludivine Akoumba
  */
 public class FIlesWatcherTest {
-    private final static Path rootPath = Path.of("./data/watcher");
+    private static final Path rootPath = Path.of("./data/watcher");
 
     /**
      * Delete the temporary folder after and before the tests.
