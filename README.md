@@ -345,6 +345,32 @@ Cette librairie nous a permis de transformer du markdown en HTML très facilemen
 Handlebar est un moteur de templating très connu. Certains membres du groupes le connaissaient déjà et notre choix s'est donc
 logiquement porté sur cet outil.
 
+## Modélisation 
+
+### Diagramme de cas d'utilisation
+Ci après le diagramme des cas d'utilisation final du site statique
+
+![usecasediagram_v3](https://user-images.githubusercontent.com/71764114/172828900-6ff071bd-eba3-4d80-a5bb-e5216451fd91.png)
+
+### Diagramme de classe 
+Ci après le diagramme des classes final du site statique
+
+### Diagramme de sequence
+
+### Diagrammes d'activité
+Ci après les diagrammes d'activité des commandes du site
+
+#### Diagramme d'activité de la commande Init
+
+
+#### Diagramme d'activité de la commande Build
+
+#### Diagramme d'activité de la commande Serve
+
+#### Diagramme d'activité de la commande Clean
+
+
+
 
 ## Sprint 1
 
@@ -604,3 +630,49 @@ en backlog pour le 4e et dernier sprint.
 | Remise à niveau des diagrammes | Il nous faut mettre à jour les diagrammes de séquences, activité et UML                                                                   |
 | Complexité des tâches          | Notre rapport devra contenir une évaluation de complexité des tâches et mieux mettre en avant la séparation des étapes selon les stories. |
 | Mesure de performance          | Terminer la seconde partie de l'évaluation de performance avec VisualVM                                                                   |
+
+
+## Sprint final
+
+Temps de travail: 3 semaines
+
+### Étapes du sprint final
+
+- Modélisation UML
+- [x] Refactor global
+- [x] Exporter les méthodes des commandes dans des classes externes
+- [x] Ajout de de tests pour la commande build
+- [x] Commenter le code ET les tests
+- [x]Remettre a jour l'UML
+- [x] Faire un diagramme d'activité pour chaque commande
+- [x] Remettre a jour de diagramme de séquence
+- [x] Faire visualvm avec commande serve 
+- [x]Ajouter les estimations de complexité et séparation des tâches pour chaque sprint, avant le tableau d'estimation horaire
+- [x] On aimerait bien avoir le processus complet de review résumé à un endroit 
+- [x]Parler des etapes de refactoring
+- [x]Expliquer le contenu des dossiers / apres un init /build (dans manuel utilisateur)
+- [x]Ajouter explication de comment utiliser les layouts
+- [x] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
+- [x] Use case diagramme: Ajouter le file watcher
+- [x] Ajouter les résultats LGMT et les documenter
+- [x]Commenter le code coverage
+- [x] Review Finale: on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
+- [x] Test: serve dossier qui n'existe pas. Commande build. + de test d'intégration
+
+### Temps estimé des étapes du sprint final
+
+| No       | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
+|----------|---------------------------------------------------|-----------|------------|---------|------|-----------|------------|
+| 1        | Créer diagramme de séquence                       | 1h        | 3h         | 2h      | 2h   | -         | #47        |
+| *Totaux* |                                                   | 21h       | 44h        | 31h     | 17h  |           |            |
+
+#### Comparaison temps estimé / temps réel
+
+
+### Problèmes rencontrés
+
+
+
+### Ressenti du groupe sur le sprint final
+
+
