@@ -35,6 +35,11 @@ public class ServeCommand extends BaseCommand {
             defaultValue = "-1")
     int port;
 
+    @CommandLine.Option(
+            names = {"-w", "--watch"},
+            description = "Watch the site for changes")
+    boolean watch;
+
     @Override
     protected String getRootPath() {
         return websitePath;
@@ -42,6 +47,9 @@ public class ServeCommand extends BaseCommand {
 
     @Override
     public void execute() {
+        if (watch) {
+            new CommandLine(new BuildCommand()).execute(websitePath, "--watch");
+        }
         var buildPath = App.getInstance().getRootPathAsPath().resolve("build");
         if (!buildPath.toFile().exists()) {
             throw new IllegalArgumentException(
