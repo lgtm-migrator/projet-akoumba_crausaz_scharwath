@@ -20,13 +20,19 @@ import java.util.HashSet;
 public class FIlesWatcherTest {
     private final static Path rootPath = Path.of("./data/watcher");
 
+    /**
+     * Delete the temporary folder after and before the tests.
+     */
     @AfterAll
     static void tearDown() throws IOException {
         FileUtils.deleteDirectory(rootPath.toFile());
     }
 
+    /**
+     * Should copy files when they are created in a watched directory.
+     */
     @Test
-    public void shouldCreateInstance() throws IOException, InterruptedException {
+    public void shouldCopyFileToDestWhenCreated() throws IOException, InterruptedException {
         rootPath.toFile().mkdirs();
         // create set of files
         HashSet<Path> files =

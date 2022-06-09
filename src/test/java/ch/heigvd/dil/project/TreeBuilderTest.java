@@ -16,11 +16,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for the TreeBuilder class.
+ *
  * @author Maxime Scharwath
  * @author Nicolas Crausaz
  * @author Ludivine Akoumba
  */
 public class TreeBuilderTest {
+    /**
+     * Delete the temporary folder after and before the tests.
+     */
     @BeforeAll
     @AfterAll
     static void init() {
@@ -32,8 +36,11 @@ public class TreeBuilderTest {
         }
     }
 
+    /**
+     * Should build some files
+     */
     @Test
-    public void myTest() throws IOException {
+    public void shouldBuildSomeFiles() throws IOException {
         var src = new File("data/site/");
         var dest = new File("data/site/build/");
         var treeBuilder = new TreeBuilder(src, dest);
@@ -42,8 +49,10 @@ public class TreeBuilderTest {
         assertTrue(dest.exists());
         assertTrue(
                 FileUtils.listFilesAndDirs(
-                                dest, FileFileFilter.INSTANCE, DirectoryFileFilter.INSTANCE)
-                        .size()
-                        > 0);
+                        dest,
+                        FileFileFilter.INSTANCE,
+                        DirectoryFileFilter.INSTANCE
+                ).size() > 0
+        );
     }
 }

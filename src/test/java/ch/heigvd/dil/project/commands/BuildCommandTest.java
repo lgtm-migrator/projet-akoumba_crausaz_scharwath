@@ -10,10 +10,12 @@ import picocli.CommandLine;
 import java.io.File;
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for the BuildCommand class.
+ *
  * @author Maxime Scharwath
  * @author Nicolas Crausaz
  * @author Ludivine Akoumba
@@ -47,7 +49,7 @@ public class BuildCommandTest {
      */
     @AfterEach
     void clearBuildFolder() throws IOException {
-        FileUtils.deleteDirectory(new File(TEST_FOLDER));
+        FileUtils.deleteDirectory(new File(TEST_FOLDER, "build"));
     }
 
     /**
@@ -60,5 +62,24 @@ public class BuildCommandTest {
         cmd.execute(args);
         File buildFolder = new File(TEST_FOLDER, "build");
         assertTrue(buildFolder.exists());
+        var buildFolderContent = buildFolder.listFiles();
+        assert(buildFolderContent != null);
+        assert(buildFolderContent.length > 0);
+    }
+
+    /**
+     * Test that the build folder not have layouts and config files.
+     */
+    @Test
+    public void shouldNotHaveConfigurationFileInBuildFolder() {
+        String[] args = new String[]{TEST_FOLDER};
+        new CommandLine(new BuildCommand()).execute(args);
+        File buildFolder = new File(TEST_FOLDER, "build");
+        assertTrue(buildFolder.exists());
+        File configFile = new File(buildFolder, "config.yml");
+        assertFalse(configFile.exists());
+
+        File layoutsDIr = new File(buildFolder, "layouts");
+        assertFalse(layoutsDIr.exists());
     }
 }

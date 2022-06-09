@@ -3,13 +3,13 @@ package ch.heigvd.dil.project.commands;
 import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.nio.file.Path;
 import java.util.logging.Logger;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the serve command.
@@ -43,6 +43,10 @@ public class ServeCommand extends BaseCommand {
 
     @Override
     public void execute() {
+        var buildPath = App.getInstance().getRootPathAsPath().resolve("build");
+        if (!buildPath.toFile().exists()) {
+            throw new IllegalArgumentException("No build folder found. Please run the build command first.");
+        }
         try {
             URI url = App.getInstance().getRootConfig().getURI();
             int configPort = url.getPort();
@@ -52,7 +56,7 @@ public class ServeCommand extends BaseCommand {
             }
             var server = HttpServer.create(new InetSocketAddress(port), 0);
             // Add the static file handler to the server
-            server.createContext("/", new StaticFileHandler(Path.of(websitePath, "build")));
+            server.createContext("/", new StaticFileHandler(buildPath));
             server.setExecutor(null); // creates a default executor
             server.start();
             LOG.info(String.format("Server started on port %d", port));

@@ -4,8 +4,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
@@ -14,6 +14,7 @@ import java.io.IOException;
 
 /**
  * ServeCommandTest class.
+ *
  * @author Maxime Scharwath
  * @author Nicolas Crausaz
  * @author Ludivine Akoumba
@@ -23,21 +24,11 @@ public class ServeCommandTest {
     private static final String[] args = new String[]{TEST_FOLDER};
 
     /**
-     * Create a temporary folder for the tests.
+     * Delete the temporary folder
      */
-    @BeforeAll
-    public static void initAndBuild() {
-        CommandLine cmd = new CommandLine(new InitCommand());
-        CommandLine cmd2 = new CommandLine(new BuildCommand());
-        cmd.execute(args);
-        cmd2.execute(args);
-    }
-
-    /**
-     * Delete the temporary folder after the tests.
-     */
-    @AfterAll
-    public static void clean() throws IOException {
+    @AfterEach()
+    @BeforeEach()
+    public void clean() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
@@ -46,8 +37,9 @@ public class ServeCommandTest {
      */
     @Test
     public void shouldAnswerOk() throws IOException {
-        CommandLine cmd3 = new CommandLine(new ServeCommand());
-        cmd3.execute(args);
+        new CommandLine(new InitCommand()).execute(args);
+        new CommandLine(new BuildCommand()).execute(args);
+        new CommandLine(new ServeCommand()).execute(args);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url("http://localhost:8080").build();
 
@@ -56,5 +48,14 @@ public class ServeCommandTest {
             assert (response.body() != null);
             assert (response.body().toString().length() > 0);
         }
+    }
+
+    /**
+     * Command should exit with code 0 if the server can't find the build folder.
+     */
+    @Test
+    public void shouldReturnErrorWhenNoBuildFolderFound() {
+        new CommandLine(new InitCommand()).execute(args);
+        assert (new CommandLine(new ServeCommand()).execute(args) == 1);
     }
 }
