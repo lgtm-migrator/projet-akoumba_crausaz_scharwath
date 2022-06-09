@@ -27,9 +27,7 @@ public class InjectorTest {
     private static final String TEST_FOLDER = "./website";
     private static final String LAYOUT_PATH = TEST_FOLDER + "/layouts/layout";
 
-    /**
-     * Initialize the test folder with init command
-     */
+    /** Initialize the test folder with init command */
     @BeforeAll
     static void initMockProject() {
         // Here we use another command (init)
@@ -38,9 +36,7 @@ public class InjectorTest {
         cmd.execute(args);
     }
 
-    /**
-     * Delete the temporary folder after the tests.
-     */
+    /** Delete the temporary folder after the tests. */
     @AfterAll
     static void clearProject() throws IOException {
         FileUtils.deleteDirectory(new File(TEST_FOLDER));

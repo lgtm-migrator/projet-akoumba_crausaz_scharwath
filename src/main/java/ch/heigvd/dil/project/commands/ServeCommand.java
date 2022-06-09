@@ -3,13 +3,12 @@ package ch.heigvd.dil.project.commands;
 import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import com.sun.net.httpserver.HttpServer;
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.logging.Logger;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /**
  * This class represents the command line interface for the serve command.
@@ -45,7 +44,8 @@ public class ServeCommand extends BaseCommand {
     public void execute() {
         var buildPath = App.getInstance().getRootPathAsPath().resolve("build");
         if (!buildPath.toFile().exists()) {
-            throw new IllegalArgumentException("No build folder found. Please run the build command first.");
+            throw new IllegalArgumentException(
+                    "No build folder found. Please run the build command first.");
         }
         try {
             URI url = App.getInstance().getRootConfig().getURI();

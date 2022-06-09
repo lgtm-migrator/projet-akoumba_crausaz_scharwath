@@ -20,17 +20,13 @@ import org.junit.jupiter.api.Test;
 public class FIlesWatcherTest {
     private static final Path rootPath = Path.of("./data/watcher");
 
-    /**
-     * Delete the temporary folder after and before the tests.
-     */
+    /** Delete the temporary folder after and before the tests. */
     @AfterAll
     static void tearDown() throws IOException {
         FileUtils.deleteDirectory(rootPath.toFile());
     }
 
-    /**
-     * Should copy files when they are created in a watched directory.
-     */
+    /** Should copy files when they are created in a watched directory. */
     @Test
     public void shouldCopyFileToDestWhenCreated() throws IOException, InterruptedException {
         rootPath.toFile().mkdirs();
