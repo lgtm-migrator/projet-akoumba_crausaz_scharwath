@@ -31,7 +31,7 @@ public abstract class BaseCommand implements Runnable {
             this.execute();
         } catch (Exception e) {
             LOG.severe("Error while executing the command");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
