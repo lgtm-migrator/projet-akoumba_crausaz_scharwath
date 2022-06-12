@@ -1,6 +1,6 @@
 package ch.heigvd.dil.project;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.TreeBuilder;
@@ -9,15 +9,22 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.FileFileFilter;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-/** Unit test for simple App. */
+/**
+ * Test class for the TreeBuilder class.
+ *
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class TreeBuilderTest {
-    @Before
-    @After
-    public void before() {
+    /** Delete the temporary folder after and before the tests. */
+    @BeforeAll
+    @AfterAll
+    static void init() {
         File buildFolder = new File("./data/site/build");
         try {
             FileUtils.deleteDirectory(buildFolder);
@@ -26,8 +33,9 @@ public class TreeBuilderTest {
         }
     }
 
+    /** Should build some files */
     @Test
-    public void myTest() throws IOException {
+    public void shouldBuildSomeFiles() throws IOException {
         var src = new File("data/site/");
         var dest = new File("data/site/build/");
         var treeBuilder = new TreeBuilder(src, dest);
