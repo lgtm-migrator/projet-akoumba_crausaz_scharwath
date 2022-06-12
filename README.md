@@ -478,8 +478,7 @@ Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprin
 
 Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité.
 
-
-Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second. Nous n'avons pas atteint notre productivité habituelle car pour le moment nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposées. Néanmoins tous les membres se sont impliqués et ont fourni des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfaits de notre rendu pour cette première étape.
+Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second. Nous n'avons pas atteint notre productivité habituelle, car pour le moment nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposées. Néanmoins, tous les membres se sont impliqués et ont fourni des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfaits de notre rendu pour cette première étape.
 
 ## Sprint 2
 
@@ -548,6 +547,10 @@ Ci-dessous le diagramme de classes du sprint
 Ci-dessous le diagramme de sequence du sprint
 
 ![sequenceDiagram](https://user-images.githubusercontent.com/71764114/169264324-7c6d9ad3-fa74-4c99-94a3-244d43bb4919.png)
+
+### Refactoring
+
+Dans ce sprint, nous avons principalement effectué du refactoring sur le code existant du sprint 1, en créant de nouvelles classes pour abstraire des fonctionnalités récurrentes et complexes.
 
 ### Problèmes rencontrés
 
@@ -652,6 +655,10 @@ sont trouvable sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-sc
 
 Globalement, nous avons respecté pour la plupart des tâches les temps attendus, pour certaines nous avons même réussi à atteindre des temps optimistes.
 
+### Refactoring
+
+Dans ce sprint, nous avons refactor le code existant afin de le rendre utilisable par plusieurs de nos composants de l'application.
+
 ### Problèmes rencontrés
 
 Nous avons passé pas mal de temps à nous documenter sur le fonctionnement du WatchService afin de réaliser une abstraction simple
@@ -706,6 +713,10 @@ d'estimation de temps précise, mais nous avons énuméré les diverses tâches 
 - [ ] Commenter le code coverage
 - [ ] Review Finale : on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
 - [x] Tests : serve dossier qui n'existe pas. Commande build. + de test d'intégration
+
+### Refactoring
+
+Ce sprint était surtout axé sur le refactoring, au niveau de la structure du code et des classes et du code global de l'application.
 
 
 ### Ressenti du groupe sur le sprint final
