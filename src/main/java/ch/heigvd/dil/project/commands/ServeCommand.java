@@ -1,13 +1,10 @@
 package ch.heigvd.dil.project.commands;
 
-import ch.heigvd.dil.project.StaticFileHandler;
 import ch.heigvd.dil.project.core.App;
 import ch.heigvd.dil.project.core.FilesManager.Server;
-
 import java.io.IOException;
 import java.net.URI;
 import java.util.logging.Logger;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
