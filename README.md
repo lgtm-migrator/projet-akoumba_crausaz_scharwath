@@ -76,6 +76,17 @@ Link to my second page: [page 2](../index.md)
 La seconde partie du fichier contient le markdown qui sera tranformé en `html`.
 Lien vers la [documentation markdown](https://www.markdownguide.org/basic-syntax/)
 
+Il est possible de personnaliser l'apparence et la structure du site en utilisant les *layouts* se trouvant dans le dossier `mon/site/layouts`.
+Quelques-uns sont déjà disponibles dans le site d'exemple. Le fichier `layout.html` est le layout principal du site, il suffit de créer de nouveau fichiers
+`*.html` et de les inclure dans le layout principal en utilisant la syntaxe : `{{> <nom du fichier> }}`. Il est également possible d'utiliser des variables dans les layouts,
+en utilisant la syntaxe `{{ variable }}`. Les variables disponibles sont :
+
+- `site.title`
+- `site.language`
+- `site.url`
+- `page.title`
+- `page.author`
+- `page.date`
 
 ### 4. Construction du projet
 Nous allons maintenant construire le projet.
@@ -102,6 +113,8 @@ publishPassword: "password"
 ```
 
 Une fois la commande `statique build mon/site` effectuée, vous pouvez déployer votre site grâce à la commande `statique publish mon/site`.
+
+Un exemple de site déployé avec cette commande: [https://heig-vd.site/](https://heig-vd.site/)
 
 # Travail en équipe
 
@@ -200,7 +213,6 @@ Ce modèle est séparé en quatres parties:
 - Comportement attendu
 - Indications supplémentaires (OS, version etc.)
 
-
 ## Code review
 
 ### Processus de développement
@@ -214,6 +226,20 @@ Une fois que l'issue est corrigée, repasser la PR est mode review et ajouter de
 ![image](https://user-images.githubusercontent.com/15279957/160237721-2a60c637-f8b8-438b-a173-e8af1f41917e.png)
 
 Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository : si l'on ajoute une nouvelle issue, elle est ajoutée dans "To do". Lorsqu'elle est attribué et liée à une PR, l'issue est déplacée dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
+
+### Processus de code review complet
+
+Voici le processus de code review habituel.
+
+- L'équipe reçoit une nouvelle story du client
+- L'équipe se réunit afin d'analyser la story, d'en extraire les différentes étapes et d'évaluer leur complexité et le temps nécessaire à la réalisation.
+- Un membre de l'équipe crée une issue sur GitHub pour chaque étape / regroupant plusieurs petites étapes, 
+  il y indique le *milestone* correspondant au sprint actuel, ainsi que les estimations horaires
+- Lors qu'un membre désirer travailler sur cette issue, il s'attribue l'issue et crée une branche pour son travail.
+- Dès lors qu'un premier commit a été fait, le développeur créer une *Draft Pull Request* de sa branche vers la branche du sprint courant.
+- Dès qu'il a terminé son travail, il passe sa *PR* en mode "ready for review" et demande la review d'un ou plusieurs membres de l'équipe.
+- Les autres membres de l'équipe s'occupent donc de faire une review des modifications apportées au code. Ils font part de leur feedback en cas de problème ou de questions.
+- Si tout en ordre, ils approuvent la *PR* et elle peut ensuite être *merge".
 
 ### Format de message
 
@@ -266,6 +292,7 @@ void test(int test) {
 ```
 
 ### Règles de code
+
 - La longueur des lignes doit être limitée à 120 caractères
 - Les tabulations doivent être remplacées par 4 espaces.
 - Utiliser la nomination appropriée au langage utilisé.
@@ -353,12 +380,12 @@ Ci après le diagramme des cas d'utilisation final du site statique
 ![usecasediagram_v3](https://user-images.githubusercontent.com/71764114/172828900-6ff071bd-eba3-4d80-a5bb-e5216451fd91.png)
 
 ### Diagramme de classe 
-Ci après le diagramme des classes final du site statique
+Voici le diagramme des classes final du site statique
 
 ### Diagramme de sequence
 
 ### Diagrammes d'activité
-Ci après les diagrammes d'activité des commandes du site
+Voici les diagrammes d'activité des commandes du site
 
 #### Diagramme d'activité de la commande Init
 
@@ -643,19 +670,19 @@ Temps de travail: 3 semaines
 - [x] Exporter les méthodes des commandes dans des classes externes
 - [x] Ajout de de tests pour la commande build
 - [x] Commenter le code ET les tests
-- [x]Remettre a jour l'UML
+- [x] Remettre a jour l'UML
 - [x] Faire un diagramme d'activité pour chaque commande
 - [x] Remettre a jour de diagramme de séquence
 - [x] Faire visualvm avec commande serve 
-- [x]Ajouter les estimations de complexité et séparation des tâches pour chaque sprint, avant le tableau d'estimation horaire
+- [x] Ajouter les estimations de complexité et séparation des tâches pour chaque sprint, avant le tableau d'estimation horaire
 - [x] On aimerait bien avoir le processus complet de review résumé à un endroit 
-- [x]Parler des etapes de refactoring
-- [x]Expliquer le contenu des dossiers / apres un init /build (dans manuel utilisateur)
-- [x]Ajouter explication de comment utiliser les layouts
+- [x] Parler des etapes de refactoring
+- [x] Expliquer le contenu des dossiers / apres un init /build (dans manuel utilisateur)
+- [x] Ajouter explication de comment utiliser les layouts
 - [x] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
 - [x] Use case diagramme: Ajouter le file watcher
 - [x] Ajouter les résultats LGMT et les documenter
-- [x]Commenter le code coverage
+- [x] Commenter le code coverage
 - [x] Review Finale: on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
 - [x] Test: serve dossier qui n'existe pas. Commande build. + de test d'intégration
 
