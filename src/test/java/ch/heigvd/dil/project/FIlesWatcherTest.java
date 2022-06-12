@@ -7,14 +7,28 @@ import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.HashSet;
 import org.apache.commons.io.FileUtils;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for the FilesWatcher class.
+ *
+ * @author Maxime Scharwath
+ * @author Nicolas Crausaz
+ * @author Ludivine Akoumba
+ */
 public class FIlesWatcherTest {
-    private final Path rootPath = Path.of("./data/watcher");
+    private static final Path rootPath = Path.of("./data/watcher");
 
+    /** Delete the temporary folder after and before the tests. */
+    @AfterAll
+    static void tearDown() throws IOException {
+        FileUtils.deleteDirectory(rootPath.toFile());
+    }
+
+    /** Should copy files when they are created in a watched directory. */
     @Test
-    public void shouldCreateInstance() throws IOException, InterruptedException {
+    public void shouldCopyFileToDestWhenCreated() throws IOException, InterruptedException {
         rootPath.toFile().mkdirs();
         // create set of files
         HashSet<Path> files =
@@ -46,10 +60,5 @@ public class FIlesWatcherTest {
         filesWatcher.stop();
         // check if all files have been created
         assert (testFiles.size() == files.size());
-    }
-
-    @After
-    public void tearDown() throws IOException {
-        FileUtils.deleteDirectory(rootPath.toFile());
     }
 }

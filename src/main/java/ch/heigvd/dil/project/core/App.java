@@ -2,6 +2,7 @@ package ch.heigvd.dil.project.core;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * Define an app instance
@@ -65,5 +66,9 @@ public class App {
      */
     public String getRootPath() {
         return getRootDir().getAbsolutePath();
+    }
+
+    public Path getRootPathAsPath() {
+        return getRootDir().toPath();
     }
 }

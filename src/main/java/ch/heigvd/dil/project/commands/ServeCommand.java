@@ -31,6 +31,11 @@ public class ServeCommand extends BaseCommand {
     String websitePath;
 
     @CommandLine.Option(
+            names = {"-w", "--watch"},
+            description = "Watch the site for changes")
+    boolean watch;
+
+    @CommandLine.Option(
             names = {"-p", "--port"},
             description = "Port to listen on",
             defaultValue = "-1")
@@ -43,6 +48,15 @@ public class ServeCommand extends BaseCommand {
 
     @Override
     public void execute() {
+        if (watch) {
+            new CommandLine(new BuildCommand()).execute(websitePath, "--watch");
+        }
+        var buildPath = App.getInstance().getRootPathAsPath().resolve("build");
+        if (!buildPath.toFile().exists()) {
+            throw new IllegalArgumentException(
+                    "No build folder found. Please run the build command first.");
+        }
+
         URI url = App.getInstance().getRootConfig().getURI();
         int configPort = url.getPort();
         if (port == -1) { // If no port is specified, use the one from the config
