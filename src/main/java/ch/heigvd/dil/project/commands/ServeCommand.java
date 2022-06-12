@@ -31,15 +31,15 @@ public class ServeCommand extends BaseCommand {
     String websitePath;
 
     @CommandLine.Option(
+            names = {"-w", "--watch"},
+            description = "Watch the site for changes")
+    boolean watch;
+
+    @CommandLine.Option(
             names = {"-p", "--port"},
             description = "Port to listen on",
             defaultValue = "-1")
     int port;
-
-    @CommandLine.Option(
-            names = {"-w", "--watch"},
-            description = "Watch the site for changes")
-    boolean watch;
 
     @Override
     protected String getRootPath() {
@@ -56,18 +56,7 @@ public class ServeCommand extends BaseCommand {
             throw new IllegalArgumentException(
                     "No build folder found. Please run the build command first.");
         }
-        try {
-            URI url = App.getInstance().getRootConfig().getURI();
-            int configPort = url.getPort();
-            if (port == -1) { // If no port is specified, use the one from the config
-                // If no port is specified, use the default one
-                port = configPort == -1 ? DEFAULT_PORT : configPort;
-            }
-            var server = HttpServer.create(new InetSocketAddress(port), 0);
-            // Add the static file handler to the server
-            server.createContext("/", new StaticFileHandler(buildPath));
-            server.setExecutor(null); // creates a default executor
-            server.start();
+
         URI url = App.getInstance().getRootConfig().getURI();
         int configPort = url.getPort();
         if (port == -1) { // If no port is specified, use the one from the config
