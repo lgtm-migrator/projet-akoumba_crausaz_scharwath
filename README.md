@@ -23,6 +23,8 @@ Décompressez le fichier `statique.zip` à un endroit souhaité puis ajoutez le 
 
 Vous pouvez désormais lancer le programme grâce à la commande `statique`.
 
+Vous trouverez au même endroit la JavaDoc de notre application, documentant tout le code plus en détail.
+
 ### 2. Initialisation du projet
 Tout d'abord, nous allons initialiser le projet en créant un projet sous le nom de `mon/site`.
 Nous allons utiliser la commande `statique init mon/site` pour cela. 
@@ -375,26 +377,40 @@ logiquement porté sur cet outil.
 ## Modélisation 
 
 ### Diagramme de cas d'utilisation
-Ci après le diagramme des cas d'utilisation final du site statique
+
+Ci-dessous le diagramme des cas d'utilisation final du site statique
 
 ![usecasediagram_v3](https://user-images.githubusercontent.com/71764114/172828900-6ff071bd-eba3-4d80-a5bb-e5216451fd91.png)
 
 ### Diagramme de classe 
+
 Voici le diagramme des classes final du site statique
+
+TODO
 
 ### Diagramme de sequence
 
+TODO
+
 ### Diagrammes d'activité
+
 Voici les diagrammes d'activité des commandes du site
 
 #### Diagramme d'activité de la commande Init
 
+TODO
 
 #### Diagramme d'activité de la commande Build
 
+TODO
+
 #### Diagramme d'activité de la commande Serve
 
+TODO
+
 #### Diagramme d'activité de la commande Clean
+
+TODO
 
 
 
@@ -610,7 +626,9 @@ Nous n'avons pas réussi à obtenir des résultats cohérents en utilisant Visua
 L'outil LGTM a été ajouté de manière globale sur notre projet (par le client). De ce fait, nous n'avons pas vraiment effectué de comparaison
 entre plusieurs outils semblables.
 
-Cet outil effectue une analyse statique de notre code Java
+Cet outil effectue une analyse statique de notre code Java sur notre projet.
+Nous avons pu regarder les résultats de l'analyse, LGTM donne à notre code la note de A+. Des informations sur comment cette note est calculée
+sont trouvable sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-scoring-grading).
 
 ### Temps estimé des étapes du sprint 3
 
@@ -665,41 +683,33 @@ Temps de travail: 3 semaines
 
 ### Étapes du sprint final
 
-- Modélisation UML
+Les étapes de ce sprint final sont basées sur des commentaires du client ou sur les suggestions des membres de l'équipe.
+Comme il s'agit dans l'ensemble de correctifs rapidement mis en place et de rédaction du rapport, nous avons décidé de ne pas faire
+d'estimation de temps précise, mais nous avons énuméré les diverses tâches à réaliser:
+
+- [ ] Mettre à niveau la modélisation UML
 - [x] Refactor global
 - [x] Exporter les méthodes des commandes dans des classes externes
-- [x] Ajout de de tests pour la commande build
+- [x] Ajout de tests pour la commande build
 - [x] Commenter le code ET les tests
-- [x] Remettre a jour l'UML
-- [x] Faire un diagramme d'activité pour chaque commande
-- [x] Remettre a jour de diagramme de séquence
-- [x] Faire visualvm avec commande serve 
+- [ ] Faire un diagramme d'activité pour chaque commande
+- [x] Remettre à jour de diagramme de séquence
+- [x] Faire l'analyse VisualVm sur la commande serve 
 - [x] Ajouter les estimations de complexité et séparation des tâches pour chaque sprint, avant le tableau d'estimation horaire
 - [x] On aimerait bien avoir le processus complet de review résumé à un endroit 
-- [x] Parler des etapes de refactoring
+- [ ] Parler des étapes de refactoring
 - [x] Expliquer le contenu des dossiers / apres un init /build (dans manuel utilisateur)
 - [x] Ajouter explication de comment utiliser les layouts
-- [x] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
-- [x] Use case diagramme: Ajouter le file watcher
+- [ ] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
+- [ ] Use case diagramme: Ajouter le file watcher
 - [x] Ajouter les résultats LGMT et les documenter
-- [x] Commenter le code coverage
-- [x] Review Finale: on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
-- [x] Test: serve dossier qui n'existe pas. Commande build. + de test d'intégration
-
-### Temps estimé des étapes du sprint final
-
-| No       | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée |
-|----------|---------------------------------------------------|-----------|------------|---------|------|-----------|------------|
-| 1        | Créer diagramme de séquence                       | 1h        | 3h         | 2h      | 2h   | -         | #47        |
-| *Totaux* |                                                   | 21h       | 44h        | 31h     | 17h  |           |            |
-
-#### Comparaison temps estimé / temps réel
-
-
-### Problèmes rencontrés
-
+- [ ] Commenter le code coverage
+- [ ] Review Finale : on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
+- [x] Tests : serve dossier qui n'existe pas. Commande build. + de test d'intégration
 
 
 ### Ressenti du groupe sur le sprint final
 
-
+Nous voilà arrivé à la fin du projet ! Ce dernier sprint nous a permit de fignoler et d'ajouter les derniers éléments manquants à notre rapport de projet. Nous avons le sentiment d'avoir produit du travail de bonne qualité et d'avoir toujours respecté les délais.
+Nous avons effectué toutes les tâches demandées et nous en sommes satisfait. Ce projet à été très enrichissant pour chacun des membres du groupe et pensons
+qu'il nous a permis de pouvoir mieux travailler en groupe sur du développement logiciel, ce qui nous sera fort utile dans le futur.
