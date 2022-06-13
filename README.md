@@ -390,7 +390,7 @@ TODO
 
 ### Diagramme de sequence
 
-TODO
+![sequenceDiagram](https://user-images.githubusercontent.com/71764114/173450146-27317e7f-d758-4b3b-911a-a23312fb14d2.png)
 
 ### Diagrammes d'activité
 
@@ -406,12 +406,11 @@ TODO
 
 #### Diagramme d'activité de la commande Serve
 
-TODO
+![serve](https://user-images.githubusercontent.com/71764114/173450089-02d10ae3-9bba-4f75-8a2c-c60663e54cb6.png)
 
 #### Diagramme d'activité de la commande Clean
 
-TODO
-
+![clean](https://user-images.githubusercontent.com/71764114/173450045-b9634f3a-4453-4f59-92e1-098f80e3a584.png)
 
 
 
