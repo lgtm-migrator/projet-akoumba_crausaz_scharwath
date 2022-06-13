@@ -399,11 +399,12 @@ Voici les diagrammes d'activité des commandes du site
 
 #### Diagramme d'activité de la commande Init
 
-TODO
+![init](https://user-images.githubusercontent.com/71764114/173451896-122089c4-6ae4-4735-ac02-bdb6075cedf9.png)
 
 #### Diagramme d'activité de la commande Build
 
-TODO
+![build](https://user-images.githubusercontent.com/71764114/173451913-ef495c4c-dea0-4b1c-9cd8-433ed18e6459.png)
+
 
 #### Diagramme d'activité de la commande Serve
 
