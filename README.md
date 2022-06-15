@@ -386,7 +386,7 @@ Ci-dessous le diagramme des cas d'utilisation final du site statique
 
 Voici le diagramme des classes final du site statique
 
-![classeDiagram](https://user-images.githubusercontent.com/71764114/173451231-6bbb020c-51bd-4af1-9637-f2feb6703e3e.png)
+![classeDiagram](https://user-images.githubusercontent.com/15279957/173867005-ddd9ff26-8795-4f74-963f-92b14ce47eeb.png)
 
 
 ### Diagramme de sequence
