@@ -14,7 +14,7 @@ import picocli.CommandLine;
  */
 @CommandLine.Command(
         name = "publish",
-        description = "Publish builded files to a remove server",
+        description = "Publish built files to a remove server",
         version = "1.0",
         mixinStandardHelpOptions = true)
 public class PublishCommand extends BaseCommand {

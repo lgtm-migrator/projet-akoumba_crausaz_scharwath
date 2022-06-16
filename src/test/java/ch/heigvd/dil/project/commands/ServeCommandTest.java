@@ -6,36 +6,49 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.commons.io.FileUtils;
-import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
+/**
+ * ServeCommandTest class.
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class ServeCommandTest {
     private static final String TEST_FOLDER = "./website";
     private static final String[] args = new String[] {TEST_FOLDER};
 
-    @BeforeClass
-    public static void initAndBuild() {
-        CommandLine cmd = new CommandLine(new InitCommand());
-        CommandLine cmd2 = new CommandLine(new BuildCommand());
-        cmd.execute(args);
-        cmd2.execute(args);
+    /** Delete the temporary folder */
+    @AfterEach()
+    @BeforeEach()
+    public void clean() throws IOException {
+        FileUtils.deleteDirectory(new File(TEST_FOLDER));
     }
 
+    /** The server should be running on localhost:8080 and answer 200 status code. */
     @Test
     public void shouldAnswerOk() throws IOException {
-        CommandLine cmd3 = new CommandLine(new ServeCommand());
-        cmd3.execute(args);
+        new CommandLine(new InitCommand()).execute(args);
+        new CommandLine(new BuildCommand()).execute(args);
+        new CommandLine(new ServeCommand()).execute(args);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url("http://localhost:8080").build();
 
         try (Response response = client.newCall(request).execute()) {
             assert (response.code() == 200);
+            assert (response.body() != null);
             assert (response.body().toString().length() > 0);
         }
     }
 
-    @AfterClass
-    public static void clean() throws IOException {
-        FileUtils.deleteDirectory(new File(TEST_FOLDER));
+    /** Command should exit with code 0 if the server can't find the build folder. */
+    @Test
+    public void shouldReturnErrorWhenNoBuildFolderFound() {
+        new CommandLine(new InitCommand()).execute(args);
+        assert (new CommandLine(new ServeCommand()).execute(args) == 1);
     }
 }
