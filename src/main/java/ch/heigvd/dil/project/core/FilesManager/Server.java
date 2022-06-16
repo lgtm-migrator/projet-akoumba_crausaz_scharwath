@@ -6,7 +6,13 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.file.Path;
 
-/** Class that represent a local static files server */
+/**
+ * Class that represent a local static files server
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class Server {
 
     private final HttpServer server;

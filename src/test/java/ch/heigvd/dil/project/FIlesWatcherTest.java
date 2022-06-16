@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for the FilesWatcher class.
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class FIlesWatcherTest {
     private static final Path rootPath = Path.of("./data/watcher");

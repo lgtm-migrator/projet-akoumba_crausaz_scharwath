@@ -15,9 +15,9 @@ import picocli.CommandLine;
 /**
  * Test for 'new' command
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class InitCommandTest {
 
