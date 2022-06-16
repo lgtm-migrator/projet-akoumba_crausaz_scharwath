@@ -6,7 +6,7 @@
 
 Dans le cadre du cours DIL de la HEIG-VD, nous allons concevoir un projet consistant en la réalisation d'un générateur de site statique [*Jamstack*](https://jamstack.org/) en *Java*.
 
-Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois sprints*. En plus de mettre en oeuvre nos compétences techniques, la réalisation de ce projet nous permettra d'appliquer les différents aspects des méthodologies *Agiles*.
+Le projet s'étend sur un semestre (~16 semaines) et sera divisé en *trois sprints*. En plus de mettre en œuvre nos compétences techniques, la réalisation de ce projet nous permettra d'appliquer les différents aspects des méthodologies *Agiles*.
 
 # Comment utiliser le projet ?
 
@@ -16,7 +16,7 @@ Le projet s'utilise en suivant les étapes suivantes :
 
 Il faut tout d'abord télécharger la [dernière release](https://github.com/dil-classroom/projet-akoumba_crausaz_scharwath/releases) du programme.
 
-Décompressez le fichier `statique.zip` à un endroit souhaité puis ajoutez le programme à votre variable d'environnement `path`.
+Décompresser le fichier `statique.zip` à un endroit souhaité puis ajouter le programme à votre variable d'environnement `path`.
 
 - Sur Linux / MacOS: `export PATH=$PATH:`pwd`/statique/bin`
 - Sur Windows: https://www.pcastuces.com/pratique/astuces/5334.htm
@@ -53,9 +53,9 @@ title: "my nice website"    # Le titre du site
 url: "localhost:8080"       # URL du site
 language: "en"              # Langage du site, format ISO 639-1
 publishDir: "/"             # Chemin de déploiement sur le serveur distant
-publishServer: ""           # URL du serveur distant
-publishUsername: ""         # Username pour la connexion au serveur distant
-publishPassword: ""         # Mot de passe pour la connexion au serveur distant
+publishServer: ""           # URL du serveur FTP distant
+publishUsername: ""         # Username pour la connexion FTP au serveur distant
+publishPassword: ""         # Mot de passe pour la connexion FTP au serveur distant
 ```
 
 Vous remarquerez que le contenu des pages sont des fichiers Markdown.
@@ -94,7 +94,7 @@ en utilisant la syntaxe `{{ variable }}`. Les variables disponibles sont :
 Nous allons maintenant construire le projet.
 Nous allons utiliser la commande `statique build mon/site` pour construire le site.
 Cette commande va créer un dossier `build` dans le dossier courant et va convertir tous les fichiers Markdown en HTML.
-Les différents fichiers `markdown` et layouts des pages seront compilé en `html` et copié vers ce dossier.
+Les différents fichiers `markdown` et layouts des pages seront compilés en `html` et copiés vers ce dossier.
 La structure des fichiers sera conservée.
 
 ### 5. Création du serveur
@@ -122,14 +122,14 @@ Un exemple de site déployé avec cette commande: [https://heig-vd.site/](https:
 
 ## Présentation des membres
 
-_Akoumba Ludivine_: 26 ans, étudiante en ingénierie des données.\
-Pas de connaissances particulières en technologie web, bonnes connaissances du langage java et de l'outil gitHub. Je suis très enthousiaste à l'idée d'appliquer les pratiques agiles dans le cadre d'un projet réel. 
+_Akoumba Ludivine_ : 26 ans, étudiante en ingénierie des données.\
+Pas de connaissances particulières en technologie web, bonnes connaissances du langage java et de l'outil gitHub. Je suis très enthousiaste à l'idée d'appliquer les pratiques agiles dans le cadre d'un projet réel.
 
-_Crausaz Nicolas_:  22 ans, étudiant en informatique logicielle.\
-A l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquées et des outils d'intégration continue.
+_Crausaz Nicolas_ :  22 ans, étudiant en informatique logicielle.\
+À l'aise avec les technologies web. N'a jamais travaillé avec des méthodologies agiles strictement appliquées et des outils d'intégration continue.
 
 
-_Scharwath Maxime_: 25 ans, étudiant en informatique logicielle.\
+_Scharwath Maxime_ : 25 ans, étudiant en informatique logicielle.\
 Passionné par les technologies web et Java, il a joué à MineCraft Java édition une fois. Il n'a pas vraiment utilisé les methodologies agiles dans son travail, car il a surtout fait des projets en solo.
 Il aime bien les outils d'intégration continue pour simplifier son travail.
 
@@ -147,7 +147,7 @@ Nous nous basons sur une méthodologie agile. En effet, nous souhaitons pouvoir 
 
 ### Réunions de groupes
 
-Les réunions en présentiel se feront lors des séances de laboratoires à l'école. Durant ces séances, nous ferons le point sur le travail accompli et le travail restant. Nous répondrons aux éventuelles incertitudes des membres du groupe et travaillerons sur des tâches qui demanderaient de la coopération (planification, ...).
+Les réunions en présentiel se feront lors des séances de laboratoire à l'école. Durant ces séances, nous ferons le point sur le travail accompli et le travail restant. Nous répondrons aux éventuelles incertitudes des membres du groupe et travaillerons sur des tâches qui demanderaient de la coopération (planification, ...).
 
 ### Échanges métiers
 
@@ -189,7 +189,7 @@ Les noms des branches doivent être explicites et un préfixe indique quel trava
 Chaque tâche, correctif ou proposition d'amélioration se fait au travers d'une issue GitHub. Cela permettra de centraliser
 le suivi du travail à faire / en cours, ces issues sont notamment intégrées à l'automatisation d'un Kanban.
 
-Pour faciliter la création de ces issues, nous avons mis en place deux _issues templates_ sur GitHub:
+Pour faciliter la création de ces issues, nous avons mis en place deux _issues templates_ sur GitHub :
 
 #### Demande de fonctionnalité
 
@@ -197,7 +197,7 @@ Il s'agit du modèle que nous utilisons pour décrire une nouvelle fonctionnalit
 Ce modèle est composé de quatre parties :
 
 - L'estimation du temps nécessaire (est remplie par le(s) développeur(s), généralement en commun lors du début de sprint).
-  Cette estimation contient le nombre d'heures optimiste, pessimiste, attendue et réelle. Cette dernière est indiquée après avoir terminé la tâche.
+  Cette estimation contient le nombre d'heures optimiste, pessimiste, attendu et réel. Cette dernière est indiquée après avoir terminé la tâche.
 - Description de la problématique
 - Description de la solution souhaitée
 - Éventuelles alternatives à considérer
@@ -211,7 +211,7 @@ Il s'agit du modèle que nous utilisons pour signaler la découverte d'un probl�
 Ce modèle est séparé en quatre parties :
 
 - Description concise du problème rencontré
-- Actions à réaliser pour reproduire le bug / screenshots
+- Actions à réaliser pour reproduire le bug / captures d'écran
 - Comportement attendu
 - Indications supplémentaires (OS, version etc.)
 
@@ -227,7 +227,7 @@ Une fois que l'issue est corrigée, repasser la PR est mode review et ajouter de
 
 ![image](https://user-images.githubusercontent.com/15279957/160237721-2a60c637-f8b8-438b-a173-e8af1f41917e.png)
 
-Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository : si l'on ajoute une nouvelle issue, elle est ajoutée dans "To do". Lorsqu'elle est attribué et liée à une PR, l'issue est déplacée dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
+Ci-dessus, le Kanban que nous utilisons pour notre projet. Il est automatisé et lié aux issues du repository : si l'on ajoute une nouvelle issue, elle est ajoutée dans "To do". Lorsqu'elle est attribuée et liée à une PR, l'issue est déplacée dans le tableau "In progress". Lorsque le travail est terminé et qu'une review est nécessaire, on passe dans "To validate". Une fois validée, elle passe dans "Done".
 
 ### Processus de code review complet
 
@@ -241,7 +241,7 @@ Voici le processus de code review habituel.
 - Dès lors qu'un premier commit a été fait, le développeur créer une *Draft Pull Request* de sa branche vers la branche du sprint courant.
 - Dès qu'il a terminé son travail, il passe sa *PR* en mode "ready for review" et demande la review d'un ou plusieurs membres de l'équipe.
 - Les autres membres de l'équipe s'occupent donc de faire une review des modifications apportées au code. Ils font part de leur feedback en cas de problème ou de questions.
-- Si tout en ordre, ils approuvent la *PR* et elle peut ensuite être *merge".
+- Si tout est en ordre, ils approuvent la *PR* et elle peut ensuite être *merge".
 
 ### Format de message
 
@@ -306,13 +306,13 @@ Nous avons appliqué une GitHub Action qui permet d'exécuter ce lint si nécess
 
 ### Tests
 
-Dans notre projet, nous avons mis en place différents types de tests: unitaires, intégration et systèmes, au travers de 
+Dans notre projet, nous avons mis en place différents types de tests : unitaires, intégrations et systèmes, au travers de 
 la librairie JUnit.
 
 Durant le projet, nous nous efforçons à appliquer le *Test First Programming*. Cela consiste en le fait d'écrire une série
 de tests visant à englober les scénarios d'utilisation d'une nouvelle fonctionnalité.
 
-De manière générale, les scénarios de tests sont les suivants:
+De manière générale, les scénarios de tests sont les suivants :
 
 - Comportement en cas de paramètres invalides
 - Comportement en cas d'état incohérent (principalement au niveau du système de fichiers pour les commandes).
@@ -334,7 +334,7 @@ Nous avons effectué ce choix parmi les formats JSON, YAML et TOML. Après avoir
 | Nom                  | Description                                                     | Version | Site officiel                                  |
 |----------------------|-----------------------------------------------------------------|---------|------------------------------------------------|
 | Maven                | Gestionnaire de projet / dépendances                            | 3.6     | https://maven.apache.org/                      |
-| JUnit                | Librairie de test automatisé                                    | 4.13.2  | https://junit.org/junit5/                      |
+| JUnit                | Librairie de tests automatisés                                  | 4.13.2  | https://junit.org/junit5/                      |
 | Picocli              | Framework de création de CLI                                    | 4.6.3   | https://picocli.info/                          |
 | Spotless             | Linter / formatter                                              | 2.22.0  | https://github.com/diffplug/spotless           |
 | Jackson              | Outil de sérialisation, nous utilisons les sous-librairies YAML | 2.13.2  | https://github.com/FasterXML/jackson           |
@@ -362,7 +362,7 @@ très facile d'utilisation et nous a facilité cette sérialisation.
 **OkHttp**
 
 Cette librairie nous a permis de pouvoir effectuer facilement des vérifications sur des formats d'URL et nous a servi lors
-de la rédaction de test d'intégrations (par exemple pour tester la commande serve).
+de la rédaction de tests d'intégration (par exemple pour tester la commande serve).
 La documentation concise et la facilité d'utilisation de cette librairie nous ont convaincus.
 
 **Commonmark**
@@ -395,7 +395,7 @@ Voici le diagramme des classes final du site statique
 
 ### Diagrammes d'activité
 
-Voici les diagrammes d'activité des commandes du site
+En ce qui concerne les activités du site, elles sont décrites à travers les diagrammes d'activité des commandes principales.
 
 #### Diagramme d'activité de la commande Init
 
@@ -422,7 +422,7 @@ Temps de travail : 3 semaines.
 
 ### Étapes du sprint 1
 
-En nous basant sur les stories fourni par les clients (voir document du sprint 1), nous avons issu les tâches suivantes :
+En nous basant sur les stories fournies par les clients (voir document du sprint 1), nous avons identifié les tâches suivantes :
 
 - Planification
   - [x] Diagramme de PERT
@@ -435,12 +435,12 @@ En nous basant sur les stories fourni par les clients (voir document du sprint 1
 - Initialiser un site statique
   - [x] commande `init /mon/site`
   - [x] créer un fichier de configuration config.yaml
-  - [x] initialiser l'architecture des dossiers et fichiers (une sorte de site template)
+  - [x] initialiser l'architecture des dossiers et fichiers (une sorte de modèle de site)
 - Compiler un site statique
   - [x] commande ` build /mon/site`
   - [x] parser les fichiers markdown et headers yaml
   - [x] fusionner le résultat du parser en une page html
-  - [x] creation d'un dossier `build` contenant les fichiers/dossiers générés
+  - [x] créer un dossier `build` contenant les fichiers/dossiers générés
 - Nettoyer un site statique :
   - [x] commande clean `clean /mon/site`
   - [x] supprimer les fichiers générés (/mon/site/build)
@@ -480,9 +480,9 @@ Voici le UML use case diagram des fonctionnalités attendues à l'issue du sprin
 
 ### Ressenti du groupe sur le sprint 1
 
-Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressé par le temps et n'avons pas pu effectuer tout le travail souhaité.
+Nous sommes arrivés à la fin de ce premier sprint. Pour cette première phase, nous avons pu atteindre la plupart des objectifs que nous nous sommes fixés. Nous avons passé beaucoup de temps sur la planification du travail, la rédaction des diagrammes et la séparation des tâches. De ce fait, nous avons été pressés par le temps et n'avons pas pu effectuer tout le travail souhaité.
 
-Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second. Nous n'avons pas atteint notre productivité habituelle, car pour le moment nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous avons imposées. Néanmoins, tous les membres se sont impliqués et ont fourni des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfaits de notre rendu pour cette première étape.
+Les fonctionnalités demandées ont été implémentées, mais nous aurions souhaité effectuer un refactor avant de clore ce premier sprint. Nous le ferons donc en début du second. Nous n'avons pas atteint notre productivité habituelle, car pour le moment nous prenons encore en main certains des outils et nous nous efforçons de respecter les directives que nous nous sommes imposées. Néanmoins, tous les membres se sont impliqués et ont fourni des efforts techniques dans ce premier sprint. La communication au sein du groupe s'est très bien déroulée et nous sommes satisfaits de notre rendu pour cette première étape.
 
 ## Sprint 2
 
@@ -490,7 +490,7 @@ Début du second sprint ! Temps de travail : 3 semaines.
 
 ### Étapes du sprint 2
 
-En nous basant sur les stories fourni par les clients (voir document du sprint 2), nous avons issu les tâches suivantes :
+En nous basant sur les stories fournies par les clients (voir document du sprint 2), nous avons identifié les tâches suivantes :
 
 - Refactoring du sprint 1
 - Planification
@@ -509,7 +509,7 @@ En nous basant sur les stories fourni par les clients (voir document du sprint 2
 - Build du site 
   - [x] Injecter les variables
   - [x] Serveur HTTP: servir les fichiers build
-- Délivration continue
+- Délivrable continue
   - [x] automatiser la création de release
 - Tests :
   - [x] Tests d'intégration
@@ -535,7 +535,7 @@ En nous basant sur les stories fourni par les clients (voir document du sprint 2
 
 #### Comparaison temps estimé / temps réel
 
-Globalement, nous avons pour la plupart des tâches respecté les temps attendus, pour certaines nous avons même réussi à atteindre des temps optimistes.
+Globalement, nous avons pour la plupart des tâches, respecté les temps attendus, pour certaines nous avons même réussi à atteindre des temps optimistes.
 
 ### Diagramme de cas d'utilisation
 
@@ -573,11 +573,11 @@ Nous nous réjouissons déjà d’une phase de refactoring avec une vision globa
 
 ## Sprint 3
 
-Temps de travail: 3 semaines
+Temps de travail : 3 semaines
 
 ### Étapes du sprint 3
 
-En nous basant sur les stories fourni par les clients (voir document du sprint 3), nous avons issu les tâches suivantes :
+En nous basant sur les stories fournies par les clients (voir document du sprint 3), nous avons identifié les tâches suivantes :
 
 - Modélisation UML
   - [x] Modélisation du FileWatcher
@@ -596,7 +596,7 @@ En nous basant sur les stories fourni par les clients (voir document du sprint 3
 - Publication du site dans un répertoire distant
   - [x] Modifier la configuration
   - [x] Implémenter la commande `publish` pour publier le build sur un server distant
-- Délivration continue
+- Délivrable continue
   - [x] Ajouter la JavaDoc à la release
 - Optionnel
   - [x] Template CSS
@@ -607,12 +607,12 @@ En nous basant sur les stories fourni par les clients (voir document du sprint 3
 
 ### Resultats du Code coverage
 
-Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui sont exécutées lors des tests, nous avons utilisé la technologie JaCoCo, ci-dessous les résultats que vous avons obtenus:
+Pour analyser la couverture du code, en d'autres termes le nombre de lignes de notre code qui est exécuté lors des tests, nous avons utilisé la technologie JaCoCo, ci-dessous les résultats que nous avons obtenus :
 
 Vue globale:
 ![jacoco_main](https://user-images.githubusercontent.com/15279957/169917927-06c5fedf-9ef5-414a-a686-6c70a7920ab1.png)
 
-Vue détailée par package:
+Vue détailée par package :
 ![jacoco_commands](https://user-images.githubusercontent.com/15279957/169917951-6aa220a9-18a4-446d-95e7-e5386298deb8.png)
 ![jacoco_core](https://user-images.githubusercontent.com/15279957/169917953-f93b8e8b-27ae-43a9-bf2b-2494c19c43af.png)
 ![jacoco_filemanager](https://user-images.githubusercontent.com/15279957/169917955-5177afb9-7502-408b-a0e3-26dedd59278f.png)
@@ -620,8 +620,8 @@ Vue détailée par package:
 
 Nous constatons que nous devrions améliorer nos tests concernant le FTPPublisher et la classe Configuration.
 
-Nous pouvons expliquer le manque de coverage de certaines classes, notamment car leurs méthodes privées ne sont pas forcément testées
-avec des tests unitaires, ainsi que des branches try-catch non atteintes dans la majorité des cas. Nous pouvons néanmoins améliorer les résultats en écrivant plus de test dans les prochains sprints.
+Nous pouvons expliquer le manque de coverage de certaines classes, notamment, car leurs méthodes privées ne sont pas forcément testées
+avec des tests unitaires, ainsi que des branches try-catch non atteintes dans la majorité des cas. Nous pouvons néanmoins améliorer les résultats en écrivant plus de tests dans les prochains sprints.
 
 ### Mesure de performance
 
@@ -650,7 +650,7 @@ Cet outil effectue une analyse statique de notre code Java sur notre projet.
 Nous avons pu regarder les résultats de l'analyse, LGTM donne à notre code la note de A+. Des informations sur comment cette note est calculée
 sont trouvables sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-scoring-grading).
 
-### Temps estimé des étapes du sprint 3
+### Temps estimés des étapes du sprint 3
 
 | No       | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée | Complexité                                   |
 |----------|---------------------------------------------------|-----------|------------|---------|------|-----------|------------|----------------------------------------------|
@@ -664,7 +664,7 @@ sont trouvables sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-s
 | 8        | Mesure de performance                             | 2h        | 5h         | 3h      | -    | -         | #79        | Tâche moyenne, peu d'impact                  |
 | 9        | Outils d'analyse de qualité de code               | 1h        | 3h         | 2h      | -h   | -         | #80        | Tâche moyenne, peu d'impact                  |
 | 10       | Commande publish                                  | 3h        | 6h         | 5h      | 3h   | -         | #81        | Tâche complexe, importante sur le long terme |
-| 11       | Modélisation du filewatcher (UML, use case)       | 3h        | 6h         | 5h      | 2h   | -         | #82        | Tâche moyenne et critique pour ce sprint     |
+| 11       | Modélisation du FileWatcher (UML, use case)       | 3h        | 6h         | 5h      | 2h   | -         | #82        | Tâche moyenne et critique pour ce sprint     |
 | 12       | Ajouter du CSS au site (optionnel)                | 1h        | 2h         | 1h      | 1h   | -         | #84        | Tâche facile                                 |
 | *Totaux* |                                                   | 21h       | 44h        | 31h     | 17h  |           |            |                                              |
 
@@ -775,7 +775,7 @@ Ce sprint était surtout axé sur le refactoring, au niveau de la structure du c
 | Mesure de performance                                                     | 2h        | 5h         | 3h      | 2h   |
 | Outils d'analyse de qualité de code                                       | 1h        | 3h         | 2h      | 1h   |
 | Commande publish                                                          | 3h        | 6h         | 5h      | 3h   |
-| Modélisation du filewatcher (UML, use case)                               | 3h        | 6h         | 5h      | 2h   |
+| Modélisation du FileWatcher (UML, use case)                               | 3h        | 6h         | 5h      | 2h   |
 | Ajouter du CSS au site (optionnel)                                        | 1h        | 2h         | 1h      | 1h   |
 | Correctifs finaux                                                         | 6h        | 15h        | 10h     | 8h   |
 | *Totaux*                                                                  | 59h       | 129h       | 84h     | 66h  |
@@ -786,7 +786,8 @@ les heures pessimistes.
 
 ### Ressenti du groupe sur le sprint final
 
-Nous voilà arrivé à la fin du projet ! Ce dernier sprint nous a permit de fignoler et d'ajouter les derniers éléments manquants à notre rapport de projet. Nous avons le sentiment d'avoir produit du travail de bonne qualité et d'avoir toujours respecté les délais.
-Nous avons effectué toutes les tâches demandées et nous en sommes satisfait. Ce projet à été très enrichissant pour chacun des membres du groupe et pensons
+Nous voilà arrivé à la fin du projet ! Ce dernier sprint nous a permis de fignoler et d'ajouter les derniers éléments manquants à notre rapport de projet. Nous avons le sentiment d'avoir produit du travail de bonne qualité et d'avoir toujours respecté les délais.
+Nous avons effectué toutes les tâches demandées et nous en sommes satisfaits de notre projet. Ce projet à été très enrichissant pour chacun des membres du groupe et pensons
 qu'il nous a permis de pouvoir mieux travailler en groupe sur du développement logiciel, ce qui nous sera fort utile dans le futur.
-Chaque membre de l'équipe s'est investi et à apporter du sien pour le bon déroulement du projet.
+Ces nouvelles connaissances ont permis de nous améliorer et de nous perfectionner dans l'utilisation de Kanban, de Git, des CI, de la documentation, etc.
+Chaque membre de l'équipe s'est investi et à apporter du sien pour le bon déroulement du projet. La collaboration et la communication entre les membres de l'équipe étaient très bonnes, et nous n'avons jamais eu de problème au sein de l'équipe.
