@@ -208,7 +208,7 @@ Dans certains cas, certaines de ces sections peuvent être omises.
 #### Report de bug
 
 Il s'agit du modèle que nous utilisons pour signaler la découverte d'un problème / bug dans notre application.
-Ce modèle est séparé en quatre partie :
+Ce modèle est séparé en quatre parties :
 
 - Description concise du problème rencontré
 - Actions à réaliser pour reproduire le bug / screenshots
@@ -566,9 +566,9 @@ tâche durant le prochain sprint.
 
 ### Ressenti du groupe sur le sprint 2
 
-Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créés lors du sprint 1 et celles du sprint2 commencent à cohabiter.  
+Le projet commence à prendre de l'ampleur et toutes les fonctionnalités créées lors du sprint 1 et celles du sprint2 commencent à cohabiter.  
 L’équipe a dû répondre à de nouvelles questions et trouver des solutions pour pouvoir imbriquer toutes les fonctionnalités développées en parallèle.
-Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important.  
+Le projet devient de plus en plus complexe, mais comparé au premier sprint cela devient de plus en plus facile d’avancer, car la base du projet est déjà présente et nous n’avons pas besoin de trop attendre sur un prérequis important.  
 Nous nous réjouissons déjà d’une phase de refactoring avec une vision globale du projet pour pouvoir apporter une meilleure cohérence et communication entre fonctionnalités développées pendant ces derniers sprints. 
 
 ## Sprint 3
@@ -620,6 +620,7 @@ Vue détailée par package:
 
 Nous constatons que nous devrions améliorer nos tests concernant le FTPPublisher et la classe Configuration.
 
+TODO: Expliquer un peu mieux ce qu'on peut améliorer
 
 ### Mesure de performance
 
@@ -650,7 +651,7 @@ entre plusieurs outils semblables.
 
 Cet outil effectue une analyse statique de notre code Java sur notre projet.
 Nous avons pu regarder les résultats de l'analyse, LGTM donne à notre code la note de A+. Des informations sur comment cette note est calculée
-sont trouvable sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-scoring-grading).
+sont trouvables sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-scoring-grading).
 
 ### Temps estimé des étapes du sprint 3
 
@@ -690,7 +691,7 @@ du backlog et ceci dans le temps imposé. Notre application contient des fonctio
 de re-build à la volée et la publication vers un serveur distant en FTP.
 
 
-### Etat du backlog en fin de sprint
+### État du backlog en fin de sprint
 
 Les tâches attribuées selon les stories client ont toutes été réalisés, nous avons cependant laissé quelques recommandations des clients (feedback)
 en backlog pour le 4e et dernier sprint.
@@ -705,20 +706,20 @@ en backlog pour le 4e et dernier sprint.
 
 ## Sprint final
 
-Temps de travail: 3 semaines
+Temps de travail : 3 semaines
 
 ### Étapes du sprint final
 
 Les étapes de ce sprint final sont basées sur des commentaires du client ou sur les suggestions des membres de l'équipe.
 Comme il s'agit dans l'ensemble de correctifs rapidement mis en place et de rédaction du rapport, nous avons décidé de ne pas faire
-d'estimation de temps précise, mais nous avons énuméré les diverses tâches à réaliser:
+d'estimation de temps précise, mais nous avons énuméré les diverses tâches à réaliser :
 
 - [x] Mettre à niveau la modélisation UML
 - [x] Refactor global
 - [x] Exporter les méthodes des commandes dans des classes externes
 - [x] Ajout de tests pour la commande build
 - [x] Commenter le code ET les tests
-- [ ] Faire un diagramme d'activité pour chaque commande
+- [x] Faire un diagramme d'activité pour chaque commande
 - [x] Remettre à jour de diagramme de séquence
 - [x] Faire l'analyse VisualVm sur la commande serve 
 - [x] Ajouter les estimations de complexité et séparation des tâches pour chaque sprint, avant le tableau d'estimation horaire
@@ -730,18 +731,65 @@ d'estimation de temps précise, mais nous avons énuméré les diverses tâches 
 - [x] Use case diagramme: Ajouter le file watcher
 - [x] Ajouter les résultats LGMT et les documenter
 - [x] Commenter le code coverage
-- [ ] Review Finale : on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
+- [x] Review Finale : on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
 - [x] Tests : serve dossier qui n'existe pas. Commande build. + de test d'intégration
+
+Nous estimons tout de même l'ensemble des tâches à :
+- Optimiste: 6h
+- Pessimiste: 15h
+- Attendu: 10h
 
 ### Refactoring
 
 Ce sprint était surtout axé sur le refactoring, au niveau de la structure du code et des classes et du code global de l'application.
 
+### Vue finale sur les tâches
 
-TODO: ajouter tout le backlog réalisé (copier les anciencs tableaux)
+| Étape                                                                     | Optimiste | Pessimiste | Attendu | Réel |
+|---------------------------------------------------------------------------|-----------|------------|---------|------|
+| Diagramme de PERT                                                         | 1h        | 2h         | 1h      | 1h   |
+| Diagramme UML Use Case                                                    | 1h        | 3h         | 2h      | 2h   |
+| Choix des différentes formats utilisés                                    | 1h        | 2h         | 1h      | 1h   |
+| créer commande `--version` pour afficher la version du générateur de site | 1h        | 2h         | 1h      | 1h   |
+| commande `init`: créer une structure basique                              | 3h        | 5h         | 4h      | 4h   |
+| Parser les fichiers markdown                                              | 2h        | 4h         | 2h      | 2h   |
+| Fusionner le résultat du parser en une page html                          | 2h        | 5h         | 3h      | 2h   |
+| Supprimer les fichiers générés (/mon/site/build)                          | 1h        | 2h         | 1h      | 1h   |
+| Mettre en place une validation des tests sur push + configuration github  | 2h        | 4h         | 3h      | 2h   |
+| Refactor du sprint 1                                                      | 2h        | 5h         | 3h      | 3h   |
+| Diagramme UML                                                             | 1h        | 3h         | 2h      | 1h   |
+| Diagramme de séquence                                                     | 1h        | 3h         | 2h      | 1h   |
+| Tests d'intégration                                                       | 2h        | 4h         | 3h      | 3h   |
+| Tests système                                                             | 1h        | 3h         | 2h      | 1h   |
+| Intégration moteur template                                               | 2h        | 3h         | 2h      | 2h   |
+| Use case UML                                                              | 1h        | 2h         | 1h      | 1h   |
+| Création layouts                                                          | 1h        | 2h         | 1h      | 1h   |
+| Injection build                                                           | 3h        | 6h         | 4h      | 5h   |
+| Serveur HTTP                                                              | 2h        | 4h         | 2h      | 2h   |
+| Release automatique                                                       | 1h        | 3h         | 1h      | 1h   |
+| Logging                                                                   | 1h        | 3h         | 2h      | 1h   |
+| Créer diagramme de séquence                                               | 1h        | 3h         | 2h      | 2h   |
+| Build la JavaDoc avec une commande                                        | 1h        | 2h         | 1h      | 1h   |
+| Ajouter la JavaDoc dans la release (CI)                                   | 1h        | 2h         | 1h      | 1h   |
+| Implémenter une abstraction de FileWatcher                                | 3h        | 5h         | 4h      | 4h   |
+| Intégrer l'abstraction FileWatcher à notre projet                         | 3h        | 5h         | 4h      | 1h   |
+| Manuel utilisateur                                                        | 1h        | 2h         | 1h      | 1h   |
+| Intégrer un outil de code coverage                                        | 1h        | 3h         | 2h      | 1h   |
+| Mesure de performance                                                     | 2h        | 5h         | 3h      | 2h   |
+| Outils d'analyse de qualité de code                                       | 1h        | 3h         | 2h      | 1h   |
+| Commande publish                                                          | 3h        | 6h         | 5h      | 3h   |
+| Modélisation du filewatcher (UML, use case)                               | 3h        | 6h         | 5h      | 2h   |
+| Ajouter du CSS au site (optionnel)                                        | 1h        | 2h         | 1h      | 1h   |
+| Correctifs finaux                                                         | 6h        | 15h        | 10h     | 8h   |
+| *Totaux*                                                                  | 59h       | 129h       | 84h     | 66h  |
+
+Malgré que beaucoup de temps investi dans la rédaction de la documentation ne soit pas forcément toujours inclue dans ces estimations,
+nous constatons que nous avons respecté nos estimations et presque atteint les heures optimistes ! Nous pensons par contre que nous avons surestimé
+les heures pessimistes.
 
 ### Ressenti du groupe sur le sprint final
 
 Nous voilà arrivé à la fin du projet ! Ce dernier sprint nous a permit de fignoler et d'ajouter les derniers éléments manquants à notre rapport de projet. Nous avons le sentiment d'avoir produit du travail de bonne qualité et d'avoir toujours respecté les délais.
 Nous avons effectué toutes les tâches demandées et nous en sommes satisfait. Ce projet à été très enrichissant pour chacun des membres du groupe et pensons
 qu'il nous a permis de pouvoir mieux travailler en groupe sur du développement logiciel, ce qui nous sera fort utile dans le futur.
+Chaque membre de l'équipe s'est investi et à apporter du sien pour le bon déroulement du projet.
