@@ -194,7 +194,7 @@ Pour faciliter la création de ces issues, nous avons mis en place deux _issues 
 #### Demande de fonctionnalité
 
 Il s'agit du modèle que nous utilisons pour décrire une nouvelle fonctionnalité à ajouter dans notre application. 
-Ce modèle est composé de quatres parties:
+Ce modèle est composé de quatre parties :
 
 - L'estimation du temps nécessaire (est remplie par le(s) développeur(s), généralement en commun lors du début de sprint).
   Cette estimation contient le nombre d'heures optimiste, pessimiste, attendue et réelle. Cette dernière est indiquée après avoir terminé la tâche.
@@ -208,7 +208,7 @@ Dans certains cas, certaines de ces sections peuvent être omises.
 #### Report de bug
 
 Il s'agit du modèle que nous utilisons pour signaler la découverte d'un problème / bug dans notre application.
-Ce modèle est séparé en quatres parties:
+Ce modèle est séparé en quatre partie :
 
 - Description concise du problème rencontré
 - Actions à réaliser pour reproduire le bug / screenshots
@@ -620,6 +620,7 @@ Vue détailée par package:
 
 Nous constatons que nous devrions améliorer nos tests concernant le FTPPublisher et la classe Configuration.
 
+
 ### Mesure de performance
 
 Afin de mesurer les performances de notre implémentation, nous avons utilisé 2 technologies principalement, `JMH` afin  et `VisualMH`.
@@ -627,6 +628,8 @@ Afin de mesurer les performances de notre implémentation, nous avons utilisé 2
 Avec `JMH`, nous avons effectué un test de performance de la méthode qui injecte du contenu dans un template Handlebars, voici le résultat:
 
 ![jmh](https://user-images.githubusercontent.com/15279957/169984490-ddc3f361-666b-43b1-ace3-f48a6f714420.png)
+
+
 
 Avec `VisualVM`, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus:
 
