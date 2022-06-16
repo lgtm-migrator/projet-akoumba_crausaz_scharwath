@@ -650,6 +650,8 @@ Cet outil effectue une analyse statique de notre code Java sur notre projet.
 Nous avons pu regarder les résultats de l'analyse, LGTM donne à notre code la note de A+. Des informations sur comment cette note est calculée
 sont trouvables sur le site [officiel LGTM](https://lgtm.com/help/lgtm/project-scoring-grading).
 
+![lgtm](https://user-images.githubusercontent.com/15279957/174049593-b0bcaa28-9322-41e2-81cd-2ccc7e34db1d.png)
+
 ### Temps estimé des étapes du sprint 3
 
 | No       | Étape                                             | Optimiste | Pessimiste | Attendu | Réel | Dépend de | Issue liée | Complexité                                   |
