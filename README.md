@@ -629,9 +629,18 @@ Avec `JMH`, nous avons effectué un test de performance de la méthode qui injec
 
 ![jmh](https://user-images.githubusercontent.com/15279957/169984490-ddc3f361-666b-43b1-ace3-f48a6f714420.png)
 
+TODO: Expliquer un peu mieux ce qu'on peut améliorer
 
 
-Avec `VisualVM`, nous mesurons la performance de la commande `build` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus:
+
+
+Avec `VisualVM`, nous mesurons la performance de la commande `build --watch` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus :
+
+AJOUTER CAPTURE
+
+Nous constatons que l'élément prenant le plus de temps est le parcours de l'arborescence de fichier. Il s'agit de notre implémentation du FileWatcher.
+Nous pourrions améliorer les performances de cette méthode en ne recompilant uniquement les fichiers qui ont été modifiés, car actuellement tout le contenu du dossier
+est recompilé, ce qui fait que beaucoup de travail non nécessaire est effectué. 
 
 Nous n'avons pas réussi à obtenir des résultats cohérents en utilisant VisualVM. Nous allons retenter l'expérience au prochain sprint.
 
@@ -718,10 +727,10 @@ d'estimation de temps précise, mais nous avons énuméré les diverses tâches 
 - [x] Parler des étapes de refactoring
 - [x] Expliquer le contenu des dossiers / apres un init /build (dans manuel utilisateur)
 - [x] Ajouter explication de comment utiliser les layouts
-- [ ] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
-- [ ] Use case diagramme: Ajouter le file watcher
+- [x] Indiquer ou trouver la JavaDoc et ajouter une description "about" dans la JavaDoc
+- [x] Use case diagramme: Ajouter le file watcher
 - [x] Ajouter les résultats LGMT et les documenter
-- [ ] Commenter le code coverage
+- [x] Commenter le code coverage
 - [ ] Review Finale : on aimerait bien avoir toutes les stories (ou les tâches à choix) du backlog pour avoir une vision générale de ce qui a été fait depuis le début
 - [x] Tests : serve dossier qui n'existe pas. Commande build. + de test d'intégration
 
