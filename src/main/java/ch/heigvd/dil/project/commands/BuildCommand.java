@@ -58,6 +58,7 @@ public class BuildCommand extends BaseCommand {
         }
 
         if (watch) {
+            // Watch the site for changes if the watcher detects a change, rebuild the site
             try {
                 var watcher =
                         new FilesWatcher(
@@ -76,6 +77,7 @@ public class BuildCommand extends BaseCommand {
                                         }
                                     }
                                 });
+                // Ignore the build folder to avoid infinite loop when rebuilding the site
                 watcher.addIgnoreFile("build");
                 watcher.watch();
             } catch (Exception e) {

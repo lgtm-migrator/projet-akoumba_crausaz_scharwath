@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collections;
+import java.util.Objects;
 
 /**
  * Methods for resources management
@@ -61,11 +62,11 @@ public class ResourcesUtils {
         try {
             FileSystem fileSystem =
                     FileSystems.newFileSystem(
-                            ResourcesUtils.class.getResource("").toURI(),
+                            Objects.requireNonNull(ResourcesUtils.class.getResource("")).toURI(),
                             Collections.<String, String>emptyMap());
             source = fileSystem.getPath(sourcePath);
         } catch (Exception e) {
-            source = Path.of(ResourcesUtils.class.getClassLoader().getResource(sourcePath).toURI());
+            source = Path.of(Objects.requireNonNull(ResourcesUtils.class.getClassLoader().getResource(sourcePath)).toURI());
         }
         return source;
     }
