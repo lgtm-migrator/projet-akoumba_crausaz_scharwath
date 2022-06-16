@@ -14,9 +14,9 @@ import picocli.CommandLine;
 /**
  * Test class for the CleanCommand class.
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class CleanCommandTest {
 

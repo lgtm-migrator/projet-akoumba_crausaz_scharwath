@@ -5,6 +5,10 @@ package ch.heigvd.dil.project.core;
  *
  * <p>A page configuration can be injected in templates and define a header structure for page
  * files.
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class PageConfiguration {
     private String title;

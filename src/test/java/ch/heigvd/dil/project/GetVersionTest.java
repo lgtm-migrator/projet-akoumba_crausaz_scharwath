@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for Version Provider.
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class GetVersionTest {
     /** Should return the version of the project. */

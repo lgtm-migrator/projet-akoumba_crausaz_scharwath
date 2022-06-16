@@ -90,7 +90,7 @@ public class FTPPublisher {
     }
 
     /**
-     * Created a hierachy of folders on a remote FTP server
+     * Created a hierarchy of folders on a remote FTP server
      *
      * @param dirsPath Path of folders
      * @param client FTP client

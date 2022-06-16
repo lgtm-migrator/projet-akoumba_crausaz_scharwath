@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for the TreeBuilder class.
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class TreeBuilderTest {
     /** Delete the temporary folder after and before the tests. */

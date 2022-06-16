@@ -11,9 +11,15 @@ import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.logging.Logger;
 
-@SuppressWarnings("restriction")
+/**
+ * This class handles the requests for static files.
+ *
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
+ */
 public class StaticFileHandler implements HttpHandler {
-    private static Logger LOG = Logger.getLogger(StaticFileHandler.class.getName());
+    private static final Logger LOG = Logger.getLogger(StaticFileHandler.class.getName());
     private final Path baseDir;
 
     public StaticFileHandler(Path baseDir) {

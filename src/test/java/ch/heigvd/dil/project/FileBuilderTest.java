@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for the FileBuilder class.
  *
- * @author Maxime Scharwath
- * @author Nicolas Crausaz
- * @author Ludivine Akoumba
+ * @author Akoumba Ludivine
+ * @author Crausaz Nicolas
+ * @author Scharwath Maxime
  */
 public class FileBuilderTest {
 
