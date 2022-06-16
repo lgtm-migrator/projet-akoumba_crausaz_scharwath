@@ -633,10 +633,9 @@ TODO: Expliquer un peu mieux ce qu'on peut améliorer
 
 
 
-
 Avec `VisualVM`, nous mesurons la performance de la commande `build --watch` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus :
 
-AJOUTER CAPTURE
+![visualVM](https://user-images.githubusercontent.com/15279957/174034228-3b7042a0-2d5b-4889-baee-a26c8aa617a0.png)
 
 Nous constatons que l'élément prenant le plus de temps est le parcours de l'arborescence de fichier. Il s'agit de notre implémentation du FileWatcher.
 Nous pourrions améliorer les performances de cette méthode en ne recompilant uniquement les fichiers qui ont été modifiés, car actuellement tout le contenu du dossier
@@ -738,6 +737,8 @@ d'estimation de temps précise, mais nous avons énuméré les diverses tâches 
 
 Ce sprint était surtout axé sur le refactoring, au niveau de la structure du code et des classes et du code global de l'application.
 
+
+TODO: ajouter tout le backlog réalisé (copier les anciencs tableaux)
 
 ### Ressenti du groupe sur le sprint final
 
