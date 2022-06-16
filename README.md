@@ -620,7 +620,8 @@ Vue détailée par package:
 
 Nous constatons que nous devrions améliorer nos tests concernant le FTPPublisher et la classe Configuration.
 
-TODO: Expliquer un peu mieux ce qu'on peut améliorer
+Nous pouvons expliquer le manque de coverage de certaines classes, notamment car leurs méthodes privées ne sont pas forcément testées
+avec des tests unitaires, ainsi que des branches try-catch non atteintes dans la majorité des cas. Nous pouvons néanmoins améliorer les résultats en écrivant plus de test dans les prochains sprints.
 
 ### Mesure de performance
 
@@ -629,10 +630,6 @@ Afin de mesurer les performances de notre implémentation, nous avons utilisé 2
 Avec `JMH`, nous avons effectué un test de performance de la méthode qui injecte du contenu dans un template Handlebars, voici le résultat:
 
 ![jmh](https://user-images.githubusercontent.com/15279957/169984490-ddc3f361-666b-43b1-ace3-f48a6f714420.png)
-
-TODO: Expliquer un peu mieux ce qu'on peut améliorer
-
-
 
 Avec `VisualVM`, nous mesurons la performance de la commande `build --watch` selon la métrique temps en `ms`. Ci-dessous, les résultats que nous avons obtenus :
 
