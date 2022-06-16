@@ -66,7 +66,13 @@ public class ResourcesUtils {
                             Collections.<String, String>emptyMap());
             source = fileSystem.getPath(sourcePath);
         } catch (Exception e) {
-            source = Path.of(Objects.requireNonNull(ResourcesUtils.class.getClassLoader().getResource(sourcePath)).toURI());
+            source =
+                    Path.of(
+                            Objects.requireNonNull(
+                                            ResourcesUtils.class
+                                                    .getClassLoader()
+                                                    .getResource(sourcePath))
+                                    .toURI());
         }
         return source;
     }
